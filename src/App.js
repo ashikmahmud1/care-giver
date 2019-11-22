@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+
+import Header from "../src/layout/Header/index";
+import LogIn from "../src/views/Auth/caregiverLogin/index";
+import LogIn2 from "../src/views/Auth/careseekerLogin/index";
+import SignUp from "../src/views/Auth/caregiverRegistration/index";
+import SignUp2 from "../src/views/Auth/careseekerRegistration/index";
+import ProfileCareseeker from "../src/views/Profile/Careseeker/index";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <header className="App-header">
+          <Header />
+          <Route exact path="/login-caregiver" component={LogIn} />
+          <Route exact path="/login-careseeker" component={LogIn2} />
+          <Route exact path="/signup-caregiver" component={SignUp} />
+          <Route exact path="/signup-careseeker" component={SignUp2} />
+          <Route
+            exact
+            path="/profile-careseeker"
+            component={ProfileCareseeker}
+          />
+        </header>
+      </Router>
     </div>
   );
 }
