@@ -8,6 +8,7 @@ import LogIn2 from "../src/views/Auth/careseekerLogin/index";
 import SignUp from "../src/views/Auth/caregiverRegistration/index";
 import SignUp2 from "../src/views/Auth/careseekerRegistration/index";
 import ProfileCareseeker from "../src/views/Profile/Careseeker/index";
+import ProfileCaregiver from "../src/views/Profile/Caregiver/index";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             path="/profile-careseeker"
             component={ProfileCareseeker}
           />
+          <Route exact path="/profile-caregiver" component={ProfileCaregiver} />
         </header>
       </Router>
     </div>

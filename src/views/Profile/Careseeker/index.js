@@ -10,6 +10,8 @@ import Container from "@material-ui/core/Container";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
+import Fab from "@material-ui/core/Fab";
+import AddIcon from "@material-ui/icons/Add";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -39,6 +41,12 @@ const useStyles = makeStyles(theme => ({
 export default function ProfileCareseeker() {
   const classes = useStyles();
 
+  const inputLabel = React.useRef(null);
+  const [labelWidth, setLabelWidth] = React.useState(0);
+  React.useEffect(() => {
+    setLabelWidth(inputLabel.current.offsetWidth);
+  }, []);
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -61,10 +69,20 @@ export default function ProfileCareseeker() {
             </Grid>
             <Grid item xs={12}>
               <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel htmlFor="outlined-gender-native-simple">
+                <InputLabel
+                  ref={inputLabel}
+                  htmlFor="outlined-gender-native-simple"
+                >
                   Gender
                 </InputLabel>
-                <Select native>
+                <Select
+                  native
+                  labelWidth={labelWidth}
+                  inputProps={{
+                    name: "gender",
+                    id: "outlined-gender-native-simple"
+                  }}
+                >
                   <option value="" />
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
@@ -83,6 +101,40 @@ export default function ProfileCareseeker() {
                 autoComplete="age"
               />
             </Grid>
+            <Grid item xs={9} direction="row" justify="flex-start">
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="physicalComplications"
+                label="Physical Complications"
+                name="physicalComplications"
+                autoComplete="physicalComplications"
+              />
+              <Grid item xs={3} direction="row" justify="flex-end">
+                <Fab size="small" color="secondary" aria-label="add">
+                  <AddIcon />
+                </Fab>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid>
+            <div style={{ gridColumnEnd: "span 8" }}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="languages"
+                label="Languages"
+                name="languages"
+                autoComplete="languages"
+              />
+            </div>
+            <div style={{ gridColumnEnd: "span 4" }}>
+              <Fab size="small" color="secondary" aria-label="add">
+                <AddIcon />
+              </Fab>
+            </div>
           </Grid>
           <Button
             type="submit"
