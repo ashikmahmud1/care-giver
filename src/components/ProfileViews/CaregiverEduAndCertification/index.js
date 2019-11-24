@@ -1,23 +1,20 @@
 import React from "react";
-import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
-import InputAdornment from "@material-ui/core/InputAdornment";
 import TextField from "@material-ui/core/TextField";
-import { Grid } from "@material-ui/core";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
-import Container from "@material-ui/core/Container";
+import { makeStyles } from "@material-ui/core/styles";
+import { Divider, Container } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 const useStyles = makeStyles(theme => ({
-  "@global": {
-    body: {
-      backgroundColor: theme.palette.common.white
-    }
+  container: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  textField: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    width: 300
   },
   paper: {
     marginTop: theme.spacing(3),
@@ -25,159 +22,307 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     alignItems: "center",
     padding: theme.spacing(1, 1)
-  },
-
-  margin: {
-    margin: theme.spacing(1)
-  },
-  withoutLabel: {
-    marginTop: theme.spacing(3)
-  },
-  textField: {
-    width: 365
-  },
-  label: {
-    fontSize: 20
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3)
-  },
-  formControl: {
-    width: 400,
-    minWidth: 120
   }
 }));
 
-export default function InputEducationAndCertification() {
+export default function UncontrolledTextField() {
   const classes = useStyles();
 
-  const inputLabel = React.useRef(null);
-
-  const [values, setValues] = React.useState({
-    hourlyWage: ""
-  });
-
-  const handleChange = prop => event => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-
   return (
-    <Container component="main" maxWidth="xs">
+    <Container>
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          Add Your Educational and Professional Certifiactions
+          Add Your Educational History
         </Typography>
-        <div className={classes.paper}>
-          <form className={classes.form} noValidate>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  label="What is your hourly wage?"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="hourlyWage"
-                  name="hourlyWage"
-                  autoComplete="hourlyWage"
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">$</InputAdornment>
-                    )
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  label="How many years of experience you have?"
-                  id="experience"
-                  name="experience"
-                  autoComplete="experience"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">Years</InputAdornment>
-                    )
-                  }}
-                />
-              </Grid>
-              <Grid item xs={12} sm={10} style={{ display: "inline-flex" }}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="services"
-                  label="Services that you provide"
-                  name="services"
-                  autoComplete="services"
-                />
+        <form className={classes.container} noValidate autoComplete="off">
+          <div>
+            <TextField
+              id="filled-school-input"
+              label="School/College/University"
+              className={classes.textField}
+              type="school"
+              autoComplete="current-school"
+              margin="normal"
+              variant="filled"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">1.</InputAdornment>
+                )
+              }}
+            />
 
-                <Fab
-                  size="small"
-                  color="secondary"
-                  aria-label="add"
-                  style={{ display: "inline-flex" }}
-                >
-                  <AddIcon />
-                </Fab>
-              </Grid>
-              <Grid item xs={12} sm={10}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="skills"
-                  label="Skills that you have"
-                  name="skills"
-                  autoComplete="skills"
-                />
+            <TextField
+              id="filled-degree-input"
+              label="Degree"
+              className={classes.textField}
+              type="degree"
+              autoComplete="current-degree"
+              margin="normal"
+              variant="filled"
+            />
 
-                <Fab size="small" color="secondary" aria-label="add">
-                  <AddIcon />
-                </Fab>
-              </Grid>
-              <Grid item xs={12} sm={10}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="languages"
-                  label="Language(s) you speak"
-                  name="languages"
-                  autoComplete="languages"
-                />
-
-                <Fab size="small" color="secondary" aria-label="add">
-                  <AddIcon />
-                </Fab>
-              </Grid>
-              <Grid item xs={12}>
-                <FormControl variant="outlined" className={classes.formControl}>
-                  <InputLabel ref={inputLabel} htmlFor="transportation">
-                    Do you provide Transportation?
-                  </InputLabel>
-                  <Select
-                    native
-                    required
-                    fullWidth
-                    name="transportation"
-                    inputProps={{
-                      name: "transportation",
-                      id: "transportation"
-                    }}
-                  >
-                    <option value="" />
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </Select>
-                </FormControl>
-              </Grid>
-            </Grid>
-          </form>
-        </div>
+            <TextField
+              id="filled-fieldofstudy-input"
+              label="Field of Study"
+              className={classes.textField}
+              type="fieldofstudy"
+              autoComplete="current-fieldofstudy"
+              margin="normal"
+              variant="filled"
+            />
+          </div>
+          <Divider variant="middle" />
+          <div>
+            <TextField
+              id="filled-school-input"
+              label="School/College/University"
+              className={classes.textField}
+              type="school"
+              autoComplete="current-school"
+              margin="normal"
+              variant="filled"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">2.</InputAdornment>
+                )
+              }}
+            />
+            <TextField
+              id="filled-degree-input"
+              label="Degree"
+              className={classes.textField}
+              type="degree"
+              autoComplete="current-degree"
+              margin="normal"
+              variant="filled"
+            />
+            <TextField
+              id="filled-fieldofstudy-input"
+              label="Field of Study"
+              className={classes.textField}
+              type="fieldofstudy"
+              autoComplete="current-fieldofstudy"
+              margin="normal"
+              variant="filled"
+            />
+          </div>
+          <Divider />
+          <div>
+            <TextField
+              id="filled-school-input"
+              label="School/College/University"
+              className={classes.textField}
+              type="school"
+              autoComplete="current-school"
+              margin="normal"
+              variant="filled"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">3.</InputAdornment>
+                )
+              }}
+            />
+            <TextField
+              id="filled-degree-input"
+              label="Degree"
+              className={classes.textField}
+              type="degree"
+              autoComplete="current-degree"
+              margin="normal"
+              variant="filled"
+            />
+            <TextField
+              id="filled-fieldofstudy-input"
+              label="Field of Study"
+              className={classes.textField}
+              type="fieldofstudy"
+              autoComplete="current-fieldofstudy"
+              margin="normal"
+              variant="filled"
+            />
+          </div>
+          <Divider />
+          <div>
+            <TextField
+              id="filled-school-input"
+              label="School/College/University"
+              className={classes.textField}
+              type="school"
+              autoComplete="current-school"
+              margin="normal"
+              variant="filled"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">4.</InputAdornment>
+                )
+              }}
+            />
+            <TextField
+              id="filled-degree-input"
+              label="Degree"
+              className={classes.textField}
+              type="degree"
+              autoComplete="current-degree"
+              margin="normal"
+              variant="filled"
+            />
+            <TextField
+              id="filled-fieldofstudy-input"
+              label="Field of Study"
+              className={classes.textField}
+              type="fieldofstudy"
+              autoComplete="current-fieldofstudy"
+              margin="normal"
+              variant="filled"
+            />
+          </div>
+          <Divider />
+          <div className={classes.paper}>
+            <Typography component="h1" variant="h5">
+              Add Your Professional Certifications History
+            </Typography>
+            <div>
+              <TextField
+                id="filled-institution-input"
+                label="Institution"
+                className={classes.textField}
+                type="institution"
+                autoComplete="current-institution"
+                margin="normal"
+                variant="filled"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">1.</InputAdornment>
+                  )
+                }}
+              />
+              <TextField
+                id="filled-certification-input"
+                label="Certification on"
+                className={classes.textField}
+                type="certification"
+                autoComplete="current-certification"
+                margin="normal"
+                variant="filled"
+              />
+              <TextField
+                id="filled-fieldofstudy-input"
+                label="Field of Study"
+                className={classes.textField}
+                type="fieldofstudy"
+                autoComplete="current-fieldofstudy"
+                margin="normal"
+                variant="filled"
+              />
+            </div>
+            <Divider />
+            <div>
+              <TextField
+                id="filled-institution-input"
+                label="Institution"
+                className={classes.textField}
+                type="institution"
+                autoComplete="current-institution"
+                margin="normal"
+                variant="filled"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">2.</InputAdornment>
+                  )
+                }}
+              />
+              <TextField
+                id="filled-certification-input"
+                label="Certification on"
+                className={classes.textField}
+                type="certification"
+                autoComplete="current-certification"
+                margin="normal"
+                variant="filled"
+              />
+              <TextField
+                id="filled-fieldofstudy-input"
+                label="Field of Study"
+                className={classes.textField}
+                type="fieldofstudy"
+                autoComplete="current-fieldofstudy"
+                margin="normal"
+                variant="filled"
+              />
+            </div>
+            <Divider />
+            <div>
+              <TextField
+                id="filled-institution-input"
+                label="Institution"
+                className={classes.textField}
+                type="institution"
+                autoComplete="current-institution"
+                margin="normal"
+                variant="filled"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">3.</InputAdornment>
+                  )
+                }}
+              />
+              <TextField
+                id="filled-certification-input"
+                label="Certification on"
+                className={classes.textField}
+                type="certification"
+                autoComplete="current-certification"
+                margin="normal"
+                variant="filled"
+              />
+              <TextField
+                id="filled-fieldofstudy-input"
+                label="Field of Study"
+                className={classes.textField}
+                type="fieldofstudy"
+                autoComplete="current-fieldofstudy"
+                margin="normal"
+                variant="filled"
+              />
+            </div>
+            <Divider />
+            <div>
+              <TextField
+                id="filled-institution-input"
+                label="Institution"
+                className={classes.textField}
+                type="institution"
+                autoComplete="current-institution"
+                margin="normal"
+                variant="filled"
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">4.</InputAdornment>
+                  )
+                }}
+              />
+              <TextField
+                id="filled-certification-input"
+                label="Certification on"
+                className={classes.textField}
+                type="certification"
+                autoComplete="current-certification"
+                margin="normal"
+                variant="filled"
+              />
+              <TextField
+                id="filled-fieldofstudy-input"
+                label="Field of Study"
+                className={classes.textField}
+                type="fieldofstudy"
+                autoComplete="current-fieldofstudy"
+                margin="normal"
+                variant="filled"
+              />
+            </div>
+          </div>
+        </form>
       </div>
     </Container>
   );

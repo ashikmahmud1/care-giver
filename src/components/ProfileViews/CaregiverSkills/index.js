@@ -1,174 +1,220 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Grid from "@material-ui/core/Grid";
-import List from "@material-ui/core/List";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
+import FormLabel from "@material-ui/core/FormLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormGroup from "@material-ui/core/FormGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import Button from "@material-ui/core/Button";
-import Divider from "@material-ui/core/Divider";
+import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: "auto"
+    display: "flex"
   },
-  cardHeader: {
-    padding: theme.spacing(1, 2)
-  },
-  list: {
-    width: 200,
-    height: 230,
-    backgroundColor: theme.palette.background.paper,
-    overflow: "auto"
-  },
-  button: {
-    margin: theme.spacing(0.5, 0)
+  formControl: {
+    margin: theme.spacing(3)
   }
 }));
 
-function not(a, b) {
-  return a.filter(value => b.indexOf(value) === -1);
-}
-
-function intersection(a, b) {
-  return a.filter(value => b.indexOf(value) !== -1);
-}
-
-function union(a, b) {
-  return [...a, ...not(b, a)];
-}
-
-export default function TransferList() {
+export default function CheckboxesGroup() {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState([]);
-  const [left, setLeft] = React.useState([0, 1, 2, 3]);
-  const [right, setRight] = React.useState([4, 5, 6, 7]);
+  const [state, setState] = React.useState({
+    medicalSupervision: false,
+    personalAssistanceBathingDressing: false,
+    rNRPNSupervisedCare: false,
+    specializeInPerkinsonDementia: false,
+    specializeInAlzheimer: false,
+    homeIndividualSafetyAssesment: false,
+    lightHousekeeping: false,
+    escortingToAppointmentsOrShoping: false,
+    joyfulCompanionship: false,
+    palliativeCare: false,
+    liveInOutCare: false,
+    retirementHomecare: false,
+    nutritionalCounseling: false
+  });
 
-  const leftChecked = intersection(checked, left);
-  const rightChecked = intersection(checked, right);
-
-  const handleToggle = value => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
+  const handleChange = name => event => {
+    setState({ ...state, [name]: event.target.checked });
   };
 
-  const numberOfChecked = items => intersection(checked, items).length;
-
-  const handleToggleAll = items => () => {
-    if (numberOfChecked(items) === items.length) {
-      setChecked(not(checked, items));
-    } else {
-      setChecked(union(checked, items));
-    }
-  };
-
-  const handleCheckedRight = () => {
-    setRight(right.concat(leftChecked));
-    setLeft(not(left, leftChecked));
-    setChecked(not(checked, leftChecked));
-  };
-
-  const handleCheckedLeft = () => {
-    setLeft(left.concat(rightChecked));
-    setRight(not(right, rightChecked));
-    setChecked(not(checked, rightChecked));
-  };
-
-  const customList = (title, items) => (
-    <Card>
-      <CardHeader
-        className={classes.cardHeader}
-        avatar={
-          <Checkbox
-            onClick={handleToggleAll(items)}
-            checked={
-              numberOfChecked(items) === items.length && items.length !== 0
-            }
-            indeterminate={
-              numberOfChecked(items) !== items.length &&
-              numberOfChecked(items) !== 0
-            }
-            disabled={items.length === 0}
-            inputProps={{ "aria-label": "all items selected" }}
-          />
-        }
-        title={title}
-        subheader={`${numberOfChecked(items)}/${items.length} selected`}
-      />
-      <Divider />
-      <List className={classes.list} dense component="div" role="list">
-        {items.map(value => {
-          const labelId = `transfer-list-all-item-${value}-label`;
-
-          return (
-            <ListItem
-              key={value}
-              role="listitem"
-              button
-              onClick={handleToggle(value)}
-            >
-              <ListItemIcon>
-                <Checkbox
-                  checked={checked.indexOf(value) !== -1}
-                  tabIndex={-1}
-                  disableRipple
-                  inputProps={{ "aria-labelledby": labelId }}
-                />
-              </ListItemIcon>
-              <ListItemText id={labelId} primary={`List item ${value + 1}`} />
-            </ListItem>
-          );
-        })}
-        <ListItem />
-      </List>
-    </Card>
-  );
+  const {
+    medicalSupervision,
+    personalAssistanceBathingDressing,
+    rNRPNSupervisedCare,
+    specializeInPerkinsonDementia,
+    specializeInAlzheimer,
+    homeIndividualSafetyAssesment,
+    lightHousekeeping,
+    escortingToAppointmentsOrShopin,
+    joyfulCompanionship,
+    palliativeCare,
+    liveInOutCare,
+    retirementHomecare,
+    nutritionalCounseling
+  } = state;
+  const error =
+    [
+      medicalSupervision,
+      personalAssistanceBathingDressing,
+      rNRPNSupervisedCare,
+      specializeInPerkinsonDementia,
+      specializeInAlzheimer,
+      homeIndividualSafetyAssesment,
+      lightHousekeeping,
+      escortingToAppointmentsOrShopin,
+      joyfulCompanionship,
+      palliativeCare,
+      liveInOutCare,
+      retirementHomecare,
+      nutritionalCounseling
+    ].filter(v => v).length !== 2;
 
   return (
-    <Grid
-      container
-      spacing={2}
-      justify="center"
-      alignItems="center"
-      className={classes.root}
-    >
-      <Grid item>{customList("Choices", left)}</Grid>
-      <Grid item>
-        <Grid container direction="column" alignItems="center">
-          <Button
-            variant="outlined"
-            size="small"
-            className={classes.button}
-            onClick={handleCheckedRight}
-            disabled={leftChecked.length === 0}
-            aria-label="move selected right"
-          >
-            &gt;
-          </Button>
-          <Button
-            variant="outlined"
-            size="small"
-            className={classes.button}
-            onClick={handleCheckedLeft}
-            disabled={rightChecked.length === 0}
-            aria-label="move selected left"
-          >
-            &lt;
-          </Button>
-        </Grid>
-      </Grid>
-      <Grid item>{customList("Chosen", right)}</Grid>
-    </Grid>
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Typography component="h1" variant="h5">
+        Choose all the Skills you have
+      </Typography>
+      <div className={classes.root}>
+        <FormControl component="fieldset" className={classes.formControl}>
+          <FormLabel component="legend">Check all that apply</FormLabel>
+          <FormGroup>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={medicalSupervision}
+                  onChange={handleChange("medicalSupervision")}
+                  value="medicalSupervision"
+                />
+              }
+              label="Medical Supervision"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={personalAssistanceBathingDressing}
+                  onChange={handleChange("personalAssistanceBathingDressing")}
+                  value="personalAssistanceBathingDressing"
+                />
+              }
+              label="Personal assistance, bathing, dressing"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={rNRPNSupervisedCare}
+                  onChange={handleChange("rNRPNSupervisedCare")}
+                  value="rNRPNSupervisedCare"
+                />
+              }
+              label="RN/RPN Supervised Care"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={specializeInPerkinsonDementia}
+                  onChange={handleChange("specializeInPerkinsonDementia")}
+                  value="specializeInPerkinsonDementia"
+                />
+              }
+              label="Specialize in Perkinson/Dementia"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={specializeInAlzheimer}
+                  onChange={handleChange("specializeInAlzheimer")}
+                  value="specializeInAlzheimer"
+                />
+              }
+              label="Specialize in Alzheimer's"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={homeIndividualSafetyAssesment}
+                  onChange={handleChange("homeIndividualSafetyAssesment")}
+                  value="homeIndividualSafetyAssesment"
+                />
+              }
+              label="Home/Individual Safety Assesment"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={lightHousekeeping}
+                  onChange={handleChange("lightHousekeeping")}
+                  value="lightHousekeeping"
+                />
+              }
+              label="Light Housekeeping"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={escortingToAppointmentsOrShopin}
+                  onChange={handleChange("escortingToAppointmentsOrShopin")}
+                  value="escortingToAppointmentsOrShopin"
+                />
+              }
+              label="Escorting to Appointments, or Shoping"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={joyfulCompanionship}
+                  onChange={handleChange("joyfulCompanionship")}
+                  value="joyfulCompanionship"
+                />
+              }
+              label="Joyful Companionship"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={palliativeCare}
+                  onChange={handleChange("palliativeCare")}
+                  value="palliativeCare"
+                />
+              }
+              label="Palliative Care"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={liveInOutCare}
+                  onChange={handleChange("liveInOutCare")}
+                  value="liveInOutCare"
+                />
+              }
+              label="Live in/out to 24 hour Care"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={retirementHomecare}
+                  onChange={handleChange("retirementHomecare")}
+                  value="retirementHomecare"
+                />
+              }
+              label="Retirement Homecare"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={nutritionalCounseling}
+                  onChange={handleChange("nutritionalCounseling")}
+                  value="nutritionalCounseling"
+                />
+              }
+              label="Nutritional Counseling"
+            />
+          </FormGroup>
+        </FormControl>
+      </div>
+    </Container>
   );
 }

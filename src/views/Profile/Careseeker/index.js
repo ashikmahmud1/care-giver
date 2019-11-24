@@ -2,7 +2,6 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,6 +11,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -67,12 +67,9 @@ export default function ProfileCareseeker() {
                 autoComplete="seniorname"
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={4}>
               <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel
-                  ref={inputLabel}
-                  htmlFor="outlined-gender-native-simple"
-                >
+                <InputLabel ref={inputLabel} htmlFor="gender">
                   Gender
                 </InputLabel>
                 <Select
@@ -80,7 +77,7 @@ export default function ProfileCareseeker() {
                   labelWidth={labelWidth}
                   inputProps={{
                     name: "gender",
-                    id: "outlined-gender-native-simple"
+                    id: "gender"
                   }}
                 >
                   <option value="" />
@@ -90,15 +87,20 @@ export default function ProfileCareseeker() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} sm={8}>
               <TextField
                 variant="outlined"
                 required
                 fullWidth
                 id="age"
-                label="Age (in Years)"
+                label="Age"
                 name="age"
                 autoComplete="age"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">Years</InputAdornment>
+                  )
+                }}
               />
             </Grid>
             <Grid item xs={9} direction="row" justify="flex-start">

@@ -6,7 +6,6 @@ import Container from "@material-ui/core/Container";
 import Steppers from "../../../components/Steppers/index";
 import CaregiverPersonalDetails from "../../../components/ProfileViews/CaregiverPersonalDetails/index";
 import CaregiverEduAndCerification from "../../../components/ProfileViews/CaregiverEduAndCertification/index";
-import CaregiverServices from "../../../components/ProfileViews/CaregiverServices/index";
 import CaregiverSkills from "../../../components/ProfileViews/CaregiverSkills/index";
 
 export default function ProfileCaregiver() {
@@ -17,7 +16,6 @@ export default function ProfileCaregiver() {
         <Typography component="div" style={{ height: "10vh" }} />
         <Steppers />
         <CaregiverPersonalDetails />
-        <CaregiverServices />
         <CaregiverSkills />
         <CaregiverEduAndCerification />
       </Container>

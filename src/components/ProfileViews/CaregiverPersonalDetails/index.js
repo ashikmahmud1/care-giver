@@ -1,11 +1,8 @@
 import React from "react";
-import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import TextField from "@material-ui/core/TextField";
 import { Grid } from "@material-ui/core";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
@@ -38,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(2)
   },
   formControl: {
     width: 400,
@@ -75,6 +72,52 @@ export default function InputAdornments() {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="phone"
+                  label="Your Mobile Number"
+                  name="phone"
+                  autoComplete="phone"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControl variant="outlined" className={classes.formControl}>
+                  <InputLabel ref={inputLabel} htmlFor="location">
+                    Where do you live?
+                  </InputLabel>
+                  <Select
+                    native
+                    required
+                    labelWidth={labelWidth}
+                    name="location"
+                    inputProps={{
+                      name: "location",
+                      id: "location"
+                    }}
+                  >
+                    <option value="" />
+                    <option value="Toronto">Toronto</option>
+                    <option value="Ottawa">Ottawa</option>
+                    <option value="British Columbia">British Columbia</option>
+                    <option value="Calgary">Calgary</option>
+                    <option value="Manitoba">Manitoba</option>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="postcode"
+                  label="Postal Code"
+                  name="postcode"
+                  autoComplete="postcode"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
                   label="What is your hourly wage?"
                   variant="outlined"
                   required
@@ -105,33 +148,7 @@ export default function InputAdornments() {
                   }}
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControl variant="outlined" className={classes.formControl}>
-                  <InputLabel ref={inputLabel} htmlFor="languages">
-                    What Language(s) do you speak?
-                  </InputLabel>
-                  <Select
-                    native
-                    required
-                    labelWidth={labelWidth}
-                    name="languages"
-                    inputProps={{
-                      name: "languages",
-                      id: "languages"
-                    }}
-                  >
-                    <option value="" />
-                    <option value="yes">English</option>
-                    <option value="no">French</option>
-                    <option value="">Spanish</option>
-                    <option value="">Hindi</option>
-                    <option value="">Bengali</option>
-                    <option value="">Chinese</option>
-                    <option value="">Italian</option>
-                    <option value="">Italian</option>
-                  </Select>
-                </FormControl>
-              </Grid>
+
               <Grid item xs={12}>
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel ref={inputLabel} htmlFor="transportation">
@@ -148,12 +165,12 @@ export default function InputAdornments() {
                     }}
                   >
                     <option value="" />
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12} sm={10}></Grid>
+              <Grid item xs={12}></Grid>
             </Grid>
           </form>
         </div>
