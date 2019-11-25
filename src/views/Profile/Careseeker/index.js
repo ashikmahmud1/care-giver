@@ -64,17 +64,19 @@ export default function ProfileCareseeker() {
                 id="seniorName"
                 label="Senior Name"
                 name="seniorName"
-                autoComplete="seniorname"
+                autoComplete="seniorName"
               />
             </Grid>
-            <Grid item xs={12} sm={4}>
-              <FormControl variant="outlined" className={classes.formControl}>
+            <Grid item xs={12} sm={6}>
+              <FormControl variant="outlined">
                 <InputLabel ref={inputLabel} htmlFor="gender">
                   Gender
                 </InputLabel>
                 <Select
                   native
+                  required
                   labelWidth={labelWidth}
+                  name="gender"
                   inputProps={{
                     name: "gender",
                     id: "gender"
@@ -87,7 +89,7 @@ export default function ProfileCareseeker() {
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12} sm={8}>
+            <Grid item xs={12} sm={6}>
               <TextField
                 variant="outlined"
                 required
@@ -103,50 +105,136 @@ export default function ProfileCareseeker() {
                 }}
               />
             </Grid>
-            <Grid item xs={9} direction="row" justify="flex-start">
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
                 fullWidth
-                id="physicalComplications"
-                label="Physical Complications"
-                name="physicalComplications"
-                autoComplete="physicalComplications"
+                id="address"
+                label="Address"
+                name="address"
+                autoComplete="address"
               />
-              <Grid item xs={3} direction="row" justify="flex-end">
-                <Fab size="small" color="secondary" aria-label="add">
-                  <AddIcon />
-                </Fab>
-              </Grid>
             </Grid>
-          </Grid>
-          <Grid>
-            <div style={{ gridColumnEnd: "span 8" }}>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
                 fullWidth
-                id="languages"
-                label="Languages"
-                name="languages"
-                autoComplete="languages"
+                id="city"
+                label="City"
+                name="city"
+                autoComplete="city"
               />
-            </div>
-            <div style={{ gridColumnEnd: "span 4" }}>
-              <Fab size="small" color="secondary" aria-label="add">
-                <AddIcon />
-              </Fab>
-            </div>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FormControl variant="outlined">
+                <InputLabel ref={inputLabel} htmlFor="state">
+                  State
+                </InputLabel>
+                <Select
+                  native
+                  required
+                  labelWidth={labelWidth}
+                  name="state"
+                  inputProps={{
+                    name: "state",
+                    id: "state"
+                  }}
+                >
+                  <option value="" />
+                  <option value="Toronto">Toronto</option>
+                  <option value="Ottawa">Ottawa</option>
+                  <option value="British Columbia">British Columbia</option>
+                  <option value="Calgary">Calgary</option>
+                  <option value="Manitoba">Manitoba</option>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="zip"
+                label="Zip"
+                name="zip"
+                autoComplete="zip"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <div style={{ display: "inline-flex" }}>
+                <div>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="physicalComplications"
+                    label="Physical Complications"
+                    name="physicalComplications"
+                    autoComplete="physicalComplications"
+                  />
+                </div>
+                <div style={{ alignSelf: "center" }}>
+                  <Fab size="small" color="secondary" aria-label="add">
+                    <AddIcon />
+                  </Fab>
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs={12}>
+              <div style={{ display: "inline-flex" }}>
+                <div>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="languages"
+                    label="Languages"
+                    name="languages"
+                    autoComplete="languages"
+                  />
+                </div>
+                <div style={{ alignSelf: "center" }}>
+                  <Fab size="small" color="secondary" aria-label="add">
+                    <AddIcon />
+                  </Fab>
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs={12}>
+              <input
+                accept="image/*"
+                className={classes.input}
+                style={{ display: "none" }}
+                id="raised-button-file"
+                multiple
+                type="file"
+              />
+              <label htmlFor="raised-button-file">
+                <InputLabel htmlFor="upload-btn">
+                  Upload a nice profile picture of your's
+                </InputLabel>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  component="span"
+                  className={classes.button}
+                >
+                  Upload
+                </Button>
+              </label>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Submit
+            </Button>
           </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Submit
-          </Button>
         </form>
       </div>
     </Container>

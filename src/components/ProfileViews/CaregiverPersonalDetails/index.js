@@ -9,6 +9,9 @@ import Typography from "@material-ui/core/Typography";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
+import Button from "@material-ui/core/Button";
+import AddIcon from "@material-ui/icons/Add";
+import Fab from "@material-ui/core/Fab";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -17,25 +20,18 @@ const useStyles = makeStyles(theme => ({
     }
   },
   paper: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(4),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     padding: theme.spacing(1, 1)
   },
-
-  margin: {
-    margin: theme.spacing(1)
-  },
-  withoutLabel: {
-    marginTop: theme.spacing(3)
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1)
   },
   textField: {
     width: 400
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(2)
   },
   formControl: {
     width: 400,
@@ -72,52 +68,6 @@ export default function InputAdornments() {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="phone"
-                  label="Your Mobile Number"
-                  name="phone"
-                  autoComplete="phone"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControl variant="outlined" className={classes.formControl}>
-                  <InputLabel ref={inputLabel} htmlFor="location">
-                    Where do you live?
-                  </InputLabel>
-                  <Select
-                    native
-                    required
-                    labelWidth={labelWidth}
-                    name="location"
-                    inputProps={{
-                      name: "location",
-                      id: "location"
-                    }}
-                  >
-                    <option value="" />
-                    <option value="Toronto">Toronto</option>
-                    <option value="Ottawa">Ottawa</option>
-                    <option value="British Columbia">British Columbia</option>
-                    <option value="Calgary">Calgary</option>
-                    <option value="Manitoba">Manitoba</option>
-                  </Select>
-                </FormControl>
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="postcode"
-                  label="Postal Code"
-                  name="postcode"
-                  autoComplete="postcode"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
                   label="What is your hourly wage?"
                   variant="outlined"
                   required
@@ -148,7 +98,6 @@ export default function InputAdornments() {
                   }}
                 />
               </Grid>
-
               <Grid item xs={12}>
                 <FormControl variant="outlined" className={classes.formControl}>
                   <InputLabel ref={inputLabel} htmlFor="transportation">
@@ -170,7 +119,117 @@ export default function InputAdornments() {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={12}></Grid>
+              <Grid item xs={12}>
+                <div style={{ display: "inline-flex" }}>
+                  <div>
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="languages"
+                      label="Languages"
+                      name="languages"
+                      autoComplete="languages"
+                    />
+                  </div>
+                  <div style={{ alignSelf: "center" }}>
+                    <Fab size="small" color="secondary" aria-label="add">
+                      <AddIcon />
+                    </Fab>
+                  </div>
+                </div>
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="phone"
+                  label="Your Phone Number"
+                  name="phone"
+                  autoComplete="phone"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="address"
+                  label="Address"
+                  name="address"
+                  autoComplete="address"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="city"
+                  label="City"
+                  name="city"
+                  autoComplete="city"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControl variant="outlined" className={classes.formControl}>
+                  <InputLabel ref={inputLabel} htmlFor="state">
+                    State
+                  </InputLabel>
+                  <Select
+                    native
+                    required
+                    labelWidth={labelWidth}
+                    name="state"
+                    inputProps={{
+                      name: "state",
+                      id: "state"
+                    }}
+                  >
+                    <option value="" />
+                    <option value="Toronto">Toronto</option>
+                    <option value="Ottawa">Ottawa</option>
+                    <option value="British Columbia">British Columbia</option>
+                    <option value="Calgary">Calgary</option>
+                    <option value="Manitoba">Manitoba</option>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="zip"
+                  label="Zip"
+                  name="zip"
+                  autoComplete="zip"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <input
+                  accept="image/*"
+                  className={classes.input}
+                  style={{ display: "none" }}
+                  id="raised-button-file"
+                  multiple
+                  type="file"
+                />
+                <label htmlFor="raised-button-file">
+                  <InputLabel htmlFor="upload-btn">
+                    Upload a nice profile picture of your's
+                  </InputLabel>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    component="span"
+                    className={classes.button}
+                  >
+                    Upload
+                  </Button>
+                </label>
+              </Grid>
             </Grid>
           </form>
         </div>
