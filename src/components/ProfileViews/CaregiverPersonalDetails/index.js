@@ -12,6 +12,9 @@ import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
+import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
+import PersonIcon from "@material-ui/icons/Person";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -61,7 +64,7 @@ export default function InputAdornments() {
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          Add Your Personal Details
+          <PersonIcon /> Add Your Personal Details
         </Typography>
         <div className={classes.paper}>
           <form className={classes.form} noValidate>
@@ -133,9 +136,15 @@ export default function InputAdornments() {
                     />
                   </div>
                   <div style={{ alignSelf: "center" }}>
-                    <Fab size="small" color="secondary" aria-label="add">
-                      <AddIcon />
-                    </Fab>
+                    <Tooltip title="Add more" aria-label="add">
+                      <Fab
+                        size="small"
+                        color="secondary"
+                        className={classes.fab}
+                      >
+                        <AddIcon />
+                      </Fab>
+                    </Tooltip>
                   </div>
                 </div>
               </Grid>
@@ -218,13 +227,15 @@ export default function InputAdornments() {
                 />
                 <label htmlFor="raised-button-file">
                   <InputLabel htmlFor="upload-btn">
-                    Upload a nice profile picture of your's
+                    Upload a nice profile picture
                   </InputLabel>
+
                   <Button
                     variant="contained"
                     color="secondary"
                     component="span"
                     className={classes.button}
+                    startIcon={<AddAPhotoIcon />}
                   >
                     Upload
                   </Button>

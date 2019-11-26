@@ -8,6 +8,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import CheckBoxSharpIcon from "@material-ui/icons/CheckBoxSharp";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -55,22 +56,6 @@ export default function CheckboxesGroup() {
     retirementHomecare,
     nutritionalCounseling
   } = state;
-  const error =
-    [
-      medicalSupervision,
-      personalAssistanceBathingDressing,
-      rNRPNSupervisedCare,
-      specializeInPerkinsonDementia,
-      specializeInAlzheimer,
-      homeIndividualSafetyAssesment,
-      lightHousekeeping,
-      escortingToAppointmentsOrShopin,
-      joyfulCompanionship,
-      palliativeCare,
-      liveInOutCare,
-      retirementHomecare,
-      nutritionalCounseling
-    ].filter(v => v).length !== 2;
 
   return (
     <Container component="main" maxWidth="xs">
@@ -80,7 +65,9 @@ export default function CheckboxesGroup() {
       </Typography>
       <div className={classes.root}>
         <FormControl component="fieldset" className={classes.formControl}>
-          <FormLabel component="legend">Check all that apply</FormLabel>
+          <FormLabel component="legend">
+            <CheckBoxSharpIcon /> Check all that apply
+          </FormLabel>
           <FormGroup>
             <FormControlLabel
               control={

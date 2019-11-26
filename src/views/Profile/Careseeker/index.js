@@ -12,6 +12,9 @@ import Select from "@material-ui/core/Select";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
+import PersonIcon from "@material-ui/icons/Person";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -20,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(12),
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
@@ -52,7 +55,7 @@ export default function ProfileCareseeker() {
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          Create Senior's Profile
+          <PersonIcon fontSize="large" /> Create Senior's Profile
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -176,9 +179,11 @@ export default function ProfileCareseeker() {
                   />
                 </div>
                 <div style={{ alignSelf: "center" }}>
-                  <Fab size="small" color="secondary" aria-label="add">
-                    <AddIcon />
-                  </Fab>
+                  <Tooltip title="Add more" aria-label="add">
+                    <Fab size="small" color="secondary" className={classes.fab}>
+                      <AddIcon />
+                    </Fab>
+                  </Tooltip>
                 </div>
               </div>
             </Grid>
@@ -196,9 +201,11 @@ export default function ProfileCareseeker() {
                   />
                 </div>
                 <div style={{ alignSelf: "center" }}>
-                  <Fab size="small" color="secondary" aria-label="add">
-                    <AddIcon />
-                  </Fab>
+                  <Tooltip title="Add more" aria-label="add">
+                    <Fab size="small" color="secondary" className={classes.fab}>
+                      <AddIcon />
+                    </Fab>
+                  </Tooltip>
                 </div>
               </div>
             </Grid>
@@ -213,13 +220,14 @@ export default function ProfileCareseeker() {
               />
               <label htmlFor="raised-button-file">
                 <InputLabel htmlFor="upload-btn">
-                  Upload a nice profile picture of your's
+                  Upload a nice profile picture
                 </InputLabel>
                 <Button
                   variant="contained"
                   color="primary"
                   component="span"
                   className={classes.button}
+                  startIcon={<AddAPhotoIcon />}
                 >
                   Upload
                 </Button>

@@ -36,7 +36,9 @@ const Header = () => {
           <Typography variant="h6" className={classes.title}>
             Peace of mind
           </Typography>
-          <Button color="inherit">Home</Button>
+          <Button color="inherit" href="/">
+            Home
+          </Button>
           <Button color="inherit">Our Services</Button>
           <Button color="inherit">Logout</Button>
         </Toolbar>
