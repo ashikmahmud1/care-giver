@@ -1,9 +1,8 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
@@ -14,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   paper: {
-    marginTop: theme.spacing(10),
+    marginTop: theme.spacing(22),
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
@@ -33,13 +32,10 @@ export default function Body() {
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <div className={classes.paper}>
-        <Typography component="h1" variant="h4">
-          Peace of mind
-        </Typography>
-        <Typography component="h1" variant="h6" className={classes.margin2}>
-          We truly care about your beloved older one.
+        <Typography variant="h3">Peace of mind</Typography>
+        <Typography variant="h6" className={classes.margin2}>
+          Truly care about your beloved older one
         </Typography>
         <Grid item>
           <Button
@@ -48,17 +44,16 @@ export default function Body() {
             color="primary"
             href="/caregiver-profiles"
             className={classes.margin}
+            aria-label="large contained primary button"
           >
             I'm a Care Seeker
           </Button>
         </Grid>
-        <Grid item>
-          <p>
-            Are you a caregiver?{" "}
-            <Link href="/signup-caregiver">Click here</Link> to register/login
-            on Peace of mind
-          </p>
-        </Grid>
+
+        <span className={classes.margin2}>
+          Are you a Caregiver? <Link href="/signup-caregiver">Click here</Link>{" "}
+          to register/login on Peace of mind
+        </span>
       </div>
     </Container>
   );

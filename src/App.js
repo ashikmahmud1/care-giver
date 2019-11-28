@@ -21,34 +21,33 @@ function App() {
   return (
     <div>
       <Router>
-        <Fragment>
-          <div className="App">
-            <Header />
-            <Route exact path="/" component={Body} />
-            <Container className="container">
-              <Switch>
-                <Route exact path="/login-caregiver" component={LogIn} />
-                <Route exact path="/login-careseeker" component={LogIn2} />
-                <Route exact path="/signup-caregiver" component={SignUp} />
-                <Route exact path="/signup-careseeker" component={SignUp2} />
-                <Route
-                  exact
-                  path="/profile-careseeker"
-                  component={ProfileCareseeker}
-                />
-                <Route
-                  exact
-                  path="/profile-caregiver"
-                  component={ProfileCaregiver}
-                />
-              </Switch>
-              <Route exact path="/faqs" component={Faqs} />
-              <Route exact path="/terms-of-use" component={TermsOfUse} />
-              <Route exact path="/help" component={Help} />
-              <Route exact path="/privacy" component={Privacy} />
-            </Container>
-          </div>
-        </Fragment>
+        <div className="App">
+          <Header />
+          <Route exact path="/" component={Body} />
+          <Container className="container">
+            <Switch>
+              <Route exact path="/login-caregiver" component={LogIn} />
+              <Route exact path="/login-careseeker" component={LogIn2} />
+              <Route exact path="/signup-caregiver" component={SignUp} />
+              <Route exact path="/signup-careseeker" component={SignUp2} />
+              <Route
+                exact
+                path="/profile-careseeker"
+                component={ProfileCareseeker}
+              />
+              <Route
+                exact
+                path="/profile-caregiver"
+                component={ProfileCaregiver}
+              />
+            </Switch>
+            <Route exact path="/faqs" component={Faqs} />
+            <Route exact path="/terms-of-use" component={TermsOfUse} />
+            <Route exact path="/help" component={Help} />
+            <Route exact path="/privacy" component={Privacy} />
+          </Container>
+        </div>
+        <Footer />
       </Router>
     </div>
   );

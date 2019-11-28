@@ -11,17 +11,16 @@ const useStyles = makeStyles(theme => ({
     }
   },
   paper: {
-    marginTop: theme.spacing(10),
+    marginTop: theme.spacing(4),
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
   },
   margin: {
-    margin: theme.spacing(1),
-    marginTop: theme.spacing(10)
-  },
-  margin2: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(10),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
   }
 }));
 
@@ -30,7 +29,9 @@ export default function Body() {
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
+      <div position="fixed" className={classes.margin}>
+        <img src={require("../../../img/screen.png")} alt="" />
+      </div>
       <div className={classes.paper}>
         <Typography component="h1" variant="h4">
           Terms of use
