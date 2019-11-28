@@ -1,18 +1,18 @@
 import React from "react";
+import { Grid } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Tooltip from "@material-ui/core/Tooltip";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from "@material-ui/icons/Add";
-import { Grid } from "@material-ui/core";
 
-const LanguageInputs = props => {
+const PhysicalComplicationsInputs = props => {
   const {
-    languages,
+    physicalComplications,
     classes,
-    addLanguageHandler,
-    languageInputHandler
+    addPhysicalComplicationsHandler,
+    physicalComplicationsInputHandler
   } = props;
-  return languages.map((val, index) => {
+  return physicalComplications.map((val, index) => {
     return (
       <Grid item xs={12}>
         <div style={{ display: "inline-flex" }}>
@@ -21,22 +21,24 @@ const LanguageInputs = props => {
               variant="outlined"
               required
               fullWidth
-              id="languages"
-              label="Languages"
-              name="languages"
+              id="physicalComplications"
+              label="Physical Complications"
+              name="physicalComplications"
               value={val.name}
-              autoComplete="languages"
-              onChange={evt => languageInputHandler(index, evt.target.value)}
+              autoComplete="physicalComplications"
+              onChange={evt =>
+                physicalComplicationsInputHandler(index, evt.target.value)
+              }
             />
             <small>
-              Click the button if Speaking Languages are more to add
+              Click the button if Physical Complications are more to add
             </small>
           </div>
           <div style={{ alignSelf: "center" }}>
             <Tooltip
               title="Add more"
               aria-label="add"
-              onClick={() => addLanguageHandler()}
+              onClick={() => addPhysicalComplicationsHandler()}
             >
               <Fab size="small" color="secondary" className={classes.fab}>
                 <AddIcon />
@@ -50,4 +52,4 @@ const LanguageInputs = props => {
   });
 };
 
-export default LanguageInputs;
+export default PhysicalComplicationsInputs;

@@ -16,12 +16,8 @@ export default function Footer() {
           <Grid item>
             <span>Cities we covered</span>
           </Grid>
-          <Grid item>
-            <p>Toronto</p>
-          </Grid>
-          <Grid item>
-            <p>Montreal</p>
-          </Grid>
+          <span>Toronto</span>
+          <span>Montreal</span>
         </Grid>
       </Grid>
       <Grid item xs={12} md={3}>
@@ -29,12 +25,9 @@ export default function Footer() {
           <Grid item>
             <span>Contact</span>
           </Grid>
-          <Grid item>
-            <span>About</span>
-          </Grid>
-          <Grid item>
-            <span>About</span>
-          </Grid>
+          <span>Address</span>
+          <span>Email</span>
+          <span>Phone</span>
         </Grid>
       </Grid>
       <Grid item xs={12} md={3}>
@@ -56,11 +49,11 @@ export default function Footer() {
             <span>
               <Link href="/faqs">FAQs</Link>
             </span>
-          </Grid>
-          <Grid item>
-            <span>
-              <Link href="/help">Help</Link>
-            </span>
+            <Grid item>
+              <span>
+                <Link href="/help">Help</Link>
+              </span>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

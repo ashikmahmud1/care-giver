@@ -9,12 +9,11 @@ import Container from "@material-ui/core/Container";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import PersonIcon from "@material-ui/icons/Person";
-import Tooltip from "@material-ui/core/Tooltip";
+import PhysicalComplicationsInputs from "../../../components/PhysicalComplicationsInput/index";
+import LanguageInput from "../../../components/LanguageInput/index";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -45,10 +44,35 @@ export default function ProfileCareseeker() {
   const classes = useStyles();
 
   const inputLabel = React.useRef(null);
+  const [languages, setLanguages] = React.useState([{ name: "" }]);
+  const [physicalComplications, setPhysicalComplications] = React.useState([
+    { name: "" }
+  ]);
   const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
+
+  const addLanguageHandler = () => {
+    setLanguages(oldLanguages => [...oldLanguages, { name: "" }]);
+  };
+  const languageInputHandler = (index, value) => {
+    let newLanguages = [...languages];
+    newLanguages[index].name = value;
+    setLanguages(newLanguages);
+  };
+
+  const addPhysicalComplicationsHandler = () => {
+    setPhysicalComplications(oldPhysicalComplications => [
+      ...oldPhysicalComplications,
+      { name: "" }
+    ]);
+  };
+  const physicalComplicationsInputHandler = (index, value) => {
+    let newPhysicalComplications = [...physicalComplications];
+    newPhysicalComplications[index].name = value;
+    setPhysicalComplications(newPhysicalComplications);
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -165,50 +189,22 @@ export default function ProfileCareseeker() {
                 autoComplete="zip"
               />
             </Grid>
-            <Grid item xs={12}>
-              <div style={{ display: "inline-flex" }}>
-                <div>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="physicalComplications"
-                    label="Physical Complications"
-                    name="physicalComplications"
-                    autoComplete="physicalComplications"
-                  />
-                </div>
-                <div style={{ alignSelf: "center" }}>
-                  <Tooltip title="Add more" aria-label="add">
-                    <Fab size="small" color="secondary" className={classes.fab}>
-                      <AddIcon />
-                    </Fab>
-                  </Tooltip>
-                </div>
-              </div>
-            </Grid>
-            <Grid item xs={12}>
-              <div style={{ display: "inline-flex" }}>
-                <div>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="languages"
-                    label="Languages"
-                    name="languages"
-                    autoComplete="languages"
-                  />
-                </div>
-                <div style={{ alignSelf: "center" }}>
-                  <Tooltip title="Add more" aria-label="add">
-                    <Fab size="small" color="secondary" className={classes.fab}>
-                      <AddIcon />
-                    </Fab>
-                  </Tooltip>
-                </div>
-              </div>
-            </Grid>
+
+            <PhysicalComplicationsInputs
+              classes={classes}
+              physicalComplications={physicalComplications}
+              addPhysicalComplicationsHandler={addPhysicalComplicationsHandler}
+              physicalComplicationsInputHandler={
+                physicalComplicationsInputHandler
+              }
+            />
+            <LanguageInput
+              classes={classes}
+              languages={languages}
+              addLanguageHandler={addLanguageHandler}
+              languageInputHandler={languageInputHandler}
+            />
+
             <Grid item xs={12}>
               <input
                 accept="image/*"
