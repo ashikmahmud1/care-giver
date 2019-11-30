@@ -12,6 +12,8 @@ import SignUp from "../src/views/Auth/caregiverRegistration/index";
 import SignUp2 from "../src/views/Auth/careseekerRegistration/index";
 import ProfileCareseeker from "../src/views/Profile/Careseeker/index";
 import ProfileCaregiver from "../src/views/Profile/Caregiver/index";
+import CaregiverProfiles from "../src/views/CaregiverProfiles/index";
+import CaregiverDetails from "../src/components/CaregiverProfiles/CaregiverDetails/index";
 import Faqs from "../src/views/Pages/Faqs";
 import TermsOfUse from "../src/views/Pages/TermsOfUse";
 import Help from "../src/views/Pages/Help";
@@ -39,6 +41,16 @@ function App() {
                 exact
                 path="/profile-caregiver"
                 component={ProfileCaregiver}
+              />
+              <Route
+                exact
+                path="/caregiver-profiles"
+                component={CaregiverProfiles}
+              />
+              <Route
+                exact
+                path="/caregiver-profile/id"
+                component={CaregiverDetails}
               />
             </Switch>
             <Route exact path="/faqs" component={Faqs} />

@@ -43,7 +43,7 @@ const LanguageInputs = props => {
               </Fab>
             </Tooltip>
           </div>
-          {/*    here display a remove button only if there is more than one item*/}
+          {/* Here display a remove button only if there is more than one item */}
         </div>
       </Grid>
     );
