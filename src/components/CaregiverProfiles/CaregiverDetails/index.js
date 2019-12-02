@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Grid } from "@material-ui/core";
+import { Button, Grid, Divider } from "@material-ui/core";
 import VerifiedUserIcon from "@material-ui/icons/VerifiedUser";
 import Rating from "@material-ui/lab/Rating";
 import Typography from "@material-ui/core/Typography";
@@ -12,12 +12,15 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
+import "./caregiverDetails.css";
+
 const defaultProps = {
   bgcolor: "background.paper",
   borderColor: "text.primary",
-  m: 1,
+  m: 2,
   border: 1,
-  style: { width: "80rem", height: "65rem" }
+  align: "center",
+  style: { width: "70rem", height: "70rem" }
 };
 
 const StyledTableCell = withStyles(theme => ({
@@ -51,11 +54,23 @@ const rows = [
 const useStyles = makeStyles(theme => ({
   root: {
     width: "80%",
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(2),
     overflowX: "auto"
   },
   table: {
     minWidth: 700
+  },
+  section1: {
+    margin: theme.spacing(2)
+  },
+  section2: {
+    margin: theme.spacing(3)
+  },
+  section3: {
+    margin: theme.spacing(3, 1, 1)
+  },
+  margin: {
+    margin: theme.spacing(4)
   }
 }));
 
@@ -65,114 +80,144 @@ const CaregiverDetails = () => {
   const classes = useStyles();
 
   return (
-    <Box display="flex" justifyContent="center">
-      <Box
-        borderRadius="borderRadius"
-        {...defaultProps}
-        borderColor="secondary.main"
-      >
-        <Grid item xs={12}>
-          <Grid className="img-round">
-            <img src={require("../../../img/man.jpg")} />
-          </Grid>
-          <Grid className="caregiver-name">
-            <Typography variant="h5">Madman Sadman</Typography>
+    <div className="section">
+      <Box display="flex" justifyContent="center">
+        <Box
+          borderRadius="borderRadius"
+          {...defaultProps}
+          borderColor="secondary.main"
+        >
+          <Grid item xs={12}>
+            <Grid item className="img-round">
+              <img src={require("../../../img/man.jpg")} />
+            </Grid>
+            <Grid>
+              <Grid>
+                <Typography variant="h5">Madman Sadman</Typography>
 
-            <Rating name="read-only" value={value} readOnly />
-            <VerifiedUserIcon color="lightseagreen" fontSize="large" />
-            <Grid item xs={12} md={6}>
-              <p>Gender: Male</p>
-              <p>Location: Toronto</p>
+                <Rating name="read-only" value={value} readOnly />
+                <VerifiedUserIcon color="lightseagreen" fontSize="large" />
+              </Grid>
+              <Divider />
+              <Grid item xs={12} md={6}>
+                <p>Gender: Male</p>
+                <p>Location: Toronto</p>
+              </Grid>
+              <Grid>
+                <p>Horly Wage: $15</p>
+                <p>Experience: 3.5 years</p>
+              </Grid>
+              <Grid>
+                <span>Transportation Facility: Yes</span>
+                <p>Skills: Bla, Bla, Bla</p>
+              </Grid>
             </Grid>
-            <Grid>
-              <p>Horly Wage: $15</p>
-              <p>Experience: 3.5 years</p>
+            <Divider variant="middle" />
+            <Grid item xs>
+              <div className={classes.section1}>
+                <Typography gutterBottom variant="h5">
+                  School History
+                </Typography>
+                <Paper className={classes.root}>
+                  <Table
+                    className={classes.table}
+                    aria-label="customized table"
+                  >
+                    <TableHead>
+                      <TableRow>
+                        <StyledTableCell>
+                          School/College/University
+                        </StyledTableCell>
+                        <StyledTableCell align="right">Degree</StyledTableCell>
+                        <StyledTableCell align="right">
+                          Field Of Study
+                        </StyledTableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map(row => (
+                        <StyledTableRow key={row.school}>
+                          <StyledTableCell component="th" scope="row">
+                            {row.school}
+                          </StyledTableCell>
+                          <StyledTableCell align="right">
+                            {row.degree}
+                          </StyledTableCell>
+                          <StyledTableCell align="right">
+                            {row.fieldofstudy}
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </Paper>
+              </div>
             </Grid>
-            <Grid>
-              <p>Skills: Bla, Bla, Bla</p>
+
+            <Grid item xs>
+              <div className={classes.section2}>
+                <Typography gutterBottom variant="h5">
+                  Professional Certification History
+                </Typography>
+                <Paper className={classes.root}>
+                  <Table
+                    className={classes.table}
+                    aria-label="customized table"
+                  >
+                    <TableHead>
+                      <TableRow>
+                        <StyledTableCell>Institution</StyledTableCell>
+                        <StyledTableCell align="right">
+                          Certifiation
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          Field Of Study
+                        </StyledTableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map(row => (
+                        <StyledTableRow key={row.school}>
+                          <StyledTableCell component="th" scope="row">
+                            {row.school}
+                          </StyledTableCell>
+                          <StyledTableCell align="right">
+                            {row.degree}
+                          </StyledTableCell>
+                          <StyledTableCell align="right">
+                            {row.fieldofstudy}
+                          </StyledTableCell>
+                        </StyledTableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </Paper>
+              </div>
+            </Grid>
+            <Grid item>
+              <div className={classes.section3}>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  href="#contained-buttons"
+                  className={classes.margin}
+                >
+                  Hire Now
+                </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  href="#contained-buttons"
+                  className={classes.margin}
+                >
+                  Setup an Interview
+                </Button>
+              </div>
             </Grid>
           </Grid>
-          <Grid>
-            <Paper className={classes.root}>
-              <Table className={classes.table} aria-label="customized table">
-                <TableHead>
-                  <TableRow>
-                    <StyledTableCell>School/College/University</StyledTableCell>
-                    <StyledTableCell align="right">Degree</StyledTableCell>
-                    <StyledTableCell align="right">
-                      Field Of Study
-                    </StyledTableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {rows.map(row => (
-                    <StyledTableRow key={row.school}>
-                      <StyledTableCell component="th" scope="row">
-                        {row.school}
-                      </StyledTableCell>
-                      <StyledTableCell align="right">
-                        {row.degree}
-                      </StyledTableCell>
-                      <StyledTableCell align="right">
-                        {row.fieldofstudy}
-                      </StyledTableCell>
-                    </StyledTableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Paper>
-          </Grid>
-          <Grid>
-            <Paper className={classes.root}>
-              <Table className={classes.table} aria-label="customized table">
-                <TableHead>
-                  <TableRow>
-                    <StyledTableCell>School/College/University</StyledTableCell>
-                    <StyledTableCell align="right">Degree</StyledTableCell>
-                    <StyledTableCell align="right">
-                      Field Of Study
-                    </StyledTableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {rows.map(row => (
-                    <StyledTableRow key={row.school}>
-                      <StyledTableCell component="th" scope="row">
-                        {row.school}
-                      </StyledTableCell>
-                      <StyledTableCell align="right">
-                        {row.degree}
-                      </StyledTableCell>
-                      <StyledTableCell align="right">
-                        {row.fieldofstudy}
-                      </StyledTableCell>
-                    </StyledTableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Paper>
-          </Grid>
-          <Grid>
-            <Button
-              variant="contained"
-              color="secondary"
-              href="#contained-buttons"
-              align="left"
-            >
-              Hire Now
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              href="#contained-buttons"
-              align="right"
-            >
-              Setup an Interview
-            </Button>
-          </Grid>
-        </Grid>
+        </Box>
       </Box>
-    </Box>
+    </div>
   );
 };
 

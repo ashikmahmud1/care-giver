@@ -24,8 +24,7 @@ class CaregiverProfiles extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>HEllo</h1>
+      <div className="pagination">
         <CssBaseline />
         <CaregiverList />
         <Pagination

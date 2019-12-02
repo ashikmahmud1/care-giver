@@ -10,8 +10,9 @@ import "./caregiverList.css";
 const defaultProps = {
   bgcolor: "background.paper",
   borderColor: "text.primary",
-  m: 1,
+  m: 2,
   border: 1,
+  align: "center",
   style: { width: "22rem", height: "22rem" }
 };
 
@@ -30,10 +31,12 @@ const CaregiverList = () => {
         </Grid>
         <Grid className="caregiver-name">
           <Typography variant="h5">Madman Sadman</Typography>
-
-          <Rating name="read-only" value={value} readOnly />
-          <VerifiedUserIcon color="lightseagreen" fontSize="large" />
-          <Grid className="">
+          <span>Gender: Male,</span> <span>Location: Toronto</span>
+          <Grid>
+            <Rating name="read-only" value={value} readOnly />
+            <VerifiedUserIcon color="lightseagreen" fontSize="large" />
+          </Grid>
+          <Grid>
             <Button
               variant="contained"
               color="secondary"

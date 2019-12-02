@@ -7,6 +7,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import RedditIcon from "@material-ui/icons/Reddit";
+import { Divider } from "@material-ui/core";
 
 export default function Footer() {
   return (
@@ -15,6 +16,7 @@ export default function Footer() {
         <Grid container spacing={1} direction="column" alignItems="center">
           <Grid item>
             <span>Cities we covered</span>
+            <Divider />
           </Grid>
           <span>Toronto</span>
           <span>Montreal</span>
@@ -24,6 +26,7 @@ export default function Footer() {
         <Grid container spacing={1} direction="column" alignItems="center">
           <Grid item>
             <span>Contact</span>
+            <Divider />
           </Grid>
           <span>Address</span>
           <span>Email</span>
@@ -34,6 +37,7 @@ export default function Footer() {
         <Grid container spacing={1} direction="column" alignItems="center">
           <Grid item>
             <span>About</span>
+            <Divider />
           </Grid>
           <Grid item>
             <span>
