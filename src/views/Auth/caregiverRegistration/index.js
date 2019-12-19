@@ -38,6 +38,28 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp() {
   const classes = useStyles();
 
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    password2: ""
+  });
+
+  const { firstName, lastName, email, password, password2 } = formData;
+
+  const onChange = e =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = e => {
+    e.preventDefault();
+    if (password !== password2) {
+      setAlert("Password do not match", "danger"); //need to edit
+    } else {
+      register({ firstName, lastName, email, password }); //need to edit
+    }
+  };
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -48,64 +70,74 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete="fname"
-                name="firstName"
                 variant="outlined"
                 required
                 fullWidth
                 id="firstName"
+                name="firstName"
+                value="firstName"
+                onChange={e => onChange(e)}
                 label="First Name"
                 autoFocus
               />
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
+                autoComplete="lname"
                 variant="outlined"
                 required
                 fullWidth
                 id="lastName"
-                label="Last Name"
                 name="lastName"
-                autoComplete="lname"
+                value="lastName"
+                onChange={e => onChange(e)}
+                label="Last Name"
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                autoComplete="email"
                 variant="outlined"
                 required
                 fullWidth
                 id="email"
-                label="Email Address"
                 name="email"
-                autoComplete="email"
+                value="email"
+                onChange={e => onChange(e)}
+                label="Email Address"
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                autoComplete="current-password"
                 variant="outlined"
                 required
                 fullWidth
+                id="password"
                 name="password"
+                value="password"
+                onChange={e => onChange(e)}
                 label="Password"
                 type="password"
-                id="password"
-                autoComplete="current-password"
               />
             </Grid>
             <Grid item xs={12}>
               <TextField
+                autoComplete="current-password"
                 variant="outlined"
                 required
                 fullWidth
+                id="password2"
                 name="password2"
+                value="password2"
+                onChange={e => onChange(e)}
                 label="Confirm Password"
                 type="password2"
-                id="password2"
-                autoComplete="current-password"
               />
             </Grid>
           </Grid>

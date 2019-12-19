@@ -81,35 +81,34 @@ const CaregiverDetails = () => {
 
   return (
     <div className="section">
-      <Box display="flex" justifyContent="center">
+      <Box display="flex" display="inline" boxShadow={3}>
         <Box
           borderRadius="borderRadius"
           {...defaultProps}
-          borderColor="secondary.main"
+          borderColor="grey.300"
+          boxShadow={3}
         >
           <Grid item xs={12}>
             <Grid item className="img-round">
-              <img src={require("../../../img/man.jpg")} />
+              <img src={require("../../../img/man.jpg")} alt="DP" />
             </Grid>
             <Grid>
               <Grid>
                 <Typography variant="h5">Madman Sadman</Typography>
 
                 <Rating name="read-only" value={value} readOnly />
-                <VerifiedUserIcon color="lightseagreen" fontSize="large" />
+                <VerifiedUserIcon color="secondary" fontSize="large" />
               </Grid>
               <Divider />
               <Grid item xs={12} md={6}>
-                <p>Gender: Male</p>
-                <p>Location: Toronto</p>
+                <span>Gender: Male,</span> <span>Location: Toronto</span>
               </Grid>
               <Grid>
-                <p>Horly Wage: $15</p>
-                <p>Experience: 3.5 years</p>
+                <span>Horly Wage: $15,</span> <span>Experience: 3.5 years</span>
               </Grid>
               <Grid>
-                <span>Transportation Facility: Yes</span>
-                <p>Skills: Bla, Bla, Bla</p>
+                <span>Transportation Facility: Yes,</span>{" "}
+                <span>Skills: Bla, Bla, Bla</span>
               </Grid>
             </Grid>
             <Divider variant="middle" />

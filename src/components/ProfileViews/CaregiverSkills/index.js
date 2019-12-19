@@ -19,8 +19,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CheckboxesGroup() {
+export default function CaregiverSkills() {
   const classes = useStyles();
+
   const [state, setState] = React.useState({
     medicalSupervision: false,
     personalAssistanceBathingDressing: false,
@@ -37,10 +38,6 @@ export default function CheckboxesGroup() {
     nutritionalCounseling: false
   });
 
-  const handleChange = name => event => {
-    setState({ ...state, [name]: event.target.checked });
-  };
-
   const {
     medicalSupervision,
     personalAssistanceBathingDressing,
@@ -56,6 +53,10 @@ export default function CheckboxesGroup() {
     retirementHomecare,
     nutritionalCounseling
   } = state;
+
+  const handleChange = name => event => {
+    setState({ ...state, [name]: event.target.checked });
+  };
 
   return (
     <Container component="main" maxWidth="xs">

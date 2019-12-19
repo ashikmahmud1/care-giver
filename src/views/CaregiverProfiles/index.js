@@ -1,16 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
+//import PropTypes from "prop-types";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import Box from "@material-ui/core/Box";
+//import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import Pagination from "material-ui-flat-pagination";
-import InputBase from "@material-ui/core/InputBase";
-import { fade, makeStyles } from "@material-ui/core/styles";
-import SearchIcon from "@material-ui/icons/Search";
 
 import "./caregiverProfiles.css";
 import CaregiverList from "../../components/CaregiverProfiles/CaregiverList/index";
 
-const theme = createMuiTheme();
+//const theme = createMuiTheme();
 
 class CaregiverProfiles extends React.Component {
   constructor(props) {
@@ -26,7 +24,16 @@ class CaregiverProfiles extends React.Component {
     return (
       <div className="pagination">
         <CssBaseline />
-        <CaregiverList />
+        <Box display="flex" flexDirection="row" justifyContent="center">
+          <CaregiverList />
+          <CaregiverList />
+          <CaregiverList />
+        </Box>
+        <Box display="flex" flexDirection="row" justifyContent="center">
+          <CaregiverList />
+          <CaregiverList />
+          <CaregiverList />
+        </Box>
         <Pagination
           limit={10}
           offset={this.state.offset}
@@ -38,8 +45,10 @@ class CaregiverProfiles extends React.Component {
   }
 }
 
-CaregiverProfiles.propTypes = {
+{
+  /*CaregiverProfiles.propTypes = {
   classes: PropTypes.object.isRequired
-};
+};*/
+}
 
 export default CaregiverProfiles;

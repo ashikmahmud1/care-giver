@@ -68,16 +68,17 @@ export default function Footer() {
           </Grid>
           <Grid item>
             <img
+              className="app"
               src={require("../../img/googlePlay.png")}
               title="Install the app from Playstore"
-              alt=""
+              alt="googlePlayStore"
             />
           </Grid>
           <Grid item>
             <img
               src={require("../../img/appStore.png")}
               title="Download the app from App Store"
-              alt=""
+              alt="appleStore"
             />
           </Grid>
         </Grid>

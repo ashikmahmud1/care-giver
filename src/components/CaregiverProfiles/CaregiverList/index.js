@@ -20,33 +20,32 @@ const CaregiverList = () => {
   const [value, setValue] = React.useState(4);
 
   return (
-    <Box display="flex" justifyContent="absolute">
-      <Box
-        borderRadius="borderRadius"
-        {...defaultProps}
-        borderColor="secondary.main"
-      >
-        <Grid className="img-round">
-          <img src={require("../../../img/man.jpg")} />
+    <Box
+      borderRadius="borderRadius"
+      {...defaultProps}
+      borderColor="grey.300"
+      boxShadow={3}
+    >
+      <Grid className="img-round">
+        <img src={require("../../../img/man.jpg")} alt="DP" />
+      </Grid>
+      <Grid className="caregiver-name">
+        <Typography variant="h5">Madman Sadman</Typography>
+        <span>Gender: Male,</span> <span>Location: Toronto</span>
+        <Grid>
+          <Rating name="read-only" value={value} readOnly />
+          <VerifiedUserIcon color="secondary" fontSize="large" />
         </Grid>
-        <Grid className="caregiver-name">
-          <Typography variant="h5">Madman Sadman</Typography>
-          <span>Gender: Male,</span> <span>Location: Toronto</span>
-          <Grid>
-            <Rating name="read-only" value={value} readOnly />
-            <VerifiedUserIcon color="lightseagreen" fontSize="large" />
-          </Grid>
-          <Grid>
-            <Button
-              variant="contained"
-              color="secondary"
-              href="/caregiver-profile/id"
-            >
-              View Full Profile
-            </Button>
-          </Grid>
+        <Grid>
+          <Button
+            variant="contained"
+            color="secondary"
+            href="/caregiver-profile/id"
+          >
+            View Full Profile
+          </Button>
         </Grid>
-      </Box>
+      </Grid>
     </Box>
   );
 };

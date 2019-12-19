@@ -1,6 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { Container } from "@material-ui/core";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import "./App.css";
 
 import Body from "../src/layout/Body/index";
