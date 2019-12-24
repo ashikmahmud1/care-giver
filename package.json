@@ -18,6 +18,7 @@
     "express-rate-limit": "^3.5.0",
     "helmet": "^3.16.0",
     "hpp": "^0.2.2",
+    "joi-browser": "^13.4.0",
     "jsonwebtoken": "^8.5.1",
     "material-table": "^1.54.1",
     "material-ui-flat-pagination": "^4.0.0",
