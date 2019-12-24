@@ -3,54 +3,127 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
-const userSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: [true, 'Please tell us your first name!']
+const userSchema = new mongoose.Schema(
+  {
+    firstName: {
+      type: String,
+      required: [true, 'Please tell us your first name!']
+    },
+    lastName: {
+      type: String,
+      required: [true, 'Please tell us your last name!']
+    },
+    email: {
+      type: String,
+      required: [true, 'Please provide your email'],
+      unique: true,
+      lowercase: true,
+      validate: [validator.isEmail, 'Please provide a valid email']
+    },
+    // photo: String,
+    role: {
+      type: String,
+      enum: ['user', 'caregiver', 'careseeker', 'admin'],
+      default: 'user'
+    },
+    password: {
+      type: String,
+      required: [true, 'Please provide a password'],
+      minlength: 8,
+      select: false
+    },
+    passwordConfirm: {
+      type: String,
+      required: [true, 'Please confirm your password'],
+      validate: {
+        // This only works on CREATE and SAVE!!!
+        validator: function(el) {
+          return el === this.password;
+        },
+        message: 'Passwords are not the same!'
+      }
+    },
+    passwordChangedAt: Date,
+    passwordResetToken: String,
+    passwordResetExpires: Date,
+    active: {
+      type: Boolean,
+      default: true,
+      select: false
+    },
+    gender: {
+      type: String
+    },
+    age: {
+      type: Number
+    },
+    languages: {
+      type: String
+    },
+    address: {
+      type: String
+    },
+    city: {
+      type: String
+    },
+    state: {
+      type: String
+    },
+    zip: {
+      type: String
+    },
+    hourlyWage: {
+      type: Number
+    },
+    yearsOfExperience: {
+      type: Number
+    },
+    transportation: {
+      type: Boolean
+    },
+    phone: {
+      type: Number
+    },
+    image: {
+      type: String
+    },
+    seniorName: {
+      type: String
+    },
+    physicalComplications: [String],
+    skills: [String],
+    education: [
+      {
+        school: {
+          type: String
+        },
+        fieldOfStudy: {
+          type: String
+        },
+        degree: {
+          type: String
+        }
+      }
+    ],
+    certification: [
+      {
+        institution: {
+          type: String
+        },
+        fieldOfStudy: {
+          type: String
+        },
+        certificationOn: {
+          type: String
+        }
+      }
+    ]
   },
-  lastName: {
-    type: String,
-    required: [true, 'Please tell us your last name!']
-  },
-  email: {
-    type: String,
-    required: [true, 'Please provide your email'],
-    unique: true,
-    lowercase: true,
-    validate: [validator.isEmail, 'Please provide a valid email']
-  },
-  // photo: String,
-  //role: {
-  // type: String,
-  //enum: ['user', 'guide', 'lead-guide', 'admin'],
-  //default: 'user'
-  //},
-  password: {
-    type: String,
-    required: [true, 'Please provide a password'],
-    minlength: 8,
-    select: false
-  },
-  passwordConfirm: {
-    type: String,
-    required: [true, 'Please confirm your password'],
-    validate: {
-      // This only works on CREATE and SAVE!!!
-      validator: function(el) {
-        return el === this.password;
-      },
-      message: 'Passwords are not the same!'
-    }
-  },
-  passwordChangedAt: Date,
-  passwordResetToken: String,
-  passwordResetExpires: Date,
-  active: {
-    type: Boolean,
-    default: true,
-    select: false
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
   }
-});
+);
 
 userSchema.pre('save', async function(next) {
   // Only run this function if password was actually modified

@@ -56,7 +56,7 @@ export default function SignUp() {
     // if (password !== password2) {
     //   setAlert('Password do not match', 'danger'); //need to edit
     // } else {
-    register({ firstName, lastName, email, password }); //need to edit rigister
+    //register({ firstName, lastName, email, password }); //need to edit rigister
     // }
   };
 

@@ -1,33 +1,33 @@
-import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(theme => ({
-  "@global": {
+  '@global': {
     body: {
       backgroundColor: theme.palette.common.white
     }
   },
   paper: {
     marginTop: theme.spacing(8),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(3)
   },
   submit: {
@@ -38,27 +38,27 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp() {
   const classes = useStyles();
 
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    password2: ""
-  });
+  // const [formData, setFormData] = useState({
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   password: '',
+  //   password2: ''
+  // });
 
-  const { firstName, lastName, email, password, password2 } = formData;
+  // const { firstName, lastName, email, password, password2 } = formData;
 
-  const onChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  // const onChange = e =>
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
-    e.preventDefault();
-    if (password !== password2) {
-      setAlert("Password do not match", "danger"); //need to edit
-    } else {
-      register({ firstName, lastName, email, password }); //need to edit
-    }
-  };
+  // const onSubmit = e => {
+  //   e.preventDefault();
+  //   if (password !== password2) {
+  //     setAlert("Password do not match", "danger"); //need to edit
+  //   } else {
+  //     register({ firstName, lastName, email, password }); //need to edit
+  //   }
+  // };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -70,7 +70,7 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate onSubmit={e => onSubmit(e)}>
+        <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -81,7 +81,6 @@ export default function SignUp() {
                 id="firstName"
                 name="firstName"
                 value="firstName"
-                onChange={e => onChange(e)}
                 label="First Name"
                 autoFocus
               />
@@ -95,7 +94,6 @@ export default function SignUp() {
                 id="lastName"
                 name="lastName"
                 value="lastName"
-                onChange={e => onChange(e)}
                 label="Last Name"
               />
             </Grid>
@@ -108,7 +106,6 @@ export default function SignUp() {
                 id="email"
                 name="email"
                 value="email"
-                onChange={e => onChange(e)}
                 label="Email Address"
               />
             </Grid>
@@ -121,7 +118,6 @@ export default function SignUp() {
                 id="password"
                 name="password"
                 value="password"
-                onChange={e => onChange(e)}
                 label="Password"
                 type="password"
               />
@@ -135,7 +131,6 @@ export default function SignUp() {
                 id="password2"
                 name="password2"
                 value="password2"
-                onChange={e => onChange(e)}
                 label="Confirm Password"
                 type="password2"
               />
