@@ -39,3 +39,26 @@ export const register = ({ form }) => {
 };
 
 // Login will dispatch to synchronous action login success or login failed
+
+export const login = ({ form }) => {
+    // extract the data from the payload
+    console.log(form);
+    let axiosConfig = {
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            "Access-Control-Allow-Origin": "*",
+        }
+    };
+    return (dispatch, getState) => {
+        const state = getState();
+        // const {AccountName, current_uploads} = state.UploadReducer;
+        axios.post(`${BASE_URL}/api/v1/users/login`, form, axiosConfig)
+            .then(res => {
+                const response_data = res.data;
+                const payload = {};
+                payload.user = response_data.data; // user object
+                payload.token = response_data.token; // string
+                dispatch(loginSuccess({ payload }))
+            }).catch(err => { dispatch(loginFailed({ err })) })
+    };
+};

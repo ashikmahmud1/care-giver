@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -19,6 +19,15 @@ import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
+
+
+import * as actionCreators from "../../../store/actions";
+import { connect } from "react-redux";
+
+// JOI BROWSER for validation
+import Joi from 'joi-browser';
+
+import { validate, checkError } from '../../../utils/validator';
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -46,28 +55,57 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function LogIn2() {
+function LogIn(props) {
   const classes = useStyles();
 
-  const [values, setValues] = React.useState({
-    amount: "",
+  const [form, setForm] = React.useState({
     password: "",
-    weight: "",
-    weightRange: "",
-    showPassword: false
+    email: ""
   });
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleChange = prop => event => {
-    setValues({ ...values, [prop]: event.target.value });
+  const [errors, setErrors] = useState({});
+
+  let schema = {
+    email: Joi.string().required().email().label('Email'),
+    password: Joi.string().min(8).max(15).required().label('Password')
+  };
+  const handleChange = ({ currentTarget: input }) => {
+    let new_errors = checkError(input, errors, schema)
+    if(new_errors) setErrors(new_errors);
+    setForm((prevState) => ({
+      ...prevState,
+      [input.name]: input.value,
+    }));
   };
 
   const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
+    setShowPassword((prevState) => ({
+      ...prevState,
+      showPassword: !prevState.showPassword,
+    }));
   };
 
   const handleMouseDownPassword = event => {
     event.preventDefault();
   };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    // before submit the form validate all the input
+    // check the errors
+    let new_errors = validate(form, schema);
+    if (new_errors) return;
+    // here call the redux login function
+    setErrors({});
+    props.login({ form });
+  }
+
+  // similiar to componentWillReciveProps lifecycle hook method
+  // this means if a property change this will execute
+  useEffect(() => {
+    // check if the props.isLoggedIn then redirect to somewhere else
+  }, [props.isLoggedIn])
 
   return (
     <Container component="main" maxWidth="xs">
@@ -89,9 +127,13 @@ export default function LogIn2() {
                 id="email"
                 label="Email Address"
                 name="email"
+                value={form.email}
+                onChange={e => handleChange(e)}
+                onBlur={(e => handleChange(e))}
                 autoComplete="email"
                 autoFocus
               />
+              {errors.email && <div className='alert alert-danger'>{errors.email}</div>}
             </Grid>
             <Grid item xs={12}>
               <FormControl
@@ -104,27 +146,29 @@ export default function LogIn2() {
                 </InputLabel>
                 <OutlinedInput
                   id="outlined-adornment-password"
-                  type={values.showPassword ? "text" : "password"}
-                  value={values.password}
-                  onChange={handleChange("password")}
+                  type={showPassword ? "text" : "password"}
+                  name="password"
+                  value={form.password}
+                  onChange={e => handleChange(e)}
+                  onBlur={(e => handleChange(e))}
                   endAdornment={
                     <InputAdornment position="end">
                       <IconButton
                         aria-label="toggle password visibility"
                         onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                      >
-                        {values.showPassword ? (
+                        onMouseDown={handleMouseDownPassword}>
+                        {form.showPassword ? (
                           <Visibility />
                         ) : (
-                          <VisibilityOff />
-                        )}
+                            <VisibilityOff />
+                          )}
                       </IconButton>
                     </InputAdornment>
                   }
                   labelWidth={70}
                 />
               </FormControl>
+              {errors.password && <div className='alert alert-danger'>{errors.password}</div>}
             </Grid>
           </Grid>
           <FormControlLabel
@@ -136,6 +180,7 @@ export default function LogIn2() {
             fullWidth
             variant="contained"
             color="primary"
+            onClick={e => onSubmit(e)}
             className={classes.submit}
           >
             Sign In
@@ -157,3 +202,27 @@ export default function LogIn2() {
     </Container>
   );
 }
+
+// connect with react-redux
+
+// Map Redux state to component props
+function mapStateToProps(state) {
+  return {
+    isLoggedIn: state.UserReducer.isLoggedIn,
+  }
+}
+
+// Map Redux functions to component `props
+function mapDispatchToProps(dispatch) {
+  return {
+    login: (payload) => dispatch(actionCreators.login(payload)),
+  }
+}
+
+//connecting out component with the redux store
+const LoginContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LogIn);
+
+export default LoginContainer;

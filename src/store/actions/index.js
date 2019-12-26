@@ -4,5 +4,6 @@ export {
     update
 } from './CounterActionCreator';
 export {
-    register
+    register,
+    login
 }from './UserActionCreator';

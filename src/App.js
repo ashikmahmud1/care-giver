@@ -7,8 +7,7 @@ import "./App.css";
 import Body from "../src/layout/Body/index";
 import Header from "../src/layout/Header/index";
 import Footer from "../src/layout/Footer/index";
-import LogIn from "../src/views/Auth/caregiverLogin/index";
-import LogIn2 from "../src/views/Auth/careseekerLogin/index";
+import LogIn from "../src/views/Auth/login";
 import SignUp from "../src/views/Auth/caregiverRegistration/index";
 import SignUp2 from "../src/views/Auth/careseekerRegistration/index";
 import ProfileCareseeker from "../src/views/Profile/Careseeker/index";
@@ -29,8 +28,7 @@ function App() {
           <Route exact path="/" component={Body} />
           <Container className="container">
             <Switch>
-              <Route exact path="/login-caregiver" component={LogIn} />
-              <Route exact path="/login-careseeker" component={LogIn2} />
+              <Route exact path="/login" component={LogIn} />
               <Route exact path="/signup-caregiver" component={SignUp} />
               <Route exact path="/signup-careseeker" component={SignUp2} />
               <Route

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,8 @@ import Container from '@material-ui/core/Container';
 import './careseekerRegistration.css';
 import * as actionCreators from "../../../store/actions";
 import { connect } from "react-redux";
+
+import { validate, checkError } from '../../../utils/validator';
 
 // JOI BROWSER for validation
 import Joi from 'joi-browser';
@@ -47,45 +49,17 @@ function SignUp(props) {
     const [form, setForm] = useState(initial_form);
     const [errors, setErrors] = useState({});
 
-    const validate = () => {
-        // **************************** Validation implementation with joi-browser library ***************************
-        const options = { abortEarly: false };
-        const result = Joi.validate(form, schema, options);
-        if (!result.error) return null;
-        const new_errors = {};
-        for (let item of result.error.details)
-            new_errors[item.path[0]] = item.message;
-        setErrors(new_errors);
-        return new_errors;
-    };
-
     let schema = {
         firstName: Joi.string().required().label('First Name'),
         lastName: Joi.string().required().label('Last Name'),
         email: Joi.string().required().email().label('Email'),
-        password: Joi.string().min(3).max(15).required().label('Password'),
+        password: Joi.string().min(8).max(15).required().label('Password'),
         role: Joi.any(),
         passwordConfirm: Joi.string().required().equal(Joi.ref('password')).label('Confirm Password').options({ language: { any: { allowOnly: 'must match password' } } })
     };
 
-    const validateProperty = ({ name, value }) => {
-        const obj = { [name]: value };
-        schema = { [name]: schema[name] };
-        const { error } = Joi.validate(obj, schema);
-        return error ? error.details[0].message : null;
-    };
-
-    const checkError = (input) => {
-        const new_errors = { ...errors };
-        const errorMessage = validateProperty(input);
-        if (errorMessage) new_errors[input.name] = errorMessage;
-        else delete new_errors[input.name];
-        setErrors(new_errors);
-        // here check the errors
-    };
-
     const handleChange = ({ currentTarget: input }) => {
-        checkError(input);
+        setErrors(checkError(input, errors, schema));
         setForm((prevState) => ({
             ...prevState,
             [input.name]: input.value,
@@ -96,10 +70,18 @@ function SignUp(props) {
         e.preventDefault();
         // before submit the form validate all the input
         // check the errors
-        if (validate()) return;
+        let new_errors = validate(form, schema);
+        setErrors(new_errors);
+        if (new_errors) return;
         // here call the redux register function
-        props.register({form});
+        props.register({ form });
     };
+
+    // similiar to componentWillReciveProps lifecycle hook method
+    // this means if a property change this will execute
+    useEffect(() => {
+        // check if the props.isLoggedIn then redirect to somewhere else
+    }, [props.isLoggedIn])
 
     // onBlur event fire when user focus an input and unfocused
 
@@ -220,7 +202,7 @@ function SignUp(props) {
 // Map Redux state to component props
 function mapStateToProps(state) {
     return {
-        logged_in: state.UserReducer.logged_in,
+        isLoggedIn: state.UserReducer.isLoggedIn,
     }
 }
 
