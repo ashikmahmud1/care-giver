@@ -5,5 +5,6 @@ export {
 } from './CounterActionCreator';
 export {
     register,
-    login
+    login,
+    logout
 }from './UserActionCreator';

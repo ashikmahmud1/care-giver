@@ -71,8 +71,8 @@ function SignUp(props) {
         // before submit the form validate all the input
         // check the errors
         let new_errors = validate(form, schema);
-        setErrors(new_errors);
         if (new_errors) return;
+        setErrors({});
         // here call the redux register function
         props.register({ form });
     };

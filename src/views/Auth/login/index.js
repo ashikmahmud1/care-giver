@@ -105,6 +105,9 @@ function LogIn(props) {
   // this means if a property change this will execute
   useEffect(() => {
     // check if the props.isLoggedIn then redirect to somewhere else
+    if(props.isLoggedIn) {
+      props.history.push('/');
+    }
   }, [props.isLoggedIn])
 
   return (

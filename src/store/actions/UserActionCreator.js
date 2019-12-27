@@ -11,6 +11,10 @@ const loginFailed = (payload) => {
     return { type: actionTypes.LOGIN_FAILED, payload: payload }
 }
 
+export const logout = () => {
+    return { type: actionTypes.LOGOUT }
+}
+
 
 //********* Async action creators **********
 
@@ -31,9 +35,9 @@ export const register = ({ form }) => {
             .then(res => {
                 const response_data = res.data;
                 const payload = {};
-                payload.user = response_data.data; // user object
+                payload.user = response_data.data.user; // user object
                 payload.token = response_data.token; // string
-                dispatch(loginSuccess({ payload }))
+                dispatch(loginSuccess(payload))
             }).catch(err => { dispatch(loginFailed({ err })) })
     };
 };
@@ -56,9 +60,9 @@ export const login = ({ form }) => {
             .then(res => {
                 const response_data = res.data;
                 const payload = {};
-                payload.user = response_data.data; // user object
+                payload.user = response_data.data.user; // user object
                 payload.token = response_data.token; // string
-                dispatch(loginSuccess({ payload }))
+                dispatch(loginSuccess(payload))
             }).catch(err => { dispatch(loginFailed({ err })) })
     };
 };

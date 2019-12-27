@@ -8,6 +8,10 @@ import IconButton from "@material-ui/core/IconButton";
 
 import "./header.css";
 
+import * as actionCreators from "../../store/actions";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1
@@ -20,8 +24,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Header = () => {
+const Header = (props) => {
   const classes = useStyles();
+
+  const logout = () => {
+    props.logout();
+    props.history.push('/login');
+  }
 
   return (
     <div className={classes.root}>
@@ -40,11 +49,33 @@ const Header = () => {
             Home
           </Button>
           <Button color="inherit">Our Services</Button>
-          <Button color="inherit">Logout</Button>
+          <Button color="inherit" onClick={() => logout()}>Logout</Button>
         </Toolbar>
       </AppBar>
     </div>
   );
 };
 
-export default Header;
+// connect with react-redux
+
+// Map Redux state to component props
+function mapStateToProps(state) {
+  return {
+      isLoggedIn: state.UserReducer.isLoggedIn,
+  }
+}
+
+// Map Redux functions to component `props
+function mapDispatchToProps(dispatch) {
+  return {
+    logout: () => dispatch(actionCreators.logout()),
+  }
+}
+
+//connecting out component with the redux store
+const HeaderContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
+
+export default withRouter(HeaderContainer);
