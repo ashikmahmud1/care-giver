@@ -1,23 +1,24 @@
-import React from "react";
-import { Container } from "@material-ui/core";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from 'react';
+import { Container } from '@material-ui/core';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import "./App.css";
+import './App.css';
 
-import Body from "../src/layout/Body/index";
-import Header from "../src/layout/Header/index";
-import Footer from "../src/layout/Footer/index";
-import LogIn from "../src/views/Auth/login";
-import SignUp from "../src/views/Auth/caregiverRegistration/index";
-import SignUp2 from "../src/views/Auth/careseekerRegistration/index";
-import ProfileCareseeker from "../src/views/Profile/Careseeker/index";
-import ProfileCaregiver from "../src/views/Profile/Caregiver/index";
-import CaregiverProfiles from "../src/views/CaregiverProfiles/index";
-import CaregiverDetails from "../src/components/CaregiverProfiles/CaregiverDetails/index";
-import Faqs from "../src/views/Pages/Faqs";
-import TermsOfUse from "../src/views/Pages/TermsOfUse";
-import Help from "../src/views/Pages/Help";
-import Privacy from "../src/views/Pages/Privacy";
+import Body from '../src/layout/Body/index';
+import Header from '../src/layout/Header/index';
+import Footer from '../src/layout/Footer/index';
+import LogIn from '../src/views/Auth/login';
+import SignUp from '../src/views/Auth/caregiverRegistration/index';
+import SignUp2 from '../src/views/Auth/careseekerRegistration/index';
+import ProfileCareseeker from '../src/views/Profile/Careseeker/index';
+import ProfileCaregiver from '../src/views/Profile/Caregiver/index';
+import CaregiverProfiles from '../src/views/CaregiverProfiles/index';
+import CaregiverDetails from '../src/components/CaregiverProfiles/CaregiverDetails/index';
+import Services from './views/Pages/Services';
+import Faqs from '../src/views/Pages/Faqs';
+import TermsOfUse from '../src/views/Pages/TermsOfUse';
+import Help from '../src/views/Pages/Help';
+import Privacy from '../src/views/Pages/Privacy';
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
                 component={CaregiverDetails}
               />
             </Switch>
+            <Route exact path="/services" component={Services} />
             <Route exact path="/faqs" component={Faqs} />
             <Route exact path="/terms-of-use" component={TermsOfUse} />
             <Route exact path="/help" component={Help} />

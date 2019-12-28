@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -9,6 +9,14 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+//import './caregiverRegistration.css';
+import * as actionCreators from '../../../store/actions';
+import { connect } from 'react-redux';
+
+import { validate, checkError } from '../../../utils/validator';
+
+// JOI BROWSER for validation
+import Joi from 'joi-browser';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -35,30 +43,70 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SignUp() {
+function SignUp(props) {
   const classes = useStyles();
 
-  // const [formData, setFormData] = useState({
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   password: '',
-  //   password2: ''
-  // });
+  const initial_form = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    role: 'caregiver',
+    password: '',
+    passwordConfirm: ''
+  };
+  const [form, setForm] = useState(initial_form);
+  const [errors, setErrors] = useState({});
 
-  // const { firstName, lastName, email, password, password2 } = formData;
+  let schema = {
+    firstName: Joi.string()
+      .required()
+      .label('First Name'),
+    lastName: Joi.string()
+      .required()
+      .label('Last Name'),
+    email: Joi.string()
+      .required()
+      .email()
+      .label('Email'),
+    password: Joi.string()
+      .min(8)
+      .max(15)
+      .required()
+      .label('Password'),
+    role: Joi.any(),
+    passwordConfirm: Joi.string()
+      .required()
+      .equal(Joi.ref('password'))
+      .label('Confirm Password')
+      .options({ language: { any: { allowOnly: 'must match password' } } })
+  };
 
-  // const onChange = e =>
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = ({ currentTarget: input }) => {
+    setErrors(checkError(input, errors, schema));
+    setForm(prevState => ({
+      ...prevState,
+      [input.name]: input.value
+    }));
+  };
 
-  // const onSubmit = e => {
-  //   e.preventDefault();
-  //   if (password !== password2) {
-  //     setAlert("Password do not match", "danger"); //need to edit
-  //   } else {
-  //     register({ firstName, lastName, email, password }); //need to edit
-  //   }
-  // };
+  const onSubmit = e => {
+    e.preventDefault();
+    // before submit the form validate all the input
+    // check the errors
+    let new_errors = validate(form, schema);
+    if (new_errors) return;
+    setErrors({});
+    // here call the redux register function
+    props.register({ form });
+  };
+
+  // similiar to componentWillReciveProps lifecycle hook method
+  // this means if a property change this will execute
+  useEffect(() => {
+    // check if the props.isLoggedIn then redirect to somewhere else
+  }, [props.isLoggedIn]);
+
+  // onBlur event fire when user focus an input and unfocused
 
   return (
     <Container component="main" maxWidth="xs">
@@ -74,28 +122,38 @@ export default function SignUp() {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="fname"
+                autoComplete="firstName"
                 variant="outlined"
                 required
                 fullWidth
                 id="firstName"
                 name="firstName"
-                value="firstName"
+                value={form.firstName}
+                onChange={e => handleChange(e)}
+                onBlur={e => handleChange(e)}
                 label="First Name"
                 autoFocus
               />
+              {errors.firstName && (
+                <div className="alert alert-danger">{errors.firstName}</div>
+              )}
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                autoComplete="lname"
+                autoComplete="lastName"
                 variant="outlined"
                 required
                 fullWidth
                 id="lastName"
                 name="lastName"
-                value="lastName"
+                value={form.lastName}
+                onChange={e => handleChange(e)}
+                onBlur={e => handleChange(e)}
                 label="Last Name"
               />
+              {errors.lastName && (
+                <div className="alert alert-danger">{errors.lastName}</div>
+              )}
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -105,9 +163,14 @@ export default function SignUp() {
                 fullWidth
                 id="email"
                 name="email"
-                value="email"
+                value={form.email}
+                onChange={e => handleChange(e)}
+                onBlur={e => handleChange(e)}
                 label="Email Address"
               />
+              {errors.email && (
+                <div className="alert alert-danger">{errors.email}</div>
+              )}
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -117,10 +180,15 @@ export default function SignUp() {
                 fullWidth
                 id="password"
                 name="password"
-                value="password"
+                value={form.password}
+                onChange={e => handleChange(e)}
+                onBlur={e => handleChange(e)}
                 label="Password"
                 type="password"
               />
+              {errors.password && (
+                <div className="alert alert-danger">{errors.password}</div>
+              )}
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -128,12 +196,19 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
-                id="password2"
-                name="password2"
-                value="password2"
+                id="passwordConfirm"
+                name="passwordConfirm"
+                value={form.passwordConfirm}
+                onChange={e => handleChange(e)}
+                onBlur={e => handleChange(e)}
                 label="Confirm Password"
-                type="password2"
+                type="password"
               />
+              {errors.confirmPassword && (
+                <div className="alert alert-danger">
+                  {errors.confirmPassword}
+                </div>
+              )}
             </Grid>
           </Grid>
           <Button
@@ -141,6 +216,7 @@ export default function SignUp() {
             fullWidth
             variant="contained"
             color="primary"
+            onClick={e => onSubmit(e)}
             className={classes.submit}
           >
             Sign Up
@@ -157,3 +233,23 @@ export default function SignUp() {
     </Container>
   );
 }
+// connect with react-redux
+
+// Map Redux state to component props
+function mapStateToProps(state) {
+  return {
+    isLoggedIn: state.UserReducer.isLoggedIn
+  };
+}
+
+// Map Redux functions to component `props
+function mapDispatchToProps(dispatch) {
+  return {
+    register: payload => dispatch(actionCreators.register(payload))
+  };
+}
+
+//connecting out component with the redux store
+const SignUpContainer = connect(mapStateToProps, mapDispatchToProps)(SignUp);
+
+export default SignUpContainer;

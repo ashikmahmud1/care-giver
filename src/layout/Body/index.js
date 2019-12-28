@@ -1,29 +1,30 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Link from "@material-ui/core/Link";
-import Button from "@material-ui/core/Button";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Link from '@material-ui/core/Link';
+import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
-  "@global": {
+  '@global': {
     body: {
       backgroundColor: theme.palette.common.white
     }
   },
   paper: {
     marginTop: theme.spacing(22),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   margin: {
     margin: theme.spacing(1),
     marginTop: theme.spacing(6)
   },
   margin2: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(3)
   }
 }));
 
@@ -51,7 +52,7 @@ export default function Body() {
         </Grid>
 
         <span className={classes.margin2}>
-          Are you a Caregiver? <Link href="/signup-caregiver">Click here</Link>{" "}
+          Are you a Caregiver? <Link href="/signup-caregiver">Click here</Link>{' '}
           to register/login on Peace of mind
         </span>
       </div>
