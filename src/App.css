@@ -14,7 +14,7 @@
 }
 
 body {
-  font-family: "Open Sans Condensed";
+  font-family: 'Raleway', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: #fff;
@@ -31,8 +31,8 @@ img {
   margin: auto;
   overflow: hidden;
   padding: 0 1rem;
-  margin-top: 2rem;
-  margin-bottom: 0rem;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
 }
 
 /* Forms */
@@ -40,10 +40,10 @@ img {
   margin: 1.2rem 0;
 }
 
-.form input[type="text"],
-.form input[type="email"],
-.form input[type="password"],
-.form input[type="date"],
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'],
+.form input[type='date'],
 .form select,
 .form textarea {
   display: block;
@@ -53,7 +53,7 @@ img {
   border: 1px solid #ccc;
 }
 
-.form input[type="submit"],
+.form input[type='submit'],
 button {
   font: inherit;
 }
@@ -73,10 +73,10 @@ button {
 .profile-grid {
   display: grid;
   grid-template-areas:
-    "top top"
-    "about about"
-    "exp edu"
-    "github github";
+    'top top'
+    'about about'
+    'exp edu'
+    'github github';
   grid-gap: 1rem;
 }
 
@@ -121,7 +121,8 @@ button {
 /* Mobile Styles */
 @media (max-width: 700px) {
   .container {
-    margin-top: 8rem;
+    margin-top: 4rem;
+    overflow: hidden;
   }
 
   /* Profiles Page */

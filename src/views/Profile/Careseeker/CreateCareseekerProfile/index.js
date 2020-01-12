@@ -1,38 +1,39 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
-import PersonIcon from "@material-ui/icons/Person";
-import PhysicalComplicationsInputs from "../../../components/PhysicalComplicationsInput/index";
-import LanguageInput from "../../../components/LanguageInput/index";
+import React from 'react';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
+import PersonIcon from '@material-ui/icons/Person';
+
+import PhysicalComplicationsInputs from '../../../../components/PhysicalComplicationsInput/index';
+import LanguageInput from '../../../../components/LanguageInput/index';
 
 const useStyles = makeStyles(theme => ({
-  "@global": {
+  '@global': {
     body: {
       backgroundColor: theme.palette.common.white
     }
   },
   paper: {
-    marginTop: theme.spacing(12),
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center"
+    marginTop: theme.spacing(3),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3)
   },
   submit: {
@@ -40,13 +41,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function ProfileCareseeker() {
+function CreateCareseekerProfile() {
   const classes = useStyles();
 
   const inputLabel = React.useRef(null);
-  const [languages, setLanguages] = React.useState([{ name: "" }]);
+  const [languages, setLanguages] = React.useState([{ name: '' }]);
   const [physicalComplications, setPhysicalComplications] = React.useState([
-    { name: "" }
+    { name: '' }
   ]);
   const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
@@ -54,7 +55,7 @@ export default function ProfileCareseeker() {
   }, []);
 
   const addLanguageHandler = () => {
-    setLanguages(oldLanguages => [...oldLanguages, { name: "" }]);
+    setLanguages(oldLanguages => [...oldLanguages, { name: '' }]);
   };
   const languageInputHandler = (index, value) => {
     let newLanguages = [...languages];
@@ -65,7 +66,7 @@ export default function ProfileCareseeker() {
   const addPhysicalComplicationsHandler = () => {
     setPhysicalComplications(oldPhysicalComplications => [
       ...oldPhysicalComplications,
-      { name: "" }
+      { name: '' }
     ]);
   };
   const physicalComplicationsInputHandler = (index, value) => {
@@ -77,6 +78,7 @@ export default function ProfileCareseeker() {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
+
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
           <PersonIcon fontSize="large" /> Create Senior's Profile
@@ -105,14 +107,14 @@ export default function ProfileCareseeker() {
                   labelWidth={labelWidth}
                   name="gender"
                   inputProps={{
-                    name: "gender",
-                    id: "gender"
+                    name: 'gender',
+                    id: 'gender'
                   }}
                 >
                   <option value="" />
                   <option value="Male">Male</option>
                   <option value="Female">Female</option>
-                  <option value="Other">Other</option>
+                  <option value="Other gender">Other gender</option>
                 </Select>
               </FormControl>
             </Grid>
@@ -127,7 +129,9 @@ export default function ProfileCareseeker() {
                 autoComplete="age"
                 InputProps={{
                   endAdornment: (
-                    <InputAdornment position="end">Years</InputAdornment>
+                    <InputAdornment position="end">
+                      <b>Years</b>
+                    </InputAdornment>
                   )
                 }}
               />
@@ -165,8 +169,8 @@ export default function ProfileCareseeker() {
                   labelWidth={labelWidth}
                   name="state"
                   inputProps={{
-                    name: "state",
-                    id: "state"
+                    name: 'state',
+                    id: 'state'
                   }}
                 >
                   <option value="" />
@@ -205,11 +209,11 @@ export default function ProfileCareseeker() {
               languageInputHandler={languageInputHandler}
             />
 
-            <Grid item xs={12}>
+            <Grid container item xs={12} justify="center">
               <input
                 accept="image/*"
                 className={classes.input}
-                style={{ display: "none" }}
+                style={{ display: 'none' }}
                 id="raised-button-file"
                 multiple
                 type="file"
@@ -231,10 +235,15 @@ export default function ProfileCareseeker() {
             </Grid>
             <Button
               type="submit"
+              size="large"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+              style={{
+                backgroundColor: 'green',
+                color: 'white'
+              }}
             >
               Submit
             </Button>
@@ -244,3 +253,5 @@ export default function ProfileCareseeker() {
     </Container>
   );
 }
+
+export default CreateCareseekerProfile;

@@ -36,7 +36,7 @@ export default function Body() {
       <div className={classes.paper}>
         <Typography variant="h3">Peace of mind</Typography>
         <Typography variant="h6" className={classes.margin2}>
-          Truly care about your beloved older one
+          <i>truly care about your beloved older one</i>
         </Typography>
         <Grid item>
           <Button
@@ -52,8 +52,8 @@ export default function Body() {
         </Grid>
 
         <span className={classes.margin2}>
-          Are you a Caregiver? <Link href="/signup-caregiver">Click here</Link>{' '}
-          to register/login on Peace of mind
+          Are you a Caregiver? <Link href="/login">Click here</Link> to
+          Login/Register
         </span>
       </div>
     </Container>

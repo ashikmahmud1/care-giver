@@ -1,6 +1,6 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Button, Grid, Divider } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
@@ -12,8 +12,10 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import PersonIcon from '@material-ui/icons/Person';
 
-import './caregiverDetails.css';
+import './caregiverProfile.css';
 
 const defaultProps = {
   bgcolor: 'background.paper',
@@ -21,13 +23,13 @@ const defaultProps = {
   m: 2,
   border: 1,
   align: 'center',
-  style: { width: '74rem', height: '64rem' }
+  style: { width: '74rem', height: '55rem' }
 };
 
 const StyledTableCell = withStyles(theme => ({
   head: {
     backgroundColor: theme.palette.common.default,
-    color: theme.palette.common.black
+    color: theme.palette.common.grey
   },
   body: {
     fontSize: 14
@@ -89,7 +91,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const CaregiverDetails = () => {
+const CaregiverProfile = () => {
   const [value, setValue] = React.useState(4);
 
   const classes = useStyles();
@@ -99,6 +101,33 @@ const CaregiverDetails = () => {
       <CssBaseline />
 
       <div className="section">
+        <Typography variant="h5">
+          <PersonIcon size="2em" fontSize="inherit" />
+          Welcome, Madman Sadman
+        </Typography>
+        <Grid item>
+          <div className={classes.section3}>
+            <ButtonGroup
+              variant="contained"
+              color="secondary"
+              className={classes.margin1}
+              aria-label="contained primary button group"
+            >
+              <Button size="medium" href="/create-careseeker-profile">
+                Create Profile
+              </Button>
+              <Button size="medium" href="#contained-buttons">
+                Edit Profile
+              </Button>
+              <Button size="medium" href="#contained-buttons">
+                Change Password
+              </Button>
+              <Button size="medium" href="#contained-buttons">
+                My Bookings
+              </Button>
+            </ButtonGroup>
+          </div>
+        </Grid>
         <Box display="flex" boxShadow={0}>
           <Box
             borderRadius="borderRadius"
@@ -109,7 +138,7 @@ const CaregiverDetails = () => {
             <Grid item xs={12}>
               <div className={classes.margin}>
                 <Grid item className="img-round">
-                  <img src={require('../../../img/man.jpg')} alt="dp" />
+                  <img src={require('../../../../img/man.jpg')} alt="dp" />
                 </Grid>
               </div>
               <Grid>
@@ -223,35 +252,6 @@ const CaregiverDetails = () => {
                 </div>
               </Grid>
             </Grid>
-
-            <Grid item>
-              <div className={classes.section3}>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  href="#contained-buttons"
-                  className={classes.margin}
-                >
-                  Hire Now
-                </Button>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  href="#contained-buttons"
-                  className={classes.margin}
-                >
-                  Setup an Interview
-                </Button>
-                <Button
-                  variant="contained"
-                  color="default"
-                  href="/caregiver-profiles"
-                  className={classes.margin}
-                >
-                  Go Back
-                </Button>
-              </div>
-            </Grid>
           </Box>
         </Box>
       </div>
@@ -259,4 +259,4 @@ const CaregiverDetails = () => {
   );
 };
 
-export default CaregiverDetails;
+export default CaregiverProfile;

@@ -57,6 +57,18 @@ export default function Help() {
         Sit qui irure eiusmod deserunt do. Ea officia deserunt excepteur
         excepteur anim proident duis tempor laboris magna ut consequat.
       </p>
+      <p>
+        Incididunt veniam sit Lorem sint laboris et eiusmod culpa qui velit duis
+        nostrud est veniam. Ad do velit exercitation nulla irure. Ea adipisicing
+        et amet eu dolor aliquip. Enim nostrud dolor eu excepteur dolor do
+        proident nulla irure. Enim laborum ea adipisicing elit ad ad officia in
+        et est pariatur. Est eu laboris esse incididunt ea pariatur id in esse
+        laborum labore. Eiusmod qui nulla cillum quis Lorem est minim. Irure
+        quis laborum duis voluptate. Id dolor ut culpa ut est in anim qui.
+        Cupidatat excepteur voluptate et mollit veniam deserunt aliquip amet.
+        Sit qui irure eiusmod deserunt do. Ea officia deserunt excepteur
+        excepteur anim proident duis tempor laboris magna ut consequat.
+      </p>
     </Container>
   );
 }

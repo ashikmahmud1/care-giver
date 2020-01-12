@@ -1,25 +1,25 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import FormLabel from "@material-ui/core/FormLabel";
-import FormControl from "@material-ui/core/FormControl";
-import FormGroup from "@material-ui/core/FormGroup";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import CheckBoxSharpIcon from "@material-ui/icons/CheckBoxSharp";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import CheckBoxSharpIcon from '@material-ui/icons/CheckBoxSharp';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    display: 'flex'
   },
   formControl: {
     margin: theme.spacing(3)
   }
 }));
 
-export default function CaregiverSkills() {
+function CaregiverSkills() {
   const classes = useStyles();
 
   const [state, setState] = React.useState({
@@ -35,7 +35,8 @@ export default function CaregiverSkills() {
     palliativeCare: false,
     liveInOutCare: false,
     retirementHomecare: false,
-    nutritionalCounseling: false
+    nutritionalCounseling: false,
+    transportationFacility: false
   });
 
   const {
@@ -51,7 +52,8 @@ export default function CaregiverSkills() {
     palliativeCare,
     liveInOutCare,
     retirementHomecare,
-    nutritionalCounseling
+    nutritionalCounseling,
+    transportationFacility
   } = state;
 
   const handleChange = name => event => {
@@ -74,7 +76,7 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={medicalSupervision}
-                  onChange={handleChange("medicalSupervision")}
+                  onChange={handleChange('medicalSupervision')}
                   value="medicalSupervision"
                 />
               }
@@ -84,7 +86,7 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={personalAssistanceBathingDressing}
-                  onChange={handleChange("personalAssistanceBathingDressing")}
+                  onChange={handleChange('personalAssistanceBathingDressing')}
                   value="personalAssistanceBathingDressing"
                 />
               }
@@ -94,7 +96,7 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={rNRPNSupervisedCare}
-                  onChange={handleChange("rNRPNSupervisedCare")}
+                  onChange={handleChange('rNRPNSupervisedCare')}
                   value="rNRPNSupervisedCare"
                 />
               }
@@ -104,7 +106,7 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={specializeInPerkinsonDementia}
-                  onChange={handleChange("specializeInPerkinsonDementia")}
+                  onChange={handleChange('specializeInPerkinsonDementia')}
                   value="specializeInPerkinsonDementia"
                 />
               }
@@ -114,7 +116,7 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={specializeInAlzheimer}
-                  onChange={handleChange("specializeInAlzheimer")}
+                  onChange={handleChange('specializeInAlzheimer')}
                   value="specializeInAlzheimer"
                 />
               }
@@ -124,7 +126,7 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={homeIndividualSafetyAssesment}
-                  onChange={handleChange("homeIndividualSafetyAssesment")}
+                  onChange={handleChange('homeIndividualSafetyAssesment')}
                   value="homeIndividualSafetyAssesment"
                 />
               }
@@ -134,7 +136,7 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={lightHousekeeping}
-                  onChange={handleChange("lightHousekeeping")}
+                  onChange={handleChange('lightHousekeeping')}
                   value="lightHousekeeping"
                 />
               }
@@ -144,7 +146,7 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={escortingToAppointmentsOrShopin}
-                  onChange={handleChange("escortingToAppointmentsOrShopin")}
+                  onChange={handleChange('escortingToAppointmentsOrShopin')}
                   value="escortingToAppointmentsOrShopin"
                 />
               }
@@ -154,7 +156,7 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={joyfulCompanionship}
-                  onChange={handleChange("joyfulCompanionship")}
+                  onChange={handleChange('joyfulCompanionship')}
                   value="joyfulCompanionship"
                 />
               }
@@ -164,7 +166,7 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={palliativeCare}
-                  onChange={handleChange("palliativeCare")}
+                  onChange={handleChange('palliativeCare')}
                   value="palliativeCare"
                 />
               }
@@ -174,7 +176,7 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={liveInOutCare}
-                  onChange={handleChange("liveInOutCare")}
+                  onChange={handleChange('liveInOutCare')}
                   value="liveInOutCare"
                 />
               }
@@ -184,7 +186,7 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={retirementHomecare}
-                  onChange={handleChange("retirementHomecare")}
+                  onChange={handleChange('retirementHomecare')}
                   value="retirementHomecare"
                 />
               }
@@ -194,11 +196,21 @@ export default function CaregiverSkills() {
               control={
                 <Checkbox
                   checked={nutritionalCounseling}
-                  onChange={handleChange("nutritionalCounseling")}
+                  onChange={handleChange('nutritionalCounseling')}
                   value="nutritionalCounseling"
                 />
               }
               label="Nutritional Counseling"
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={transportationFacility}
+                  onChange={handleChange('transportationFacility')}
+                  value="transportationFacility"
+                />
+              }
+              label="Transportation Facility"
             />
           </FormGroup>
         </FormControl>
@@ -206,3 +218,5 @@ export default function CaregiverSkills() {
     </Container>
   );
 }
+
+export default CaregiverSkills;

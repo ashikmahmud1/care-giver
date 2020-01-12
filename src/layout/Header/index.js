@@ -47,6 +47,7 @@ const Header = props => {
             Peace of mind
           </IconButton>
           <Typography variant="h6" className={classes.title}></Typography>
+
           <Button color="inherit" href="/">
             Home
           </Button>

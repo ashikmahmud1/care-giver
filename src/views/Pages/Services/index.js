@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper
   },
   paper: {
-    marginTop: theme.spacing(6),
+    marginTop: theme.spacing(8),
     marginBottom: theme.spacing(2),
     display: 'flex',
     flexDirection: 'column',
@@ -28,11 +28,17 @@ export default function Services() {
   return (
     <React.Fragment>
       <CssBaseline />
+
       <Container component="main" fixed>
         <div className={classes.paper}>
           <Typography variant="h4">Our Services</Typography>
         </div>
-        <List component="nav" className={classes.root} aria-label="services">
+        <List
+          component="nav"
+          className={classes.root}
+          aria-label="services"
+          justify="center"
+        >
           <ListItem button>
             <ListItemText inset primary="Medical Supervision" />
           </ListItem>

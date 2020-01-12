@@ -1,11 +1,21 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
-import Tooltip from "@material-ui/core/Tooltip";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Grid } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
+import Tooltip from '@material-ui/core/Tooltip';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+
+const useStyles = makeStyles(() => ({
+  formControl: {
+    width: 380,
+    minWidth: 120
+  }
+}));
 
 const PhysicalComplicationsInputs = props => {
+  const classes2 = useStyles();
+
   const {
     physicalComplications,
     classes,
@@ -15,12 +25,12 @@ const PhysicalComplicationsInputs = props => {
   return physicalComplications.map((val, index) => {
     return (
       <Grid item xs={12}>
-        <div style={{ display: "inline-flex" }}>
+        <div style={{ display: 'inline-flex' }}>
           <div>
             <TextField
               variant="outlined"
-              required
               fullWidth
+              className={classes2.formControl}
               id="physicalComplications"
               label="Physical Complications"
               name="physicalComplications"
@@ -31,10 +41,10 @@ const PhysicalComplicationsInputs = props => {
               }
             />
             <small>
-              Click the button if Physical Complications are more to add
+              Click the (+) button if Physical Complications are more to add
             </small>
           </div>
-          <div style={{ alignSelf: "center" }}>
+          <div style={{ alignSelf: 'right' }}>
             <Tooltip
               title="Add more"
               aria-label="add"

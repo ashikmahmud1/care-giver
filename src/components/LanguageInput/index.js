@@ -1,11 +1,21 @@
-import React from "react";
-import TextField from "@material-ui/core/TextField";
-import Tooltip from "@material-ui/core/Tooltip";
-import Fab from "@material-ui/core/Fab";
-import AddIcon from "@material-ui/icons/Add";
-import { Grid } from "@material-ui/core";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Tooltip from '@material-ui/core/Tooltip';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import { Grid } from '@material-ui/core';
+
+const useStyles = makeStyles(theme => ({
+  formControl: {
+    width: 380,
+    minWidth: 120
+  }
+}));
 
 const LanguageInputs = props => {
+  const classes2 = useStyles();
+
   const {
     languages,
     classes,
@@ -14,13 +24,13 @@ const LanguageInputs = props => {
   } = props;
   return languages.map((val, index) => {
     return (
-      <Grid item xs={12}>
-        <div style={{ display: "inline-flex" }}>
+      <Grid item>
+        <div style={{ display: 'inline-flex' }}>
           <div>
             <TextField
               variant="outlined"
-              required
               fullWidth
+              className={classes2.formControl}
               id="languages"
               label="Languages"
               name="languages"
@@ -29,10 +39,10 @@ const LanguageInputs = props => {
               onChange={evt => languageInputHandler(index, evt.target.value)}
             />
             <small>
-              Click the button if Speaking Languages are more to add
+              Click the (+) button if speaking language is more to add
             </small>
           </div>
-          <div style={{ alignSelf: "center" }}>
+          <div style={{ alignSelf: 'right' }}>
             <Tooltip
               title="Add more"
               aria-label="add"

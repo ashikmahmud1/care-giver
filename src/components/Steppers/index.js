@@ -1,21 +1,21 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
-import CaregiverPersonalDetails from "../ProfileViews/CaregiverPersonalDetails/index";
-import CaregiverEduAndCertification from "../ProfileViews/CaregiverEduAndCertification/index";
-import CaregiverSkills from "../ProfileViews/CaregiverSkills/index";
+import CaregiverPersonalDetails from '../ProfileViews/CaregiverPersonalDetails/index';
+import CaregiverEduAndCertification from '../ProfileViews/CaregiverEduAndCertification/index';
+import CaregiverSkills from '../ProfileViews/CaregiverSkills/index';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "100%"
+    width: '100%'
   },
   button: {
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(2)
   },
   instructions: {
     marginTop: theme.spacing(1),
@@ -25,8 +25,8 @@ const useStyles = makeStyles(theme => ({
 
 function getSteps() {
   return [
-    "Add Personal Details",
-    "Add Services and Skills",
+    'Add Personal Details',
+    'Add Services and Skills',
     "Add Educational and Professional Certification Information's"
   ];
 }
@@ -40,7 +40,7 @@ function getStepContent(step) {
     case 2:
       return <CaregiverEduAndCertification />;
     default:
-      return "Unknown step";
+      return 'Unknown step';
   }
 }
 
@@ -149,7 +149,7 @@ export default function HorizontalLinearStepper() {
                 onClick={handleNext}
                 className={classes.button}
               >
-                {activeStep === steps.length - 1 ? "Finish" : "Next"}
+                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
             </div>
           </div>

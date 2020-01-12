@@ -199,7 +199,7 @@ function LogIn(props) {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link href="/forgot-password" variant="body2">
                 Forgot password?
               </Link>
             </Grid>

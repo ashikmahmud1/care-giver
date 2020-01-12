@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema(
     // photo: String,
     role: {
       type: String,
-      enum: ['caregiver', 'careseeker', 'admin'],
+      enum: ['caregiver', 'careseeker', 'admin']
     },
     password: {
       type: String,
@@ -51,72 +51,57 @@ const userSchema = new mongoose.Schema(
       select: false
     },
     gender: {
-      type: String
+      type: String,
+      required: [false, 'Please specify gender!']
     },
     age: {
-      type: Number
+      type: Number,
+      required: [false, 'Please specify age!']
     },
     languages: {
-      type: String
+      type: [String],
+      required: [false, 'Please specify all languages you speak!']
     },
     address: {
-      type: String
+      type: String,
+      required: [false, 'Please give us your address!']
     },
     city: {
-      type: String
+      type: String,
+      required: [false, 'Please give us your city name!']
     },
     state: {
-      type: String
+      type: String,
+      required: [false, 'Please give us your state name!']
     },
     zip: {
-      type: String
+      type: String,
+      required: [false, 'Please give us your zip code!']
     },
     hourlyWage: {
-      type: Number
+      type: Number,
+      required: [false, 'Please specify your hourly wage!']
     },
     yearsOfExperience: {
-      type: Number
-    },
-    transportation: {
-      type: Boolean
+      type: Number,
+      required: [false, 'Please specify your years of experience!']
     },
     phone: {
-      type: Number
+      type: Number,
+      required: [false, 'Please give us your phone number!']
     },
     image: {
-      type: String
+      type: String,
+      required: [false, 'Please set an image!']
     },
     seniorName: {
-      type: String
+      type: String,
+      required: [false, 'Please tell us your senior name!']
     },
     physicalComplications: [String],
     skills: [String],
-    education: [
-      {
-        school: {
-          type: String
-        },
-        fieldOfStudy: {
-          type: String
-        },
-        degree: {
-          type: String
-        }
-      }
-    ],
-    certification: [
-      {
-        institution: {
-          type: String
-        },
-        fieldOfStudy: {
-          type: String
-        },
-        certificationOn: {
-          type: String
-        }
-      }
-    ]
+    education: [String],
+    certification: [String]
   },
   {
     toJSON: { virtuals: true },
