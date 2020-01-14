@@ -109,17 +109,17 @@ const CaregiverProfile = () => {
           <div className={classes.section3}>
             <ButtonGroup
               variant="contained"
-              color="secondary"
+              style={{ backgroundColor: 'teal', color: 'white' }}
               className={classes.margin1}
               aria-label="contained primary button group"
             >
               <Button size="medium" href="/create-careseeker-profile">
                 Create Profile
               </Button>
-              <Button size="medium" href="#contained-buttons">
+              <Button size="medium" href="/edit-careseeker-profile">
                 Edit Profile
               </Button>
-              <Button size="medium" href="#contained-buttons">
+              <Button size="medium" href="/reset-password">
                 Change Password
               </Button>
               <Button size="medium" href="#contained-buttons">
@@ -146,7 +146,10 @@ const CaregiverProfile = () => {
                   <Typography variant="h5">Madman Sadman</Typography>
                   <div className={classes.margin1}>
                     <Rating name="read-only" value={value} readOnly />
-                    <VerifiedUserIcon color="secondary" fontSize="large" />
+                    <VerifiedUserIcon
+                      style={{ color: 'green' }}
+                      fontSize="large"
+                    />
                   </div>
                 </Grid>
 
@@ -156,7 +159,15 @@ const CaregiverProfile = () => {
                       <b>Gender:</b> Male,
                     </span>{' '}
                     <span>
+                      <b>Experience:</b> 3.5 years
+                    </span>
+                  </Grid>
+                  <Grid>
+                    <span>
                       <b>Location:</b> Toronto
+                    </span>{' '}
+                    <span>
+                      <b>Zip:</b> Bla bla
                     </span>
                   </Grid>
                   <Grid>
@@ -164,15 +175,12 @@ const CaregiverProfile = () => {
                       <b>Horly Wage:</b> $15,
                     </span>{' '}
                     <span>
-                      <b>Experience:</b> 3.5 years
+                      <b>Transportation Facility:</b> Yes,
                     </span>
                   </Grid>
                   <Grid>
                     <span>
-                      <b>Transportation Facility:</b> Yes,
-                    </span>{' '}
-                    <span>
-                      <b>Skills:</b> Bla, Bla, Bla
+                      <b>Skills:</b> Bla, Bla, bla
                     </span>
                   </Grid>
                 </div>

@@ -24,6 +24,9 @@ import Faqs from '../src/views/Pages/Faqs';
 import TermsOfUse from '../src/views/Pages/TermsOfUse';
 import Help from '../src/views/Pages/Help';
 import Privacy from '../src/views/Pages/Privacy';
+import SearchByGender from './views/SearchCaregiver/Gender';
+import SearchByExperience from './views/SearchCaregiver/Experience';
+import SearchByLocation from './views/SearchCaregiver/Location';
 
 function App() {
   return (
@@ -57,6 +60,21 @@ function App() {
                 exact
                 path="/create-caregiver-profile"
                 component={CreateCaregiverProfile}
+              />
+              <Route
+                exact
+                path="/search-by-gender"
+                component={SearchByGender}
+              />
+              <Route
+                exact
+                path="/search-by-experience"
+                component={SearchByExperience}
+              />
+              <Route
+                exact
+                path="/search-by-location"
+                component={SearchByLocation}
               />
               <Route
                 exact

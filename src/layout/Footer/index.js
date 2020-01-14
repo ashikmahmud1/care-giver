@@ -19,10 +19,14 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.default
   },
   paper: {
-    marginTop: theme.spacing(12),
+    marginTop: theme.spacing(10),
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'light'
+  },
+  margin: {
+    margin: theme.spacing(1, 1, 1)
   }
 }));
 
@@ -30,130 +34,143 @@ export default function Footer() {
   const classes = useStyles();
 
   return (
-    <Container>
-      <div className={classes.body} style={{ backgroundColor: 'secondary' }}>
-        <div className={classes.paper}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={3}>
-              <Grid
-                container
-                spacing={1}
-                direction="column"
-                alignItems="center"
-              >
-                <Grid item>
-                  <h3>Cities we covered</h3>
-                  <Divider />
-                </Grid>
-                <span>Toronto</span>
-                <span>Montreal</span>
-                <span>Vancuvour</span>
-              </Grid>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <Grid
-                container
-                spacing={2}
-                direction="column"
-                alignItems="center"
-              >
-                <Grid item>
-                  <h3>Contact</h3>
-                  <Divider />
-                </Grid>
-                <span>
-                  <HomeIcon fontSize="small" /> Toronto, ON M5V 1J2, Canada
-                </span>
-                <span>
-                  <EmailIcon fontSize="small" /> info@peaceofmind.com
-                </span>
-                <span>
-                  <CallIcon fontSize="small" /> + 01 234 567 88
-                </span>
-              </Grid>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <Grid
-                container
-                spacing={1}
-                direction="column"
-                alignItems="center"
-              >
-                <Grid item>
-                  <h3>About</h3>
-                  <Divider />
-                </Grid>
-                <span>
-                  <Link href="/privacy">Privacy Policy</Link>
-                </span>
-                <span>
-                  <Link href="/terms-of-use">Terms Of Use</Link>
-                </span>
-                <span>
-                  <Link href="/faqs">FAQs</Link>
-                </span>
-                <span>
-                  <Link href="/help">Help</Link>
-                </span>
-              </Grid>
-            </Grid>
-            <Grid item xs={12} md={3}>
-              <Grid
-                container
-                spacing={1}
-                direction="column"
-                alignItems="center"
-              >
-                <Grid item>
-                  <img
-                    className="app"
-                    src={require('../../img/googlePlay.png')}
-                    title="Install the app from Playstore"
-                    alt="googlePlayStore"
-                  />
-                </Grid>
-                <Grid item>
-                  <img
-                    src={require('../../img/appStore.png')}
-                    title="Download the app from App Store"
-                    alt="appleStore"
-                  />
+    <React.Fragment>
+      <Container>
+        <div className={classes.body}>
+          <div className={classes.paper}>
+            <Grid container spacing={1}>
+              <Grid item xs={12} md={3}>
+                <Grid
+                  container
+                  spacing={1}
+                  direction="column"
+                  alignItems="center"
+                >
+                  <Grid item>
+                    <h3>Cities we covered</h3>
+                    <Divider />
+                  </Grid>
+                  <span>Toronto</span>
+                  <span>Montreal</span>
+                  <span>Vancuvour</span>
                 </Grid>
               </Grid>
-            </Grid>
-            <Grid item xs={12}>
-              <Grid
-                container
-                spacing={1}
-                direction="column"
-                alignItems="center"
-              >
-                <div>
-                  <FacebookIcon fontSize="large" />
-                  <InstagramIcon fontSize="large" />
-                  <LinkedInIcon fontSize="large" />
-                  <TwitterIcon fontSize="large" />
-                  <PinterestIcon fontSize="large" />
-                  <RedditIcon fontSize="large" />
-                </div>
+              <Grid item xs={12} md={3}>
+                <Grid
+                  container
+                  spacing={2}
+                  direction="column"
+                  alignItems="center"
+                >
+                  <Grid item>
+                    <h3>Contact</h3>
+                    <Divider />
+                  </Grid>
+                  <span>
+                    <HomeIcon fontSize="small" /> Toronto, ON M5V 1J2, Canada
+                  </span>
+                  <span>
+                    <EmailIcon fontSize="small" /> info@peaceofmind.com
+                  </span>
+                  <span>
+                    <CallIcon fontSize="small" /> + 01 234 567 88
+                  </span>
+                </Grid>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <Grid
+                  container
+                  spacing={1}
+                  direction="column"
+                  alignItems="center"
+                >
+                  <Grid item>
+                    <h3>About</h3>
+                    <Divider />
+                  </Grid>
+                  <span>
+                    <Link href="/privacy" style={{ color: 'purple' }}>
+                      Privacy Policy
+                    </Link>
+                  </span>
+                  <span>
+                    <Link href="/terms-of-use" style={{ color: 'purple' }}>
+                      Terms Of Use
+                    </Link>
+                  </span>
+                  <span>
+                    <Link href="/faqs" style={{ color: 'purple' }}>
+                      FAQs
+                    </Link>
+                  </span>
+                  <span>
+                    <Link href="/help" style={{ color: 'purple' }}>
+                      Help
+                    </Link>
+                  </span>
+                </Grid>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <Grid
+                  container
+                  spacing={1}
+                  direction="column"
+                  alignItems="center"
+                >
+                  <Grid item>
+                    <img
+                      className="app"
+                      src={require('../../img/googlePlay.png')}
+                      title="Install the app from Playstore"
+                      alt="googlePlayStore"
+                    />
+                  </Grid>
+                  <Grid item>
+                    <img
+                      src={require('../../img/appStore.png')}
+                      title="Download the app from App Store"
+                      alt="appleStore"
+                    />
+                  </Grid>
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid
+                  container
+                  spacing={1}
+                  direction="column"
+                  alignItems="center"
+                >
+                  <div className={classes.margin}>
+                    <FacebookIcon
+                      fontSize="large"
+                      href="http://www.facebook.com"
+                    />
+                    <InstagramIcon fontSize="large" />
+                    <LinkedInIcon fontSize="large" />
+                    <TwitterIcon fontSize="large" />
+                    <PinterestIcon fontSize="large" />
+                    <RedditIcon fontSize="large" />
+                  </div>
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid
+                  container
+                  spacing={1}
+                  direction="column"
+                  alignItems="center"
+                >
+                  <div className="footer-copyright">
+                    &copy; {new Date().getFullYear()} Copyright:
+                    {' Peace of mind '}
+                  </div>
+                </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <Grid
-                container
-                spacing={1}
-                direction="column"
-                alignItems="center"
-              >
-                <div className="footer-copyright">
-                  &copy; {new Date().getFullYear()} Copyright:
-                  {' Peace of mind '}
-                </div>
-              </Grid>
-            </Grid>
-          </Grid>
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </React.Fragment>
   );
 }

@@ -5,6 +5,9 @@
   width: 250px;
   background-color: #9747b7 !important;
 }
+/* .img {
+  size: 100px;
+} */
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .footer {

@@ -1,8 +1,6 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Button, Grid } from '@material-ui/core';
-import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
-import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
@@ -66,17 +64,17 @@ const CareseekerProfile = () => {
           <div className={classes.section3}>
             <ButtonGroup
               variant="contained"
-              color="secondary"
+              style={{ color: 'blue' }}
               className={classes.margin1}
               aria-label="contained primary button group"
             >
               <Button size="medium" href="/create-careseeker-profile">
                 Create Profile
               </Button>
-              <Button size="medium" href="#contained-buttons">
+              <Button size="medium" href="/edit-careseeker-profile">
                 Edit Profile
               </Button>
-              <Button size="medium" href="#contained-buttons">
+              <Button size="medium" href="reset-password">
                 Change Password
               </Button>
               <Button size="medium" href="#contained-buttons">

@@ -42,18 +42,22 @@ export default function Body() {
           <Button
             variant="contained"
             size="large"
-            color="primary"
-            href="/caregiver-profiles"
+            href="/search-by-gender"
             className={classes.margin}
             aria-label="large contained primary button"
+            style={{ backgroundColor: 'teal', color: 'white' }}
+            fullWidth
           >
             I'm a Care Seeker
           </Button>
         </Grid>
 
         <span className={classes.margin2}>
-          Are you a Caregiver? <Link href="/login">Click here</Link> to
-          Login/Register
+          Are you a Caregiver?{' '}
+          <Link href="/login" style={{ color: 'purple' }}>
+            Click here
+          </Link>{' '}
+          to Login/Register
         </span>
       </div>
     </Container>

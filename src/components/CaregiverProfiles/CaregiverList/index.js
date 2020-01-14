@@ -45,12 +45,12 @@ const CaregiverList = () => {
             </span>
             <Grid>
               <Rating name="read-only" value={value} readOnly />
-              <VerifiedUserIcon color="green" fontSize="large" />
+              <VerifiedUserIcon style={{ color: 'green' }} fontSize="large" />
             </Grid>
             <Grid>
               <Button
                 variant="contained"
-                color="secondary"
+                style={{ backgroundColor: 'teal', color: 'white' }}
                 href="/caregiver-profile/id"
               >
                 View Full Profile

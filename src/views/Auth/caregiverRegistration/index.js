@@ -215,7 +215,8 @@ function SignUp(props) {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="secondary"
+            size="large"
             onClick={e => onSubmit(e)}
             className={classes.submit}
           >

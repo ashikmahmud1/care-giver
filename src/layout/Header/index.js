@@ -34,7 +34,7 @@ const Header = props => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="absolute" color="primary">
+      <AppBar position="absolute" style={{ backgroundColor: 'teal' }}>
         <Toolbar>
           <IconButton
             edge="start"

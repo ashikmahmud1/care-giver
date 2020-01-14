@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     }
   },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(6),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(1)
   },
   submit: {
@@ -58,8 +58,8 @@ function LogIn(props) {
   const classes = useStyles();
 
   const [form, setForm] = React.useState({
-    password: '',
-    email: ''
+    email: '',
+    password: ''
   });
   const [showPassword, setShowPassword] = useState(false);
 
@@ -76,6 +76,7 @@ function LogIn(props) {
       .required()
       .label('Password')
   };
+
   const handleChange = ({ currentTarget: input }) => {
     let new_errors = checkError(input, errors, schema);
     if (new_errors) setErrors(new_errors);
@@ -114,7 +115,7 @@ function LogIn(props) {
     if (props.isLoggedIn) {
       props.history.push('/');
     }
-  }, [props.isLoggedIn]);
+  }, [props.history, props.isLoggedIn]);
 
   //Redirect if logged in
 
@@ -192,19 +193,26 @@ function LogIn(props) {
             fullWidth
             variant="contained"
             color="primary"
+            size="large"
             onClick={e => onSubmit(e)}
             className={classes.submit}
+            style={{ backgroundColor: 'teal', color: 'white' }}
           >
             Sign In
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="/forgot-password" variant="body2">
+              <Link href="/forgot-password" variant="body2" color="textPrimary">
                 Forgot password?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="/signup-careseeker" variant="body2">
+              <Link
+                href="/signup-careseeker"
+                variant="body2"
+                color="textPrimary"
+              >
+                {/* Login page must be for 2 sides, because one should be for careseeker and other should be for caregiver */}
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

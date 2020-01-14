@@ -1,6 +1,6 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { Button, Grid, Divider } from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
@@ -117,7 +117,10 @@ const CaregiverDetails = () => {
                   <Typography variant="h5">Madman Sadman</Typography>
                   <div className={classes.margin1}>
                     <Rating name="read-only" value={value} readOnly />
-                    <VerifiedUserIcon color="secondary" fontSize="large" />
+                    <VerifiedUserIcon
+                      style={{ color: 'green' }}
+                      fontSize="large"
+                    />
                   </div>
                 </Grid>
 
@@ -127,7 +130,15 @@ const CaregiverDetails = () => {
                       <b>Gender:</b> Male,
                     </span>{' '}
                     <span>
+                      <b>Experience:</b> 3.5 years
+                    </span>
+                  </Grid>
+                  <Grid>
+                    <span>
                       <b>Location:</b> Toronto
+                    </span>{' '}
+                    <span>
+                      <b>Zip:</b> Bla bla
                     </span>
                   </Grid>
                   <Grid>
@@ -135,15 +146,12 @@ const CaregiverDetails = () => {
                       <b>Horly Wage:</b> $15,
                     </span>{' '}
                     <span>
-                      <b>Experience:</b> 3.5 years
+                      <b>Transportation Facility:</b> Yes,
                     </span>
                   </Grid>
                   <Grid>
                     <span>
-                      <b>Transportation Facility:</b> Yes,
-                    </span>{' '}
-                    <span>
-                      <b>Skills:</b> Bla, Bla, Bla
+                      <b>Skills:</b> Bla, Bla, bla
                     </span>
                   </Grid>
                 </div>
@@ -236,7 +244,7 @@ const CaregiverDetails = () => {
                 </Button>
                 <Button
                   variant="contained"
-                  color="primary"
+                  style={{ backgroundColor: 'teal', color: 'white' }}
                   href="#contained-buttons"
                   className={classes.margin}
                 >

@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function ResetPassword() {
+function SearchByLocation() {
   const classes = useStyles();
 
   return (
@@ -54,7 +54,7 @@ function ResetPassword() {
       <Card className={classes.card}>
         <div className={classes.paper}>
           <Typography component="h1" variant="h6">
-            Reset your password
+            Please tell us your location
           </Typography>
           <Divider />
 
@@ -65,20 +65,10 @@ function ResetPassword() {
                   variant="outlined"
                   margin="normal"
                   fullWidth
-                  id="newPassword"
-                  label="New Password"
-                  name="newPassword"
-                  autoComplete="newPassword"
-                  autoFocus
-                />
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  fullWidth
-                  id="confirmNewPassword"
-                  label="Confirm New Password"
-                  name="confirmNewPassword"
-                  autoComplete="confirmNewPassword"
+                  id="zip"
+                  label="Zip"
+                  name="zip"
+                  autoComplete="zip"
                   autoFocus
                 />
               </Grid>
@@ -94,16 +84,9 @@ function ResetPassword() {
                     color: 'white'
                   }}
                   className={classes.submit}
+                  href="/caregiver-profiles"
                 >
-                  Submit
-                </Button>
-                <Button
-                  variant="contained"
-                  color="default"
-                  className={classes.margin}
-                  href="/login"
-                >
-                  Cancel
+                  Next
                 </Button>
               </div>
             </Grid>
@@ -114,4 +97,4 @@ function ResetPassword() {
   );
 }
 
-export default ResetPassword;
+export default SearchByLocation;
