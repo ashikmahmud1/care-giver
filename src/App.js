@@ -7,17 +7,17 @@ import './App.css';
 import Body from '../src/layout/Body/index';
 import Header from '../src/layout/Header/index';
 import Footer from '../src/layout/Footer/index';
-import SignUp from '../src/views/Auth/caregiverRegistration/index';
-import SignUp2 from '../src/views/Auth/careseekerRegistration/index';
-import LogIn from '../src/views/Auth/login';
+import SignUp from '../src/views/Auth/CaregiverRegistration/index';
+import SignUp2 from '../src/views/Auth/CareseekerRegistration/index';
+import Login from '../src/views/Auth/Login/index';
 import CareseekerProfile from '../src/views/Profile/Careseeker/CareseekerProfile/index';
 import CreateCareseekerProfile from '../src/views/Profile/Careseeker/CreateCareseekerProfile/index';
-import CaregiverProfile from './views/Profile/Caregiver/CaregiverProfile';
+import CaregiverProfile from './views/Profile/Caregiver/CaregiverProfile/index';
 import CreateCaregiverProfile from './views/Profile/Caregiver/CreateCaregiverProfile/index';
 import CaregiverAllProfiles from '../src/views/Profile/CaregiverAllProfiles/index';
 import CaregiverDetails from '../src/components/CaregiverProfiles/CaregiverDetails/index';
-import ForgotPassword from './views/Pages/Password/ForgotPassword';
-import ResetPassword from './views/Pages/Password/ResetPassword';
+import ForgotPassword from './views/Pages/Password/ForgotPassword/index';
+import ResetPassword from './views/Pages/Password/ResetPassword/index';
 //Pages
 import Services from './views/Pages/Services';
 import Faqs from '../src/views/Pages/Faqs';
@@ -37,7 +37,7 @@ function App() {
           <Route exact path="/" component={Body} />
           <Container className="container">
             <Switch>
-              <Route exact path="/login" component={LogIn} />
+              <Route exact path="/login" component={Login} />
               <Route exact path="/signup-caregiver" component={SignUp} />
               <Route exact path="/signup-careseeker" component={SignUp2} />
               <Route

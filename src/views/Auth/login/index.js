@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import Avatar from '@material-ui/core/Avatar';
+//import Avatar from './node_modules/@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -54,7 +55,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function LogIn(props) {
+function Login(props) {
   const classes = useStyles();
 
   const [form, setForm] = React.useState({
@@ -113,7 +114,7 @@ function LogIn(props) {
   useEffect(() => {
     // check if the props.isLoggedIn then redirect to somewhere else
     if (props.isLoggedIn) {
-      props.history.push('/');
+      props.history.push('/caregiver-profile'); //Need another login option for careseeker
     }
   }, [props.history, props.isLoggedIn]);
 
@@ -122,6 +123,7 @@ function LogIn(props) {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
+
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -240,6 +242,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 //connecting out component with the redux store
-const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(LogIn);
+const LoginContainer = connect(mapStateToProps, mapDispatchToProps)(Login);
 
 export default LoginContainer;

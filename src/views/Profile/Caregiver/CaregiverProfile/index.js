@@ -23,7 +23,7 @@ const defaultProps = {
   m: 2,
   border: 1,
   align: 'center',
-  style: { width: '74rem', height: '55rem' }
+  style: { width: '74rem', height: '65rem' }
 };
 
 const StyledTableCell = withStyles(theme => ({
@@ -142,123 +142,117 @@ const CaregiverProfile = () => {
                 </Grid>
               </div>
               <Grid>
-                <Grid>
-                  <Typography variant="h5">Madman Sadman</Typography>
-                  <div className={classes.margin1}>
-                    <Rating name="read-only" value={value} readOnly />
-                    <VerifiedUserIcon
-                      style={{ color: 'green' }}
-                      fontSize="large"
-                    />
-                  </div>
+                <Typography variant="h4" style={{ color: 'teal' }}>
+                  Madman Sadman
+                </Typography>
+                <div className={classes.margin1}>
+                  <Rating name="read-only" value={value} readOnly />
+                  <VerifiedUserIcon
+                    style={{ color: 'green' }}
+                    fontSize="large"
+                  />
+                </div>
+              </Grid>
+
+              <div className={classes.margin}>
+                <Grid item xs={12}>
+                  <Typography variant="body1">
+                    <b>Gender:</b> Male
+                  </Typography>
+                  <Typography variant="body1">
+                    <b>Experience:</b> 3 years
+                  </Typography>
+                  <Typography variant="body1">
+                    <b>Location:</b> Toronto
+                  </Typography>
+                  <Typography variant="body1">
+                    <b>Zip:</b> Bla bla
+                  </Typography>
+                  <Typography variant="body1">
+                    <b>Horly Wage:</b> $15
+                  </Typography>
+                  <Typography variant="body1">
+                    <b>Transportation Facility:</b> Yes
+                  </Typography>
+                  <Typography variant="body1">
+                    <b>Skills:</b> Bla, Bla, bla
+                  </Typography>
                 </Grid>
+              </div>
+            </Grid>
 
-                <div className={classes.margin}>
-                  <Grid item xs={12}>
-                    <span>
-                      <b>Gender:</b> Male,
-                    </span>{' '}
-                    <span>
-                      <b>Experience:</b> 3.5 years
-                    </span>
-                  </Grid>
-                  <Grid>
-                    <span>
-                      <b>Location:</b> Toronto
-                    </span>{' '}
-                    <span>
-                      <b>Zip:</b> Bla bla
-                    </span>
-                  </Grid>
-                  <Grid>
-                    <span>
-                      <b>Horly Wage:</b> $15,
-                    </span>{' '}
-                    <span>
-                      <b>Transportation Facility:</b> Yes,
-                    </span>
-                  </Grid>
-                  <Grid>
-                    <span>
-                      <b>Skills:</b> Bla, Bla, bla
-                    </span>
-                  </Grid>
-                </div>
-              </Grid>
-
-              <Grid item xs>
-                <div className={classes.section2}>
-                  <Typography gutterBottom variant="h5">
-                    Professional Certification History
-                  </Typography>
-                  <Paper className={classes.root}>
-                    <Table
-                      className={classes.table}
-                      aria-label="customized table"
-                    >
-                      <TableHead>
-                        <TableRow>
-                          <StyledTableCell>
-                            <b>CERTIFICATION</b>
+            <Grid item xs>
+              <div className={classes.section2}>
+                <Typography gutterBottom variant="h5">
+                  <b>Professional Certification History</b>
+                </Typography>
+                <Paper className={classes.root}>
+                  <Table
+                    className={classes.table}
+                    aria-label="customized table"
+                  >
+                    <TableHead>
+                      <TableRow>
+                        <StyledTableCell>
+                          <b>CERTIFICATION</b>
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          <b>INSTITUTION/ORGANIZATION</b>
+                        </StyledTableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows2.map(row => (
+                        <StyledTableRow key={row.institution}>
+                          <StyledTableCell component="th" scope="row">
+                            {row.certification}
                           </StyledTableCell>
                           <StyledTableCell align="right">
-                            <b>INSTITUTION/ORGANIZATION</b>
+                            {row.institution}
                           </StyledTableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {rows2.map(row => (
-                          <StyledTableRow key={row.institution}>
-                            <StyledTableCell component="th" scope="row">
-                              {row.certification}
-                            </StyledTableCell>
-                            <StyledTableCell align="right">
-                              {row.institution}
-                            </StyledTableCell>
-                          </StyledTableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </Paper>
-                </div>
-              </Grid>
+                        </StyledTableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </Paper>
+              </div>
+            </Grid>
 
-              <Grid item xs>
-                <div className={classes.section1}>
-                  <Typography gutterBottom variant="h5">
-                    Educational History
-                  </Typography>
-                  <Paper className={classes.root}>
-                    <Table
-                      className={classes.table}
-                      aria-label="customized table"
-                    >
-                      <TableHead>
-                        <TableRow>
-                          <StyledTableCell>
-                            <b>DEGREE</b>
+            <Grid item xs>
+              <div className={classes.section1}>
+                <Typography gutterBottom variant="h5">
+                  <b>Educational History</b>
+                </Typography>
+                <Paper className={classes.root}>
+                  <Table
+                    className={classes.table}
+                    aria-label="customized table"
+                  >
+                    <TableHead>
+                      <TableRow>
+                        <StyledTableCell>
+                          <b>DEGREE</b>
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                          <b>SCHOOL/COLLEGE/UNIVERSITY</b>
+                        </StyledTableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map(row => (
+                        <StyledTableRow key={row.school}>
+                          <StyledTableCell component="th" scope="row">
+                            {row.degree}
                           </StyledTableCell>
                           <StyledTableCell align="right">
-                            <b>SCHOOL/COLLEGE/UNIVERSITY</b>
+                            {row.school}
                           </StyledTableCell>
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        {rows.map(row => (
-                          <StyledTableRow key={row.school}>
-                            <StyledTableCell component="th" scope="row">
-                              {row.degree}
-                            </StyledTableCell>
-                            <StyledTableCell align="right">
-                              {row.school}
-                            </StyledTableCell>
-                          </StyledTableRow>
-                        ))}
-                      </TableBody>
-                    </Table>
-                  </Paper>
-                </div>
-              </Grid>
+                        </StyledTableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </Paper>
+              </div>
             </Grid>
           </Box>
         </Box>

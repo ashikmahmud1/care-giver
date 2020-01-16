@@ -110,6 +110,7 @@ function SignUp(props) {
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
+
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -214,7 +215,7 @@ function SignUp(props) {
             type="submit"
             fullWidth
             variant="contained"
-            color="secondary"
+            style={{ backgroundColor: 'teal', color: 'white' }}
             size="large"
             onClick={e => onSubmit(e)}
             className={classes.submit}

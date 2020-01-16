@@ -5,9 +5,13 @@
   width: 250px;
   background-color: #9747b7 !important;
 }
-/* .img {
-  size: 100px;
-} */
+.body {
+  font-size: 0.5rem;
+  line-height: 1.6;
+}
+.img {
+  size: 50px;
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .footer {

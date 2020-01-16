@@ -47,12 +47,12 @@ export default function Footer() {
                   alignItems="center"
                 >
                   <Grid item>
-                    <h3>Cities we covered</h3>
+                    <h3 style={{ color: '#1034A6' }}>Cities we covered</h3>
                     <Divider />
                   </Grid>
                   <span>Toronto</span>
                   <span>Montreal</span>
-                  <span>Vancuvour</span>
+                  <span>Vancouver</span>
                 </Grid>
               </Grid>
               <Grid item xs={12} md={3}>
@@ -63,7 +63,7 @@ export default function Footer() {
                   alignItems="center"
                 >
                   <Grid item>
-                    <h3>Contact</h3>
+                    <h3 style={{ color: '#1034A6' }}>Contact</h3>
                     <Divider />
                   </Grid>
                   <span>
@@ -85,7 +85,7 @@ export default function Footer() {
                   alignItems="center"
                 >
                   <Grid item>
-                    <h3>About</h3>
+                    <h3 style={{ color: '#1034A6' }}>About</h3>
                     <Divider />
                   </Grid>
                   <span>

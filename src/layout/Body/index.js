@@ -34,10 +34,14 @@ export default function Body() {
   return (
     <Container component="main" maxWidth="xs">
       <div className={classes.paper}>
-        <Typography variant="h3">Peace of mind</Typography>
-        <Typography variant="h6" className={classes.margin2}>
+        <Typography variant="h3" style={{ color: '#1034A6' }}>
+          Peace of mind
+        </Typography>
+
+        <Typography variant="h6" className={classes.margin2} gutterBottom>
           <i>truly care about your beloved older one</i>
         </Typography>
+
         <Grid item>
           <Button
             variant="contained"

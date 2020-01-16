@@ -10,23 +10,23 @@ import PersonIcon from '@material-ui/icons/Person';
 const defaultProps = {
   bgcolor: 'background.paper',
   borderColor: 'text.primary',
-  m: 2,
+  m: 1,
   border: 1,
   align: 'center',
-  style: { width: '45rem', height: '45rem' }
+  style: { width: '50rem', height: '45rem' }
 };
 
 const useStyles = makeStyles(theme => ({
   root: {
     width: '70%',
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(3),
     overflowX: 'auto'
   },
   table: {
     minWidth: 120
   },
   section: {
-    marginTop: theme.spacing(2)
+    marginTop: theme.spacing(1)
   },
   section1: {
     margin: theme.spacing(2)
@@ -39,6 +39,9 @@ const useStyles = makeStyles(theme => ({
   },
   margin: {
     margin: theme.spacing(2)
+    //justifyContent: 'flex-start'
+    //alignContent: 'flex-start'
+    //alignItems: 'flex-start'
   },
   margin1: {
     margin: theme.spacing(1)
@@ -56,7 +59,7 @@ const CareseekerProfile = () => {
       <CssBaseline />
 
       <div className="section">
-        <Typography variant="h5">
+        <Typography variant="h5" component="h2">
           <PersonIcon size="2em" fontSize="inherit" />
           Welcome, Mr. Alan Walker
         </Typography>
@@ -64,7 +67,8 @@ const CareseekerProfile = () => {
           <div className={classes.section3}>
             <ButtonGroup
               variant="contained"
-              style={{ color: 'blue' }}
+              // style={{ color: '#1034A6' }}
+              color="secondary"
               className={classes.margin1}
               aria-label="contained primary button group"
             >
@@ -101,43 +105,42 @@ const CareseekerProfile = () => {
               </div>
               <Grid>
                 <Grid>
-                  <Typography variant="h5">Stephen Smith</Typography>
+                  <Typography
+                    variant="h4"
+                    component="h2"
+                    style={{ color: 'teal' }}
+                  >
+                    Stephen Smith
+                  </Typography>
                 </Grid>
 
                 <div className={classes.margin}>
                   <Grid item xs={12}>
-                    <span>
-                      <b>Gender:</b> Female,
-                    </span>{' '}
-                    <span>
+                    <Typography variant="h6">
+                      <b>Gender:</b> Female
+                    </Typography>
+                    <Typography variant="h6">
                       <b>Age:</b> 63 years
-                    </span>
-                  </Grid>
-                  <Grid>
-                    <span>
-                      <b>Address:</b> 500 Kingston Rd,
-                    </span>{' '}
-                    <span>
+                    </Typography>
+                    <Typography variant="h6">
+                      <b>Address:</b> 500 Kingston Rd
+                    </Typography>
+                    <Typography variant="h6">
                       <b>City:</b> Toronto
-                    </span>
-                  </Grid>
-                  <Grid>
-                    <span>
-                      <b>State:</b> Ontario,
-                    </span>{' '}
-                    <span>
+                    </Typography>
+                    <Typography variant="h6">
+                      <b>State:</b> Ontario
+                    </Typography>
+                    <Typography variant="h6">
                       <b>Zip:</b> ON M4L 1V3
-                    </span>
-                  </Grid>
-                  <Grid>
-                    <span>
-                      <b>Languages:</b> English, Spanish,
-                    </span>{' '}
-                  </Grid>
-                  <Grid>
-                    <span>
-                      <b>Physial Complications:</b> Bla bla bla bla
-                    </span>
+                    </Typography>
+                    <Typography variant="h6">
+                      <b>Languages:</b> English, Spanish
+                    </Typography>
+                    <Typography variant="h6">
+                      <b>Physical Complications:</b> Diabetes, Allergic Asthma,
+                      Breathing difficulty
+                    </Typography>
                   </Grid>
                 </div>
               </Grid>

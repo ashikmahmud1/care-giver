@@ -17,6 +17,7 @@ import { validate, checkError } from '../../../utils/validator';
 
 // JOI BROWSER for validation
 import Joi from 'joi-browser';
+import { Redirect } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -104,134 +105,140 @@ function SignUp(props) {
   // this means if a property change this will execute
   useEffect(() => {
     // check if the props.isLoggedIn then redirect to somewhere else
+    if (props.isLoggedIn) {
+      return <Redirect to="/caregiver-profile" />; //*****maybe it needs to be changed****
+    }
   }, [props.isLoggedIn]);
 
   // onBlur event fire when user focus an input and unfocused
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                name="firstName"
-                value={form.firstName}
-                onChange={e => handleChange(e)}
-                onBlur={e => handleChange(e)}
-                label="First Name"
-                autoFocus
-              />
-              {errors.firstName && (
-                <div className="alert alert-danger">{errors.firstName}</div>
-              )}
+    <React.Fragment>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <form className={classes.form} noValidate>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="firstName"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="firstName"
+                  name="firstName"
+                  value={form.firstName}
+                  onChange={e => handleChange(e)}
+                  onBlur={e => handleChange(e)}
+                  label="First Name"
+                  autoFocus
+                />
+                {errors.firstName && (
+                  <div className="alert alert-danger">{errors.firstName}</div>
+                )}
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="lastName"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="lastName"
+                  name="lastName"
+                  value={form.lastName}
+                  onChange={e => handleChange(e)}
+                  onBlur={e => handleChange(e)}
+                  label="Last Name"
+                />
+                {errors.lastName && (
+                  <div className="alert alert-danger">{errors.lastName}</div>
+                )}
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="email"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  name="email"
+                  value={form.email}
+                  onChange={e => handleChange(e)}
+                  onBlur={e => handleChange(e)}
+                  label="Email Address"
+                />
+                {errors.email && (
+                  <div className="alert alert-danger">{errors.email}</div>
+                )}
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="current-password"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="password"
+                  name="password"
+                  value={form.password}
+                  onChange={e => handleChange(e)}
+                  onBlur={e => handleChange(e)}
+                  label="Password"
+                  type="password"
+                />
+                {errors.password && (
+                  <div className="alert alert-danger">{errors.password}</div>
+                )}
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  autoComplete="current-password"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="passwordConfirm"
+                  name="passwordConfirm"
+                  value={form.passwordConfirm}
+                  onChange={e => handleChange(e)}
+                  onBlur={e => handleChange(e)}
+                  label="Confirm Password"
+                  type="password"
+                />
+                {errors.confirmPassword && (
+                  <div className="alert alert-danger">
+                    {errors.confirmPassword}
+                  </div>
+                )}
+              </Grid>
             </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="lastName"
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                name="lastName"
-                value={form.lastName}
-                onChange={e => handleChange(e)}
-                onBlur={e => handleChange(e)}
-                label="Last Name"
-              />
-              {errors.lastName && (
-                <div className="alert alert-danger">{errors.lastName}</div>
-              )}
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              style={{ backgroundColor: 'teal', color: 'white' }}
+              size="large"
+              onClick={e => onSubmit(e)}
+              className={classes.submit}
+            >
+              Sign Up
+            </Button>
+            <Grid container justify="flex-end">
+              <Grid item>
+                <Link href="/login" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="email"
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                name="email"
-                value={form.email}
-                onChange={e => handleChange(e)}
-                onBlur={e => handleChange(e)}
-                label="Email Address"
-              />
-              {errors.email && (
-                <div className="alert alert-danger">{errors.email}</div>
-              )}
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="current-password"
-                variant="outlined"
-                required
-                fullWidth
-                id="password"
-                name="password"
-                value={form.password}
-                onChange={e => handleChange(e)}
-                onBlur={e => handleChange(e)}
-                label="Password"
-                type="password"
-              />
-              {errors.password && (
-                <div className="alert alert-danger">{errors.password}</div>
-              )}
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="current-password"
-                variant="outlined"
-                required
-                fullWidth
-                id="passwordConfirm"
-                name="passwordConfirm"
-                value={form.passwordConfirm}
-                onChange={e => handleChange(e)}
-                onBlur={e => handleChange(e)}
-                label="Confirm Password"
-                type="password"
-              />
-              {errors.confirmPassword && (
-                <div className="alert alert-danger">
-                  {errors.confirmPassword}
-                </div>
-              )}
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="secondary"
-            size="large"
-            onClick={e => onSubmit(e)}
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="/login" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-    </Container>
+          </form>
+        </div>
+      </Container>
+    </React.Fragment>
   );
 }
 // connect with react-redux
