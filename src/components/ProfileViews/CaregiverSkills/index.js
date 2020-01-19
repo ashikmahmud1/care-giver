@@ -1,14 +1,16 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import FormLabel from '@material-ui/core/FormLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import CheckBoxSharpIcon from '@material-ui/icons/CheckBoxSharp';
+import {
+  CssBaseline,
+  Typography,
+  FormControl,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+  Container,
+  FormLabel
+} from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {

@@ -1,17 +1,22 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { Button, Grid } from '@material-ui/core';
+import {
+  Button,
+  Grid,
+  Typography,
+  CssBaseline,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  ButtonGroup,
+  Paper,
+  Box
+} from '@material-ui/core';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import Rating from '@material-ui/lab/Rating';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import Avatar from '@material-ui/core/Avatar';
 
 import './caregiverDetails.css';
 
@@ -21,7 +26,7 @@ const defaultProps = {
   m: 2,
   border: 1,
   align: 'center',
-  style: { width: '74rem', height: '64rem' }
+  style: { width: '74rem', height: '70rem' }
 };
 
 const StyledTableCell = withStyles(theme => ({
@@ -63,6 +68,11 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(2),
     overflowX: 'auto'
   },
+  bigAvatar: {
+    margin: 10,
+    width: 200,
+    height: 200
+  },
   table: {
     minWidth: 120
   },
@@ -90,7 +100,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const CaregiverDetails = () => {
-  const [value, setValue] = React.useState(4);
+  const [value, setValue] = React.useState(5);
 
   const classes = useStyles();
 
@@ -106,25 +116,23 @@ const CaregiverDetails = () => {
             borderColor="grey.300"
             boxShadow={3}
           >
-            <Grid item xs={12}>
-              <div className={classes.margin}>
-                <Grid item className="img-round">
-                  <img src={require('../../../img/man.jpg')} alt="dp" />
-                </Grid>
+            <Grid container justify="center" alignItems="center">
+              <Avatar
+                src={require('../../../img/man.jpg')}
+                alt="dp"
+                className={classes.bigAvatar}
+              />
+            </Grid>
+            <Grid>
+              <Typography variant="h4" style={{ color: 'teal' }}>
+                Madman Sadman
+              </Typography>
+              <div className={classes.margin1}>
+                <Rating name="read-only" value={value} readOnly />
+                <VerifiedUserIcon style={{ color: 'green' }} fontSize="large" />
               </div>
-              <Grid>
-                <Typography variant="h4" style={{ color: 'teal' }}>
-                  Madman Sadman
-                </Typography>
-                <div className={classes.margin1}>
-                  <Rating name="read-only" value={value} readOnly />
-                  <VerifiedUserIcon
-                    style={{ color: 'green' }}
-                    fontSize="large"
-                  />
-                </div>
-              </Grid>
-
+            </Grid>
+            <Grid>
               <div className={classes.margin}>
                 <Grid item xs={12}>
                   <Typography variant="body1">
@@ -146,7 +154,8 @@ const CaregiverDetails = () => {
                     <b>Transportation Facility:</b> Yes
                   </Typography>
                   <Typography variant="body1">
-                    <b>Skills:</b> Bla, Bla, bla
+                    <b>Skills:</b> Medical Supervision, Personal Assistance
+                    (Bathing, Dressing), Escorting to Appointments/Shoping
                   </Typography>
                 </Grid>
               </div>
@@ -154,7 +163,7 @@ const CaregiverDetails = () => {
 
             <Grid item xs>
               <div className={classes.section2}>
-                <Typography gutterBottom variant="h5">
+                <Typography variant="h5" gutterBottom>
                   <b>Professional Certification History</b>
                 </Typography>
                 <Paper className={classes.root}>
@@ -224,6 +233,24 @@ const CaregiverDetails = () => {
                   </Table>
                 </Paper>
               </div>
+            </Grid>
+            <Grid>
+              <ButtonGroup
+                variant="contained"
+                color="secondary"
+                className={classes.margin1}
+                aria-label="contained secondary button group"
+              >
+                <Button size="medium" href="#">
+                  Hire Now
+                </Button>
+                <Button size="medium" href="#">
+                  Setup Interview
+                </Button>
+                <Button size="medium" href="/caregiver-profiles">
+                  Go Back
+                </Button>
+              </ButtonGroup>
             </Grid>
           </Box>
         </Box>

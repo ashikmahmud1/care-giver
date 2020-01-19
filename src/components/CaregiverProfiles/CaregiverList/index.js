@@ -1,12 +1,18 @@
 import React from 'react';
-import { Button, Grid, Container } from '@material-ui/core';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { makeStyles } from '@material-ui/core/styles';
+import {
+  Button,
+  Grid,
+  Container,
+  CssBaseline,
+  Typography,
+  Box,
+  Avatar
+} from '@material-ui/core';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
-import Rating from '@material-ui/lab/Rating';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import WcIcon from '@material-ui/icons/Wc';
+import Rating from '@material-ui/lab/Rating';
 
 import './caregiverList.css';
 
@@ -16,10 +22,23 @@ const defaultProps = {
   m: 2,
   border: 1,
   align: 'center',
-  style: { width: '20rem', height: '22rem' }
+  style: { width: '18rem', height: '22rem' }
 };
 
+const useStyles = makeStyles(theme => ({
+  bigAvatar: {
+    margin: 10,
+    width: 150,
+    height: 150
+  },
+  margin: {
+    marginTop: theme.spacing(1)
+  }
+}));
+
 const CaregiverList = () => {
+  const classes = useStyles();
+
   const [value, setValue] = React.useState(4);
 
   return (
@@ -32,22 +51,28 @@ const CaregiverList = () => {
           borderColor="grey.300"
           boxShadow={3}
         >
-          <Grid className="img-round">
-            <img src={require('../../../img/man.jpg')} alt="dp" />
+          <Grid container justify="center" alignItems="center">
+            <Avatar
+              src={require('../../../img/man.jpg')}
+              alt="dp"
+              className={classes.bigAvatar}
+            />
           </Grid>
-          <Grid className="caregiver-name">
-            <Typography variant="h5">Madman Sadman</Typography>
+          <Grid xs className={classes.margin}>
+            <Typography variant="h5" style={{ color: 'teal' }}>
+              Madman Sadman
+            </Typography>
             <span>
               <WcIcon fontSize="small" /> Male
             </span>{' '}
             <span>
               <LocationOnIcon fontSize="small" /> Toronto
             </span>
-            <Grid>
+            <Grid xs className={classes.margin}>
               <Rating name="read-only" value={value} readOnly />
               <VerifiedUserIcon style={{ color: 'green' }} fontSize="large" />
             </Grid>
-            <Grid>
+            <Grid xs className={classes.margin}>
               <Button
                 variant="contained"
                 style={{ backgroundColor: 'teal', color: 'white' }}

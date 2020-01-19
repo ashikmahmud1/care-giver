@@ -1,10 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Tooltip from '@material-ui/core/Tooltip';
-import Fab from '@material-ui/core/Fab';
+import { Grid, TextField, Tooltip, Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   formControl: {

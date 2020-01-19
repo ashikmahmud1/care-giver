@@ -33,9 +33,9 @@ function App() {
     <React.Fragment>
       <Router>
         <div className="App">
-          <Header />
-          <Route exact path="/" component={Body} />
           <Container className="container">
+            <Header />
+            <Route exact path="/" component={Body} />
             <Switch>
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup-caregiver" component={SignUp} />

@@ -1,19 +1,22 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { Button, Grid } from '@material-ui/core';
-import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
-import Rating from '@material-ui/lab/Rating';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import {
+  CssBaseline,
+  Button,
+  Grid,
+  Typography,
+  Box,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Paper,
+  ButtonGroup
+} from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
+import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import PersonIcon from '@material-ui/icons/Person';
+import Rating from '@material-ui/lab/Rating';
 
 import './caregiverProfile.css';
 
@@ -175,7 +178,8 @@ const CaregiverProfile = () => {
                     <b>Transportation Facility:</b> Yes
                   </Typography>
                   <Typography variant="body1">
-                    <b>Skills:</b> Bla, Bla, bla
+                    <b>Skills:</b> Medical Supervision, Personal assistance
+                    (bathing, dressing), Escorting to Appointments or Shoping
                   </Typography>
                 </Grid>
               </div>

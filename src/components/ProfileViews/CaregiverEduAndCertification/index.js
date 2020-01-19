@@ -1,7 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
+import { CssBaseline, Typography } from '@material-ui/core';
 
 import CertificationInput from '../../CertificationInput';
 import EducationInput from '../../EducationInput';

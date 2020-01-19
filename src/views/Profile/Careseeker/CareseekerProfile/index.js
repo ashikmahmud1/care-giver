@@ -1,10 +1,13 @@
 import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { Button, Grid } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import {
+  CssBaseline,
+  Button,
+  Grid,
+  Typography,
+  Box,
+  ButtonGroup
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
 import PersonIcon from '@material-ui/icons/Person';
 
 const defaultProps = {

@@ -1,10 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import {
+  Stepper,
+  Step,
+  StepLabel,
+  Button,
+  Typography
+} from '@material-ui/core';
 
 import CaregiverPersonalDetails from '../ProfileViews/CaregiverPersonalDetails/index';
 import CaregiverEduAndCertification from '../ProfileViews/CaregiverEduAndCertification/index';
@@ -142,7 +144,6 @@ export default function HorizontalLinearStepper() {
                   Skip
                 </Button>
               )}
-
               <Button
                 variant="contained"
                 color="primary"

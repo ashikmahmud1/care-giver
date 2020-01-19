@@ -1,16 +1,19 @@
 import React from 'react';
 import clsx from 'clsx';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import { Divider, Card } from '@material-ui/core';
+import {
+  Divider,
+  Card,
+  Container,
+  Typography,
+  Grid,
+  CssBaseline,
+  Button,
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup
+} from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
