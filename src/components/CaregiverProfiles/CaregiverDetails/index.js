@@ -1,4 +1,5 @@
 import React from 'react';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import {
   Button,
   Grid,
@@ -11,12 +12,11 @@ import {
   TableRow,
   ButtonGroup,
   Paper,
-  Box
+  Box,
+  Avatar
 } from '@material-ui/core';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import Rating from '@material-ui/lab/Rating';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Avatar from '@material-ui/core/Avatar';
 
 import './caregiverDetails.css';
 

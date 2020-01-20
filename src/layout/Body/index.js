@@ -9,18 +9,18 @@ const useStyles = makeStyles(theme => ({
     }
   },
   paper: {
-    marginTop: theme.spacing(22),
+    marginTop: theme.spacing(18),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center'
   },
   margin: {
     margin: theme.spacing(1),
-    marginTop: theme.spacing(6)
+    marginTop: theme.spacing(3)
   },
   margin2: {
     marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(3)
+    marginBottom: theme.spacing(6)
   }
 }));
 

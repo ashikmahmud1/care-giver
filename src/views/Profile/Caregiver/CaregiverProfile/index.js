@@ -1,4 +1,5 @@
 import React from 'react';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import {
   CssBaseline,
   Button,
@@ -11,9 +12,9 @@ import {
   TableHead,
   TableRow,
   Paper,
-  ButtonGroup
+  ButtonGroup,
+  Avatar
 } from '@material-ui/core';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import PersonIcon from '@material-ui/icons/Person';
 import Rating from '@material-ui/lab/Rating';
@@ -67,6 +68,11 @@ const useStyles = makeStyles(theme => ({
     width: '70%',
     marginTop: theme.spacing(2),
     overflowX: 'auto'
+  },
+  bigAvatar: {
+    margin: 10,
+    width: 200,
+    height: 200
   },
   table: {
     minWidth: 120
@@ -140,8 +146,12 @@ const CaregiverProfile = () => {
           >
             <Grid item xs={12}>
               <div className={classes.margin}>
-                <Grid item className="img-round">
-                  <img src={require('../../../../img/man.jpg')} alt="dp" />
+                <Grid container justify="center" alignItems="center">
+                  <Avatar
+                    src={require('../../../../img/man.jpg')}
+                    alt="dp"
+                    className={classes.bigAvatar}
+                  />
                 </Grid>
               </div>
               <Grid>
