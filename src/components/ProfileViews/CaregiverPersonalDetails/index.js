@@ -141,156 +141,163 @@ function CaregiverPersonalDetails(props) {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
-          Add your Personal Details
-        </Typography>
-        <form className={classes.form} onSubmit={e => onSubmit(e)} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                label="What is your hourly wage?"
-                variant="outlined"
-                fullWidth
-                className={classes.formControl}
-                id="hourlyWage"
-                name="hourlyWage"
-                value={form.hourlyWage}
-                onChange={e => handleChange(e)}
-                onBlur={e => handleChange(e)}
-                autoComplete="hourlyWage"
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">$</InputAdornment>
-                  )
-                }}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                fullWidth
-                className={classes.formControl}
-                label="How many years of experience you have?"
-                id="experience"
-                name="experience"
-                value={form.experience}
-                onChange={e => handleChange(e)}
-                onBlur={e => handleChange(e)}
-                autoComplete="experience"
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">Years</InputAdornment>
-                  )
-                }}
-              />
-            </Grid>
-            {/* Language Input Custom Component*/}
-            <LanguageInput
-              classes={classes}
-              languages={languages}
-              addLanguageHandler={addLanguageHandler}
-              languageInputHandler={languageInputHandler}
-            />
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                fullWidth
-                className={classes.formControl}
-                id="address"
-                name="address"
-                value={form.address}
-                onChange={e => handleChange(e)}
-                onBlur={e => handleChange(e)}
-                label="Address"
-                autoComplete="address"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                fullWidth
-                className={classes.formControl}
-                id="city"
-                value={form.city}
-                onChange={e => handleChange(e)}
-                onBlur={e => handleChange(e)}
-                label="City"
-                name="city"
-                autoComplete="city"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel ref={inputLabel} htmlFor="state">
-                  State
-                </InputLabel>
-                <Select
-                  native
-                  labelWidth={labelWidth}
-                  name="state"
-                  value={form.state}
+    <React.Fragment>
+      <Container component="div" maxWidth="xs">
+        <CssBaseline />
+
+        <div className={classes.paper}>
+          <Typography component={'div'} variant="h5">
+            Add your Personal Details
+          </Typography>
+          <form className={classes.form} onSubmit={e => onSubmit(e)} noValidate>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  label="What is your hourly wage?"
+                  variant="outlined"
+                  fullWidth
+                  className={classes.formControl}
+                  id="hourlyWage"
+                  name="hourlyWage"
+                  value={form.hourlyWage}
                   onChange={e => handleChange(e)}
                   onBlur={e => handleChange(e)}
-                  inputProps={{
-                    name: 'state',
-                    id: 'state'
+                  autoComplete="hourlyWage"
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">$</InputAdornment>
+                    )
                   }}
-                >
-                  <option value="" />
-                  <option value="Toronto">Toronto</option>
-                  <option value="Ottawa">Ottawa</option>
-                  <option value="British Columbia">British Columbia</option>
-                  <option value="Calgary">Calgary</option>
-                  <option value="Manitoba">Manitoba</option>
-                  <option value="Manitoba">Montreal</option>
-                </Select>
-              </FormControl>
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                fullWidth
-                className={classes.formControl}
-                id="zip"
-                value={form.zip}
-                onChange={e => handleChange(e)}
-                onBlur={e => handleChange(e)}
-                label="Zip"
-                name="zip"
-                autoComplete="zip"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  className={classes.formControl}
+                  label="How many years of experience you have?"
+                  id="experience"
+                  name="experience"
+                  value={form.experience}
+                  onChange={e => handleChange(e)}
+                  onBlur={e => handleChange(e)}
+                  autoComplete="experience"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <b>Years</b>
+                      </InputAdornment>
+                    )
+                  }}
+                />
+              </Grid>
+              {/* Language Input Custom Component*/}
+              <LanguageInput
+                classes={classes}
+                languages={languages}
+                addLanguageHandler={addLanguageHandler}
+                languageInputHandler={languageInputHandler}
               />
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  className={classes.formControl}
+                  id="address"
+                  label="Address"
+                  name="address"
+                  value={form.address}
+                  onChange={e => handleChange(e)}
+                  onBlur={e => handleChange(e)}
+                  autoComplete="address"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  className={classes.formControl}
+                  id="city"
+                  label="City"
+                  name="city"
+                  value={form.city}
+                  onChange={e => handleChange(e)}
+                  onBlur={e => handleChange(e)}
+                  autoComplete="city"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControl variant="outlined" className={classes.formControl}>
+                  <InputLabel ref={inputLabel} htmlFor="state">
+                    State
+                  </InputLabel>
+                  <Select
+                    native
+                    labelWidth={labelWidth}
+                    name="state"
+                    value={form.state}
+                    onChange={e => handleChange(e)}
+                    onBlur={e => handleChange(e)}
+                    inputProps={{
+                      name: 'state',
+                      id: 'state'
+                    }}
+                  >
+                    <option value="" />
+                    <option value="Toronto">Toronto</option>
+                    <option value="Ottowa">Ottowa</option>
+                    <option value="British Columbia">British Columbia</option>
+                    <option value="Calgary">Calgary</option>
+                    <option value="Manitoba">Manitoba</option>
+                    <option value="Montreal">Montreal</option>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  className={classes.formControl}
+                  id="zip"
+                  label="Zip"
+                  name="zip"
+                  value={form.zip}
+                  onChange={e => handleChange(e)}
+                  onBlur={e => handleChange(e)}
+                  autoComplete="zip"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <input
+                  accept="image/*"
+                  className={classes.input}
+                  style={{ display: 'none' }}
+                  id="image"
+                  value={form.image}
+                  onChange={e => handleChange(e)}
+                  onBlur={e => handleChange(e)}
+                  type="file"
+                />
+                <label htmlFor="image">
+                  <InputLabel htmlFor="upload-btn" style={{ color: '#212121' }}>
+                    Upload a picture
+                  </InputLabel>
+                  <Button
+                    variant="contained"
+                    style={{ backgroundColor: '#2196f3', color: 'white' }}
+                    component="span"
+                    className={classes.button}
+                    startIcon={<AddAPhotoIcon />}
+                  >
+                    Upload
+                  </Button>
+                </label>
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <input
-                accept="image/*"
-                className={classes.input}
-                style={{ display: 'none', alignItems: 'center' }}
-                id="image"
-                value={form.image}
-                onChange={e => handleChange(e)}
-                onBlur={e => handleChange(e)}
-                type="file"
-              />
-              <label htmlFor="image">
-                <InputLabel htmlFor="upload-btn">Upload a picture</InputLabel>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  component="span"
-                  className={classes.button}
-                  startIcon={<AddAPhotoIcon />}
-                >
-                  Upload
-                </Button>
-              </label>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-    </Container>
+          </form>
+        </div>
+      </Container>
+    </React.Fragment>
   );
 }
 // connect with react-redux

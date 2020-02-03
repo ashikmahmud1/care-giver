@@ -111,6 +111,7 @@ function SignUp(props) {
   // onBlur event fire when user focus an input and unfocused
 
   return (
+    <React.Fragment>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
 
@@ -235,6 +236,7 @@ function SignUp(props) {
         </form>
       </div>
     </Container>
+    </React.Fragment>
   );
 }
 // connect with react-redux

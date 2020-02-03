@@ -58,7 +58,7 @@ const CaregiverList = () => {
               className={classes.bigAvatar}
             />
           </Grid>
-          <Grid xs className={classes.margin}>
+          <Grid item xs className={classes.margin}>
             <Typography variant="h5" style={{ color: 'teal' }}>
               Madman Sadman
             </Typography>
@@ -68,11 +68,11 @@ const CaregiverList = () => {
             <span>
               <LocationOnIcon fontSize="small" /> Toronto
             </span>
-            <Grid xs className={classes.margin}>
+            <Grid item xs className={classes.margin}>
               <Rating name="read-only" value={value} readOnly />
               <VerifiedUserIcon style={{ color: 'green' }} fontSize="large" />
             </Grid>
-            <Grid xs className={classes.margin}>
+            <Grid item xs className={classes.margin}>
               <Button
                 variant="contained"
                 style={{ backgroundColor: 'teal', color: 'white' }}

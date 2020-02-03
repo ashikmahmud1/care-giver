@@ -19,47 +19,52 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(3)
   },
   margin2: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(6)
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
+    paddingBottom: theme.spacing(4)
   }
 }));
 
-export default function Body() {
+const Body = () => {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
-      <div className={classes.paper}>
-        <Typography variant="h3" style={{ color: '#1034A6' }}>
-          Peace of mind
-        </Typography>
+    <React.Fragment>
+      <Container component="main" maxWidth="xs">
+        <div className={classes.paper}>
+          <Typography variant="h3" style={{ color: '#1034A6' }}>
+            Peace of mind
+          </Typography>
 
-        <Typography variant="h6" className={classes.margin2} gutterBottom>
-          <i>truly care about your beloved older one</i>
-        </Typography>
+          <Typography variant="h6" className={classes.margin2} gutterBottom>
+            <i>truly care about your beloved older one</i>
+          </Typography>
 
-        <Grid item>
-          <Button
-            variant="contained"
-            size="large"
-            href="/search-by-gender"
-            className={classes.margin}
-            aria-label="large contained primary button"
-            style={{ backgroundColor: 'teal', color: 'white' }}
-            fullWidth
-          >
-            I'm a Care Seeker
-          </Button>
-        </Grid>
+          <Grid item>
+            <Button
+              variant="contained"
+              size="large"
+              className={classes.margin}
+              aria-label="large contained primary button"
+              style={{ backgroundColor: 'teal', color: 'white' }}
+              fullWidth
+              href="/search-by-gender"
+            >
+              I'm a Care Seeker
+            </Button>
+          </Grid>
 
-        <span className={classes.margin2}>
-          Are you a Caregiver?{' '}
-          <Link href="/login" style={{ color: 'purple' }}>
-            Click here
-          </Link>{' '}
-          to Login/Register
-        </span>
-      </div>
-    </Container>
+          <span className={classes.margin2}>
+            Are you a Caregiver?{' '}
+            <Link href="/login" style={{ color: 'purple' }}>
+              Click here
+            </Link>{' '}
+            to Login/Register
+          </span>
+        </div>
+      </Container>
+    </React.Fragment>
   );
 }
+
+export default Body;

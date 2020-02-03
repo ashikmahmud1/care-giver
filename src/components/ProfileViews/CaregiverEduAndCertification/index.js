@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { CssBaseline, Typography } from '@material-ui/core';
+import { CssBaseline, Typography, Grid } from '@material-ui/core';
 
 import CertificationInput from '../../CertificationInput';
 import EducationInput from '../../EducationInput';
@@ -56,32 +56,35 @@ function CaregiverEduAndCertification() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <div className={classes.paper}>
+
+      <Grid className={classes.paper}>
         <Typography component="h1" variant="h5">
           Add your Professional Certification History
         </Typography>
-        <form className={classes.form} noValidate>
+        {/* <form className={classes.form} noValidate> */}
+        <div className={classes.paper}>
           <CertificationInput
             classes={classes}
             certifications={certifications}
             addCertificationHandler={addCertificationHandler}
             certificationInputHandler={certificationInputHandler}
           />
-        </form>
-        <div className={classes.paper}>
-          <Typography component="h1" variant="h5">
-            Add your Educational History
-          </Typography>
-          <form className={classes.form} noValidate>
-            <EducationInput
-              classes={classes}
-              educations={educations}
-              addEducationHandler={addEducationHandler}
-              educationInputHandler={educationInputHandler}
-            />
-          </form>
         </div>
-      </div>
+        {/* </form> */}
+        <Typography component="h1" variant="h5">
+          Add your Educational History
+        </Typography>
+        {/* <form className={classes.form} noValidate> */}
+        <div className={classes.paper}>
+          <EducationInput
+            classes={classes}
+            educations={educations}
+            addEducationHandler={addEducationHandler}
+            educationInputHandler={educationInputHandler}
+          />
+          {/* </form> */}
+        </div>
+      </Grid>
     </React.Fragment>
   );
 }

@@ -58,10 +58,6 @@ const userSchema = new mongoose.Schema(
       type: Number,
       required: [false, 'Please specify age!']
     },
-    languages: {
-      type: [String],
-      required: [false, 'Please specify all languages you speak!']
-    },
     address: {
       type: String,
       required: [false, 'Please give us your address!']
@@ -94,10 +90,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [false, 'Please set an image!']
     },
-    seniorName: {
+     seniorName:  {
       type: String,
       required: [false, 'Please tell us your senior name!']
     },
+    languages:  [String],
     physicalComplications: [String],
     skills: [String],
     education: [String],

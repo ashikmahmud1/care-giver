@@ -165,6 +165,7 @@ function SearchByExperience() {
                     color: 'white'
                   }}
                   className={classes.submit}
+                  //component={Link}
                   href="/search-by-location"
                 >
                   Next

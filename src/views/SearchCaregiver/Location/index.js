@@ -87,6 +87,7 @@ function SearchByLocation() {
                     color: 'white'
                   }}
                   className={classes.submit}
+                  //component={Link}
                   href="/caregiver-profiles"
                 >
                   Next

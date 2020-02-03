@@ -44,7 +44,22 @@ exports.signup = catchAsync(async (req, res, next) => {
     email: req.body.email,
     role: req.body.role,
     password: req.body.password,
-    passwordConfirm: req.body.passwordConfirm
+    passwordConfirm: req.body.passwordConfirm,
+    // seniorName: req.body.seniorName,
+    // gender: req.body.gender,
+    // age: req.body.age,
+    // address:  req.body.address,
+    // city: req.body.city,
+    // state: req.body.state,
+    // zip: req.body.zip,
+    // physicalComplications: req.body.physicalComplications,
+    // languages: req.body.languages,
+    // image: req.body.image,
+    // hourlyWage: req.body.hourlyWage,
+    // experience: req.body.experience,
+    // skills: req.body.skills,
+    // certification: req.body.certification,
+    // education: req.body.education,
   });
 
   createSendToken(newUser, 201, res);

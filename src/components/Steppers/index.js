@@ -29,7 +29,7 @@ function getSteps() {
   return [
     'Add Personal Details',
     'Add Services and Skills',
-    "Add Educational and Professional Certification Information's"
+    'Add Educational and Professional History'
   ];
 }
 
@@ -115,7 +115,7 @@ export default function HorizontalLinearStepper() {
         {activeStep === steps.length ? (
           <div>
             <Typography className={classes.instructions}>
-              All steps completed - you&apos;re succesfully setup your profile
+              You&apos;ve succesfully setup your profile!
             </Typography>
             <Button onClick={handleReset} className={classes.button}>
               Reset

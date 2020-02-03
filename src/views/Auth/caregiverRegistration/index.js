@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 
-//import './caregiverRegistration.css';
+// import './caregiverRegistration.css';
 import * as actionCreators from '../../../store/actions';
 import { connect } from 'react-redux';
 import { validate, checkError } from '../../../utils/validator';
@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function SignUp(props) {
+const SignUp = (props) => {
   const classes = useStyles();
 
   const initial_form = {
@@ -130,7 +130,6 @@ function SignUp(props) {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  autoComplete="firstName"
                   variant="outlined"
                   required
                   fullWidth
@@ -140,6 +139,7 @@ function SignUp(props) {
                   onChange={e => handleChange(e)}
                   onBlur={e => handleChange(e)}
                   label="First Name"
+                  autoComplete="firstName"
                   autoFocus
                 />
                 {errors.firstName && (

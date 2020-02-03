@@ -35,33 +35,34 @@ const Header = props => {
   };
 
   return (
-    <div className={classes.root}>
-      <AppBar position="absolute" style={{ backgroundColor: 'teal' }}>
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-            href="/"
-          >
-            {' '}
-            Peace of mind
-          </IconButton>
-          <Typography variant="h6" className={classes.title}></Typography>
+    <React.Fragment>
+      <div className={classes.root}>
+        <AppBar position="absolute" style={{ backgroundColor: 'teal' }}>
+          <Toolbar>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="menu"
+              href="/"
+            >
+              Peace of mind
+            </IconButton>
+            <Typography variant="h6" className={classes.title}></Typography>
 
-          <Button color="inherit" href="/">
-            Home
-          </Button>
-          <Button color="inherit" href="/services">
-            Our Services
-          </Button>
-          <Button color="inherit" onClick={() => logout()}>
-            Logout
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </div>
+            <Button color="inherit" href="/">
+              Home
+            </Button>
+            <Button color="inherit" href="/services">
+              Our Services
+            </Button>
+            <Button color="inherit" onClick={() => logout()}>
+              Logout
+            </Button>
+          </Toolbar>
+        </AppBar>
+      </div>
+    </React.Fragment>
   );
 };
 
