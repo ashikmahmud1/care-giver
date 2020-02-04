@@ -4,21 +4,21 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 
-import Body from '../src/layout/Body/index';
-import Header from '../src/layout/Header/index';
-import Footer from '../src/layout/Footer/index';
-import SignUp from '../src/views/Auth/CaregiverRegistration/index';
-import SignUp2 from '../src/views/Auth/CareseekerRegistration/index';
-import Login from '../src/views/Auth/Login/index';
-import CareseekerProfile from '../src/views/Profile/Careseeker/CareseekerProfile/index';
-import CreateCareseekerProfile from '../src/views/Profile/Careseeker/CreateCareseekerProfile/index';
-import CaregiverProfile from './views/Profile/Caregiver/CaregiverProfile/index';
-import CreateCaregiverProfile from './views/Profile/Caregiver/CreateCaregiverProfile/index';
-import CaregiverAllProfiles from '../src/views/Profile/CaregiverAllProfiles/index';
-import CaregiverDetails from '../src/components/CaregiverProfiles/CaregiverDetails/index';
-import ForgotPassword from './views/Pages/Password/ForgotPassword/index';
-import ResetPassword from './views/Pages/Password/ResetPassword/index';
-//import PrivateRoute from '../src/components/PrivateRoute/index';
+import Body from './layout/Body';
+import Header from './layout/Header';
+import Footer from './layout/Footer';
+import SignUp from './views/Auth/caregiverRegistration';
+import SignUp2 from './views/Auth/careseekerRegistration';
+import Login from './views/Auth/login';
+import CareseekerProfile from './views/Profile/Careseeker/CareseekerProfile';
+import CreateCareseekerProfile from './views/Profile/Careseeker/CreateCareseekerProfile';
+import CaregiverProfile from './views/Profile/Caregiver/CaregiverProfile';
+import CreateCaregiverProfile from './views/Profile/Caregiver/CreateCaregiverProfile';
+import CaregiverAllProfiles from './views/Profile/CaregiverAllProfiles';
+import CaregiverDetails from './components/CaregiverProfiles/CaregiverDetails';
+import ForgotPassword from './views/Pages/Password/ForgotPassword';
+import ResetPassword from './views/Pages/Password/ResetPassword';
+import PrivateRoute from '../src/components/PrivateRoute';
 
 //Redux
 import { Provider } from 'react-redux';
@@ -26,10 +26,10 @@ import store from './store';
 
 //Pages
 import Services from './views/Pages/Services';
-import Faqs from '../src/views/Pages/Faqs';
-import TermsOfUse from '../src/views/Pages/TermsOfUse';
-import Help from '../src/views/Pages/Help';
-import Privacy from '../src/views/Pages/Privacy';
+import Faqs from './views/Pages/Faqs';
+import TermsOfUse from './views/Pages/TermsOfUse';
+import Help from './views/Pages/Help';
+import Privacy from './views/Pages/Privacy';
 import SearchByGender from './views/SearchCaregiver/Gender';
 import SearchByExperience from './views/SearchCaregiver/Experience';
 import SearchByLocation from './views/SearchCaregiver/Location';
@@ -47,7 +47,7 @@ function App() {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/signup-caregiver" component={SignUp} />
                 <Route exact path="/signup-careseeker" component={SignUp2} />
-                <Route
+                <PrivateRoute
                   exact
                   path="/careseeker-profile"
                   component={CareseekerProfile}

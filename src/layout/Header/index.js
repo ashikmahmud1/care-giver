@@ -56,9 +56,11 @@ const Header = props => {
             <Button color="inherit" href="/services">
               Our Services
             </Button>
-            <Button color="inherit" onClick={() => logout()}>
-              Logout
-            </Button>
+            {
+              props.isLoggedIn ? <Button color="inherit" onClick={() => logout()}>
+                Logout
+          </Button> : null
+            }
           </Toolbar>
         </AppBar>
       </div>

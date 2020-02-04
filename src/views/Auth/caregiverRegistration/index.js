@@ -108,7 +108,7 @@ const SignUp = (props) => {
   useEffect(() => {
     // check if the props.isLoggedIn then redirect to somewhere else
     if (props.isLoggedIn) {
-      return <Redirect to="/caregiver-profile" />; //*****maybe it needs to be changed****
+      props.history.push('/caregiver-profile')
     }
   }, [props.isLoggedIn]);
 

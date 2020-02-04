@@ -107,7 +107,7 @@ function StyledRadio(props) {
   );
 }
 
-function SearchByExperience() {
+function SearchByExperience(props) {
   const classes = useStyles();
 
   return (
@@ -165,8 +165,7 @@ function SearchByExperience() {
                     color: 'white'
                   }}
                   className={classes.submit}
-                  //component={Link}
-                  href="/search-by-location"
+                  onClick={() => props.history.push('/search-by-location')}
                 >
                   Next
                 </Button>

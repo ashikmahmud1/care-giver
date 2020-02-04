@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function SearchByLocation() {
+function SearchByLocation(props) {
   const classes = useStyles();
 
   return (
@@ -87,8 +87,7 @@ function SearchByLocation() {
                     color: 'white'
                   }}
                   className={classes.submit}
-                  //component={Link}
-                  href="/caregiver-profiles"
+                  onClick={() => props.history.push('/caregiver-profiles')}
                 >
                   Next
                 </Button>
