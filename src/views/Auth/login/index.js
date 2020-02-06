@@ -55,12 +55,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Login(props) {
+const Login = props => {
   const classes = useStyles();
 
   const [form, setForm] = React.useState({
     email: '',
-    password: ''
+    password: '',
+    showPassword: false,
   });
   const [showPassword, setShowPassword] = useState(false);
 
@@ -112,9 +113,12 @@ function Login(props) {
   // similiar to componentWillReciveProps lifecycle hook method
   // this means if a property change this will execute
   useEffect(() => {
-    // check if the props.isLoggedIn then redirect to somewhere else
-    if (props.isLoggedIn) {
-      props.history.push('/caregiver-profile'); //Need another login option for careseeker
+    // check if the props.isLoggedIn then redirect to somewhere
+    if (props.isLoggedIn && {role: 'caregiver'}) {
+      props.history.push('/caregiver-profile'); //Need login option for both careseeker and caregiver individually
+    }
+    else if (props.isLoggedIn && {role: 'careseeker'}) {
+      props.history.push('/careseeker-profile'); //Need login option for both careseeker and caregiver individually
     }
   }, [props.history, props.isLoggedIn]);
 
@@ -186,10 +190,10 @@ function Login(props) {
               )}
             </Grid>
           </Grid>
-          <FormControlLabel
+          {/* <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
-          />
+          /> */}
           <Button
             type="submit"
             fullWidth

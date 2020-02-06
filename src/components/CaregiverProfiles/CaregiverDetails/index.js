@@ -99,7 +99,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const CaregiverDetails = () => {
+const CaregiverDetails = props => {
   const [value, setValue] = React.useState(5);
 
   const classes = useStyles();
@@ -241,13 +241,13 @@ const CaregiverDetails = () => {
                 className={classes.margin1}
                 aria-label="contained secondary button group"
               >
-                <Button size="medium" href="#">
+                <Button size="medium" onClick={() => props.history.push('#')}>
                   Hire Now
                 </Button>
-                <Button size="medium" href="#">
+                <Button size="medium" onClick={() => props.history.push('#')}>
                   Setup Interview
                 </Button>
-                <Button size="medium" href="/caregiver-profiles">
+                <Button size="medium" onClick={() => props.history.push('/caregiver-profiles')}>
                   Go Back
                 </Button>
               </ButtonGroup>

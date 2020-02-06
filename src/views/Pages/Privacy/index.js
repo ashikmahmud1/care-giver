@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Typography } from '@material-ui/core';
+import { Container, Typography, Divider } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -21,6 +21,10 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center'
+  },
+  divider: {
+    width: 220,
+    margin: 4
   }
 }));
 
@@ -36,6 +40,7 @@ export default function Body() {
         <Typography component="h1" variant="h4">
           Privacy Policy
         </Typography>
+        <Divider className={classes.divider} />
       </div>
       <p>
         Aliqua proident dolor amet duis est. Proident veniam nulla anim sunt

@@ -35,8 +35,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: theme.spacing(1)
   }
 }));
-
-const CaregiverList = () => {
+const CaregiverList = props => {
   const classes = useStyles();
 
   const [value, setValue] = React.useState(4);
@@ -44,6 +43,7 @@ const CaregiverList = () => {
   return (
     <React.Fragment>
       <CssBaseline />
+
       <Container>
         <Box
           borderRadius="borderRadius"
@@ -59,7 +59,7 @@ const CaregiverList = () => {
             />
           </Grid>
           <Grid item xs className={classes.margin}>
-            <Typography variant="h5" style={{ color: 'teal' }}>
+            <Typography variant="h5" style={{ color: 'teal' }} gutterBottom>
               Madman Sadman
             </Typography>
             <span>
@@ -69,14 +69,15 @@ const CaregiverList = () => {
               <LocationOnIcon fontSize="small" /> Toronto
             </span>
             <Grid item xs className={classes.margin}>
-              <Rating name="read-only" value={value} readOnly />
+              <Rating name="read-only" value={value} readOnly /> { ' ' }
               <VerifiedUserIcon style={{ color: 'green' }} fontSize="large" />
             </Grid>
             <Grid item xs className={classes.margin}>
               <Button
                 variant="contained"
-                style={{ backgroundColor: 'teal', color: 'white' }}
-                href="/caregiver-profile/id"
+                style={{ backgroundColor: 'teal', color: 'white' }} 
+                href='/caregiver-profile/id'
+                //onClick={() => props.history.push('/caregiver-profile/id')}
               >
                 View Full Profile
               </Button>

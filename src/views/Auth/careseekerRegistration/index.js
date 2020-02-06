@@ -106,6 +106,9 @@ function SignUp(props) {
   // this means if a property change this will execute
   useEffect(() => {
     // check if the props.isLoggedIn then redirect to somewhere else
+    if (props.isLoggedIn) {
+      props.history.push('/careseeker-profile')
+    }
   }, [props.isLoggedIn]);
 
   // onBlur event fire when user focus an input and unfocused

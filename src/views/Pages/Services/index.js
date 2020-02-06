@@ -4,7 +4,8 @@ import {
   Container,
   Typography,
   Chip,
-  Card
+  Card,
+  Divider
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import DoneIcon from '@material-ui/icons/Done';
@@ -17,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     '& > *': {
       margin: theme.spacing(1)
     },
-    width: '100%',
+    width: '90%',
     marginTop: theme.spacing(5),
     marginBottom: theme.spacing(12)
   },
@@ -35,10 +36,14 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     padding: theme.spacing(2, 2)
+  },
+  divider: {
+    width: 400,
+    margin: 4
   }
 }));
 
-export default function Services() {
+const Services = () => {
   const classes = useStyles();
 
   return (
@@ -48,10 +53,11 @@ export default function Services() {
         <Container component="main" fixed>
           <div className={classes.paper}>
             <Typography variant="h4" style={{ color: '#592720' }} gutterBottom>
-              <i>Services that we provide</i>
+              Services that we provide
             </Typography>
+            <Divider className={classes.divider} />
           </div>
-
+         
           <div className={classes.root}>
             <Chip
               label="Medical Supervision"
@@ -164,3 +170,5 @@ export default function Services() {
     </React.Fragment>
   );
 }
+
+export default Services;

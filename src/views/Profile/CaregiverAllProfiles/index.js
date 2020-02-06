@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { CssBaseline, Container, Card, Box } from '@material-ui/core';
+import { CssBaseline, Container, Card, Box, GridList } from '@material-ui/core';
 
 import './caregiverAllProfiles.css';
 import CaregiverList from '../../../components/CaregiverProfiles/CaregiverList/index';
@@ -25,6 +25,9 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
     alignItems: 'center',
     padding: theme.spacing(2, 2)
+  },
+  gridList: {
+
   }
 }));
 
@@ -35,19 +38,25 @@ const CaregiverAllProfiles = () => {
     <React.Fragment>
       {/* Here is some problem of not fitting of the little boxes into big box and also for small screen  */}
       <CssBaseline />
+
       <Container>
+      {/* <GridList className={classes.gridList} cols={3} spacing={30}> */}
+      {/* {tileData.map(tile => ( */}
+        
         <Card className={classes.card}>
-          <div className={classes.paper}>
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="space-around"
-            >
-              <CaregiverList />
-            </Box>
-            <PaginationItem />
-          </div>
-        </Card>
+        <div className={classes.paper}>
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="space-around"
+          >
+            <CaregiverList />
+          </Box>
+          <PaginationItem />
+        </div>
+      </Card>
+      {/* ))} */}
+        {/* </GridList> */}
       </Container>
     </React.Fragment>
   );

@@ -19,7 +19,6 @@ import { validate, checkError } from '../../../utils/validator';
 
 // JOI BROWSER for validation
 import Joi from 'joi-browser';
-import { Redirect } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -46,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const SignUp = (props) => {
+const SignUp = props => {
   const classes = useStyles();
 
   const initial_form = {
@@ -112,7 +111,7 @@ const SignUp = (props) => {
     }
   }, [props.isLoggedIn]);
 
-  // onBlur event fire when user focus an input and unfocused
+  // onBlur event fire when user focus ainn put and unfocused
 
   return (
     <React.Fragment>

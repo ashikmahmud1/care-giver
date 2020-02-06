@@ -5,7 +5,8 @@ import {
   Toolbar,
   Typography,
   Button,
-  IconButton
+  IconButton,
+  Avatar
 } from '@material-ui/core';
 
 import './header.css';
@@ -44,16 +45,17 @@ const Header = props => {
               className={classes.menuButton}
               color="inherit"
               aria-label="menu"
-              href="/"
+              onClick={() => props.history.push("/")}
             >
-              Peace of mind
+              <Avatar src={require('../../img/e.png')}
+                    alt="dp"/>
             </IconButton>
-            <Typography variant="h6" className={classes.title}></Typography>
+            <Typography variant="h6" className={classes.title}>Peace of mind</Typography>
 
-            <Button color="inherit" href="/">
+            <Button color="inherit" onClick={() => props.history.push("/")}>
               Home
             </Button>
-            <Button color="inherit" href="/services">
+            <Button color="inherit" onClick={() => props.history.push("/services")}>
               Our Services
             </Button>
             {

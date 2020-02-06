@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link, Button, Container, Grid, Typography } from '@material-ui/core';
+import { Link, Button, Container, Grid, Typography, Avatar } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Body = () => {
+const Body = props => {
   const classes = useStyles();
 
   return (
@@ -48,7 +48,7 @@ const Body = () => {
               aria-label="large contained primary button"
               style={{ backgroundColor: 'teal', color: 'white' }}
               fullWidth
-              href="/search-by-gender"
+              onClick={() => props.history.push("/search-by-gender")}
             >
               I'm a Care Seeker
             </Button>

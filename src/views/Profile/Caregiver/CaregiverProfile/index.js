@@ -100,10 +100,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const CaregiverProfile = () => {
-  const [value, setValue] = React.useState(4);
-
+const CaregiverProfile = props => {
   const classes = useStyles();
+
+  const [value, setValue] = React.useState(4);
 
   return (
     <React.Fragment>
@@ -122,16 +122,16 @@ const CaregiverProfile = () => {
               className={classes.margin1}
               aria-label="contained primary button group"
             >
-              <Button size="medium" href="/create-careseeker-profile">
+              <Button size="medium" onClick={() => props.history.push('/create-caregiver-profile')}>
                 Create Profile
               </Button>
-              <Button size="medium" href="/edit-careseeker-profile">
+              <Button size="medium" onClick={() => props.history.push('/edit-caregiver-profile')}>
                 Edit Profile
               </Button>
-              <Button size="medium" href="/reset-password">
+              <Button size="medium" onClick={() => props.history.push('/reset-password')}>
                 Change Password
               </Button>
-              <Button size="medium" href="#contained-buttons">
+              <Button size="medium" onClick={() => props.history.push('#contained-buttons')}>
                 My Bookings
               </Button>
             </ButtonGroup>

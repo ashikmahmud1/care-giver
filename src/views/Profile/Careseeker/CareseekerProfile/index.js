@@ -5,7 +5,8 @@ import {
   Grid,
   Typography,
   Box,
-  ButtonGroup
+  ButtonGroup,
+  Avatar
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import PersonIcon from '@material-ui/icons/Person';
@@ -13,7 +14,7 @@ import PersonIcon from '@material-ui/icons/Person';
 const defaultProps = {
   bgcolor: 'background.paper',
   borderColor: 'text.primary',
-  m: 1,
+  m: 2,
   border: 1,
   align: 'center',
   style: { width: '50rem', height: '45rem' }
@@ -22,14 +23,19 @@ const defaultProps = {
 const useStyles = makeStyles(theme => ({
   root: {
     width: '70%',
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(2),
     overflowX: 'auto'
+  },
+  bigAvatar: {
+    margin: 10,
+    width: 200,
+    height: 200
   },
   table: {
     minWidth: 120
   },
   section: {
-    marginTop: theme.spacing(1)
+    marginTop: theme.spacing(2)
   },
   section1: {
     margin: theme.spacing(2)
@@ -42,9 +48,6 @@ const useStyles = makeStyles(theme => ({
   },
   margin: {
     margin: theme.spacing(2)
-    //justifyContent: 'flex-start'
-    //alignContent: 'flex-start'
-    //alignItems: 'flex-start'
   },
   margin1: {
     margin: theme.spacing(1)
@@ -54,7 +57,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const CareseekerProfile = () => {
+const CareseekerProfile = props => {
   const classes = useStyles();
 
   return (
@@ -62,7 +65,7 @@ const CareseekerProfile = () => {
       <CssBaseline />
 
       <div className="section">
-        <Typography variant="h5" component="h2">
+        <Typography variant="h5">
           <PersonIcon size="2em" fontSize="inherit" />
           Welcome, Mr. Alan Walker
         </Typography>
@@ -75,17 +78,17 @@ const CareseekerProfile = () => {
               className={classes.margin1}
               aria-label="contained primary button group"
             >
-              <Button size="medium" href="/create-careseeker-profile">
+              <Button size="medium" onClick={() => props.history.push('/create-careseeker-profile')}>
                 Create Profile
               </Button>
-              <Button size="medium" href="/edit-careseeker-profile">
+              <Button size="medium" onClick={() => props.history.push('/edit-careseeker-profile')}>
                 Edit Profile
               </Button>
-              <Button size="medium" href="reset-password">
+              <Button size="medium" onClick={() => props.history.push('/reset-password')}>
                 Change Password
               </Button>
-              <Button size="medium" href="#contained-buttons">
-                My Bookings
+              <Button size="medium" onClick={() => props.history.push('#contained-buttons')}>
+                My Schedules
               </Button>
             </ButtonGroup>
           </div>
@@ -99,10 +102,11 @@ const CareseekerProfile = () => {
           >
             <Grid item xs={12}>
               <div className={classes.margin}>
-                <Grid item className="img-round">
-                  <img
+                <Grid container justify='center' alignItems='center'>
+                  <Avatar
                     src={require('../../../../img/old-women.jpg')}
                     alt="dp"
+                    className={classes.bigAvatar}
                   />
                 </Grid>
               </div>
@@ -119,28 +123,28 @@ const CareseekerProfile = () => {
 
                 <div className={classes.margin}>
                   <Grid item xs={12}>
-                    <Typography variant="h6">
+                    <Typography variant="body1">
                       <b>Gender:</b> Female
                     </Typography>
-                    <Typography variant="h6">
+                    <Typography variant="body1">
                       <b>Age:</b> 63 years
                     </Typography>
-                    <Typography variant="h6">
+                    <Typography variant="body1">
                       <b>Address:</b> 500 Kingston Rd
                     </Typography>
-                    <Typography variant="h6">
+                    <Typography variant="body1">
                       <b>City:</b> Toronto
                     </Typography>
-                    <Typography variant="h6">
+                    <Typography variant="body1">
                       <b>State:</b> Ontario
                     </Typography>
-                    <Typography variant="h6">
+                    <Typography variant="body1">
                       <b>Zip:</b> ON M4L 1V3
                     </Typography>
-                    <Typography variant="h6">
+                    <Typography variant="body1">
                       <b>Languages:</b> English, Spanish
                     </Typography>
-                    <Typography variant="h6">
+                    <Typography variant="body1">
                       <b>Physical Complications:</b> Diabetes, Allergic Asthma,
                       Breathing difficulty
                     </Typography>
