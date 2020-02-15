@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
+//import clsx from 'clsx';
 import {
   Avatar,
   Button,
   CssBaseline,
   TextField,
   FormControl,
-  FormControlLabel,
-  Checkbox,
+  // FormControlLabel,
+  // Checkbox,
   Link,
   Grid,
   Typography,
@@ -60,9 +60,9 @@ const Login = props => {
 
   const [form, setForm] = React.useState({
     email: '',
-    password: '',
-    showPassword: false,
+    password: ''
   });
+
   const [showPassword, setShowPassword] = useState(false);
 
   const [errors, setErrors] = useState({});
@@ -113,18 +113,14 @@ const Login = props => {
   // similiar to componentWillReciveProps lifecycle hook method
   // this means if a property change this will execute
   useEffect(() => {
-    // check if the props.isLoggedIn then redirect to somewhere
-    if (props.isLoggedIn && {role: 'caregiver'}) {
-      props.history.push('/caregiver-profile'); //Need login option for both careseeker and caregiver individually
+    // check if the props.isLoggedIn then redirect to somewhere else
+    if(props.isLoggedIn) {
+      props.history.push('/caregiver-profile');
     }
-    else if (props.isLoggedIn && {role: 'careseeker'}) {
-      props.history.push('/careseeker-profile'); //Need login option for both careseeker and caregiver individually
-    }
-  }, [props.history, props.isLoggedIn]);
-
-  //Redirect if logged in
+  }, [props.isLoggedIn]);
 
   return (
+    <React.Fragment>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
 
@@ -157,7 +153,7 @@ const Login = props => {
             </Grid>
             <Grid item xs={12}>
               <FormControl
-                className={clsx(classes.margin, classes.textField)}
+                // className={clsx(classes.margin, classes.textField)}
                 variant="outlined"
                 fullWidth
               >
@@ -214,18 +210,18 @@ const Login = props => {
             </Grid>
             <Grid item>
               <Link
-                href="/signup-careseeker"
+                href="/signup-as"
                 variant="body2"
                 color="textPrimary"
               >
-                {/* Login page must be for 2 sides, because one should be for careseeker and other should be for caregiver */}
                 {"Don't have an account? Sign Up"}
               </Link>
-            </Grid>
+              </Grid>
           </Grid>
         </form>
       </div>
     </Container>
+    </React.Fragment>
   );
 }
 

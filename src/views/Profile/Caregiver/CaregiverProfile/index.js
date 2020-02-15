@@ -110,9 +110,9 @@ const CaregiverProfile = props => {
       <CssBaseline />
 
       <div className="section">
-        <Typography variant="h5">
-          <PersonIcon size="2em" fontSize="inherit" />
-          Welcome, Madman Sadman
+        <Typography variant="h5" >
+          <PersonIcon size="5em" fontSize="inherit" style={{ verticalAlign: 'middle' }} />
+          {" "}Welcome, Madman Sadman
         </Typography>
         <Grid item>
           <div className={classes.section3}>
@@ -188,8 +188,8 @@ const CaregiverProfile = props => {
                     <b>Transportation Facility:</b> Yes
                   </Typography>
                   <Typography variant="body1">
-                    <b>Skills:</b> Medical Supervision, Personal assistance
-                    (bathing, dressing), Escorting to Appointments or Shoping
+                    <b>Skills:</b><i> Medical Supervision, Personal assistance
+                    (bathing, dressing), Escorting to Appointments or Shoping, Diabetes Supervision</i>
                   </Typography>
                 </Grid>
               </div>

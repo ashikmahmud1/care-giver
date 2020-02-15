@@ -23,7 +23,7 @@ const defaultProps = {
 const useStyles = makeStyles(theme => ({
   root: {
     width: '70%',
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(3),
     overflowX: 'auto'
   },
   bigAvatar: {
@@ -66,15 +66,15 @@ const CareseekerProfile = props => {
 
       <div className="section">
         <Typography variant="h5">
-          <PersonIcon size="2em" fontSize="inherit" />
+          <PersonIcon size="2em" fontSize="inherit" style={{ verticalAlign: 'middle' }} />
           Welcome, Mr. Alan Walker
         </Typography>
         <Grid item>
           <div className={classes.section3}>
             <ButtonGroup
               variant="contained"
-              // style={{ color: '#1034A6' }}
-              color="secondary"
+              style={{ color: '#1034A6' }}
+              //color="secondary"
               className={classes.margin1}
               aria-label="contained primary button group"
             >
@@ -145,8 +145,8 @@ const CareseekerProfile = props => {
                       <b>Languages:</b> English, Spanish
                     </Typography>
                     <Typography variant="body1">
-                      <b>Physical Complications:</b> Diabetes, Allergic Asthma,
-                      Breathing difficulty
+                      <b>Physical Complications:</b><i> Diabetes, Allergic Asthma,
+                      Breathing difficulty</i>
                     </Typography>
                   </Grid>
                 </div>

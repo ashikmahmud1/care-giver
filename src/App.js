@@ -33,6 +33,7 @@ import Privacy from './views/Pages/Privacy';
 import SearchByGender from './views/SearchCaregiver/Gender';
 import SearchByExperience from './views/SearchCaregiver/Experience';
 import SearchByLocation from './views/SearchCaregiver/Location';
+import SignupAs from './views/Pages/SignupAs';
 
 function App() {
   return (
@@ -92,6 +93,11 @@ function App() {
                   exact
                   path="/caregiver-profile/id"
                   component={CaregiverDetails}
+                />
+                <Route
+                  exact
+                  path="/signup-as"
+                  component={SignupAs}
                 />
               </Switch>
               <Route exact path="/forgot-password" component={ForgotPassword} />

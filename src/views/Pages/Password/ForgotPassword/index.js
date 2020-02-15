@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function ForgotPassword() {
+const ForgotPassword = props => {
   const classes = useStyles();
 
   return (
@@ -97,7 +97,7 @@ function ForgotPassword() {
                   variant="contained"
                   color="default"
                   className={classes.margin}
-                  href="/login"
+                  onClick={() => props.history.push('/login')}
                 >
                   Cancel
                 </Button>

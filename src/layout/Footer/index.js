@@ -11,6 +11,9 @@ import HomeIcon from '@material-ui/icons/Home';
 import EmailIcon from '@material-ui/icons/Email';
 import CallIcon from '@material-ui/icons/Call';
 
+import './footer.css'
+import { relative } from 'joi-browser';
+
 const useStyles = makeStyles(theme => ({
   body: {
     margin: 0, // Remove the margin in all browsers.
@@ -65,13 +68,13 @@ const Footer = () => {
                     <Divider />
                   </Grid>
                   <span>
-                    <HomeIcon fontSize="small" /> Toronto, ON M5V 1J2, Canada
+                    <HomeIcon fontSize="small" style={{ verticalAlign: 'middle' }} /> Toronto, ON M5V 1J2, Canada
                   </span>
                   <span>
-                    <EmailIcon fontSize="small" /> info@peaceofmind.com
+                    <EmailIcon fontSize="small" style={{ verticalAlign: 'middle' }} /> info@peaceofmind.com
                   </span>
                   <span>
-                    <CallIcon fontSize="small" /> + 01 234 567 88
+                    <CallIcon fontSize="small" style={{ verticalAlign: 'middle' }} /> + 01 234 567 88
                   </span>
                 </Grid>
               </Grid>
