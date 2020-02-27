@@ -16,7 +16,11 @@ import {
   OutlinedInput,
   InputAdornment,
   IconButton,
-  InputLabel
+  InputLabel,
+  Dialog,
+  DialogActions,
+  DialogTitle,
+  Slide
 } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
@@ -28,6 +32,10 @@ import { connect } from 'react-redux';
 import Joi from 'joi-browser';
 
 import { validate, checkError } from '../../../utils/validator';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -118,6 +126,16 @@ const Login = props => {
       props.history.push('/caregiver-profile');
     }
   }, [props.isLoggedIn]);
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <React.Fragment>
@@ -210,9 +228,10 @@ const Login = props => {
             </Grid>
             <Grid item>
               <Link
-                href="/signup-as"
                 variant="body2"
                 color="textPrimary"
+                // component='button'
+                onClick={handleClickOpen}
               >
                 {"Don't have an account? Sign Up"}
               </Link>
@@ -220,6 +239,24 @@ const Login = props => {
           </Grid>
         </form>
       </div>
+      <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-slide-title"
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle id="alert-dialog-slide-title">{"Choose your role to Signup"}</DialogTitle>
+        <DialogActions>
+          <Button onClick={() => props.history.push("/signup-caregiver")} color="primary">
+            As Caregiver
+          </Button>
+          <Button onClick={() => props.history.push("/signup-careseeker")} color="primary">
+            As Careseeker
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Container>
     </React.Fragment>
   );

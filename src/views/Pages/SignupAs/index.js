@@ -1,80 +1,54 @@
+// Can be deleted. It has no use
+
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import {
-  Card,
-  Container,
-  Grid,
-  CssBaseline,
-  Button
-} from '@material-ui/core';
+import {Button, Link, Dialog, DialogActions, DialogTitle, Slide} from '@material-ui/core';
+// import Link from '@material-ui/core/Link';
+// import Dialog from '@material-ui/core/Dialog';
+// import DialogActions from '@material-ui/core/DialogActions';
+// import DialogTitle from '@material-ui/core/DialogTitle';
+// import Slide from '@material-ui/core/Slide';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    '&:hover': {
-      backgroundColor: 'transparent'
-    },
-    justifyContent: 'flex'
-  },
-  paper: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: theme.spacing(1, 1)
-  },
-  card: {
-    marginTop: theme.spacing(15),
-    marginBottom: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: theme.spacing(8, 8)
-  },
-  margin: {
-    margin: theme.spacing(2, 2, 2)
-  }
-}));
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
-const SignupAs = props => {
-  const classes = useStyles();
+export default function SignupAs() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-
-      <Card className={classes.card}>
-        <div className={classes.paper}>
-            <Grid container justify="center">
-               <div className={classes.root}>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  style={{
-                    backgroundColor: 'green',
-                    color: 'white'
-                  }}
-                  className={classes.margin}
-                  onClick={() => props.history.push('/signup-caregiver')}
-                >
-                  As Caregiver
-                </Button>
-                <Button
-                  type="submit"
-                  variant="contained"
-                  style={{
-                    backgroundColor: 'green',
-                    color: 'white'
-                  }}
-                  className={classes.margin}
-                  onClick={() => props.history.push('/signup-careseeker')}
-                >
-                  As Careseeker
-                </Button>
-              </div>
-            </Grid>
-        </div>
-      </Card>
-    </Container>
+    <div>
+       <Link component='button' variant="outlined" color="primary" onClick={handleClickOpen}>
+        Signup
+      </Link>
+      {/* <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        Signup
+      </Button> */}
+      <Dialog
+        open={open}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-slide-title"
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle id="alert-dialog-slide-title">{"Choose your role to signup"}</DialogTitle>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            As Caregiver
+          </Button>
+          <Button onClick={handleClose} color="primary">
+            As Careseeker
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
   );
 }
-
-export default SignupAs;
